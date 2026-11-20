@@ -84,7 +84,7 @@ Keep the original request and global constraints in `state/task_spec.md`; keep e
 
 Record the actual stage, unresolved issues and next action. On resumption, retrieve the specification, effective requirements, outline, current main draft and related analysis through `status`. Paths in calls are relative to the task directory. Stage names describe the work; real dependencies determine what can proceed.
 
-Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when useful to the task; they are not universal deliverables. Uncertainty can stay with claims, with `data/uncertainty_registry.csv` optional. Field conventions are in the existing [workflow reference](../references/research-workflow.md#3-state-system).
+Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when useful to the task; they are not universal deliverables. Uncertainty can stay with claims, with `data/uncertainty_registry.csv` optional. Field conventions are in the existing [workflow reference](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.md#3-state-system).
 
 ### Check a registered release log on demand
 
@@ -360,7 +360,7 @@ Optional `research_save.brief` updates only supplied question/audience/scope/out
 
 `start/status.runtime` identifies the implementation path, version, code hash and available entry hash; host_loaded_entry=not_observed. It does not infer which Skill the agent tool read. Tools identify registered files, not arbitrary new directories.
 
-Reading requirements are validated at save: full_text/relevant_sections paired with a nonempty distinct required_source_ids list. Partial updates to a valid existing pair remain supported. Invalid batches cannot partially overwrite reports or state. See [task continuity](../references/task-continuity.md) for the workflow.
+Reading requirements are validated at save: full_text/relevant_sections paired with a nonempty distinct required_source_ids list. Partial updates to a valid existing pair remain supported. Invalid batches cannot partially overwrite reports or state. See [task continuity](https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.md) for the workflow.
 
 ## Historical task compatibility
 
@@ -454,3 +454,5 @@ Plugin MCP startup uses the interpreter in `.mcp.json`. Install `requirements-mc
 For explicitly configured `generic` HTTP reviewers, `api_key_env` is an environment variable name, not a key value. `http_timeout_seconds` defaults to 1800 seconds of socket inactivity; it is configurable for the endpoint’s response behavior, not a research duration limit. `max_response_bytes` defaults to 16 MiB. Timeout and oversized-response errors retain the assignment without accepting a partial result. Old research-runtime timeout fields remain ignored.
 
 The README MCP capture supports `--pause-before-review` on its first run. It saves the manuscript and transcript without preparing review; `--resume` then prepares the independent assignments. `--request` takes a JSON file path, or omit it to read JSON from stdin. For retained contract-check output, set `IRF_TEST_ARTIFACT_DIR` to an external directory if desired; the default `evals/runs/` is already ignored by Git.
+
+In an offline installation, open the following files from the plugin root: `references/research-workflow.md`, `references/task-continuity.md`.

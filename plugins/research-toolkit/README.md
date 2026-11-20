@@ -8,6 +8,17 @@ Install the complete unpacked [version-pinned release package](https://github.co
 
 Open a new session, select Research Toolkit, and confirm the nine `research_*` tools appear. Supply a question or existing report, sources and intended use; the agent uses the complete research methods. Installing the plugin makes tools available; it does not require creating a managed task for every report.
 
+## Commands in this package
+
+Run these from the unpacked plugin root. The audit command uses a task with a pending audit. It prints the original findings, locations and requirements, leaving judgments and evidence to the auditor. Setup previews the target path and hooks. New installations start with usage recording off. For a task saved at `work/tasks/gpai`, pass `--workspace work/tasks --task gpai`.
+
+```sh
+python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK_ID
+python scripts/research_workflow.py setup --host codex --project . --dry-run
+```
+
+[Audit and final check](docs/review-completion.md) · [Usage setup](docs/usage-data.md) · [Offline research workflow](references/research-workflow.md) · [Review roles](references/subagents-and-review-loop.md) · [Task continuity](references/task-continuity.md)
+
 **[Full installation and usage guide](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md)** · [Research instructions](SKILL.md) · [Complete standard](references/research-standard.md)
 
 New tool-managed tasks use independent host agents for grouped review, audit and readiness assessment. Follow the host's available slots. Once the independent final check passes, `finish` records completion and the agent delivers the report. Native delegation uses the host's existing access.

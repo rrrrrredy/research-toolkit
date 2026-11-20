@@ -1,13 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 126" role="img" aria-labelledby="title desc">
-  <title id="title">长报告如何完成</title>
-  <desc id="desc">从问题出发，核查来源、形成主稿，独立评审发现问题后改稿，复查通过后交付。</desc>
-  <rect width="900" height="126" rx="12" fill="#f6f8f6"/>
-  <g stroke="#526d5d" fill="none" stroke-width="1.7"><path d="M75 38H813"/><path d="M624 92v14H450v-9m-4 5 4-5 4 5"/></g>
-  <g font-family="system-ui, sans-serif" text-anchor="middle">
-    <circle cx="86" cy="38" r="6" fill="#345b45"/><text x="86" y="67" font-size="16" font-weight="650" fill="#1d3024">研究问题</text><text x="86" y="87" font-size="12" fill="#405448">用途、要求、范围</text>
-    <circle cx="268" cy="38" r="6" fill="#345b45"/><text x="268" y="67" font-size="16" font-weight="650" fill="#1d3024">来源与判断</text><text x="268" y="87" font-size="12" fill="#405448">查原件，记下依据</text>
-    <circle cx="450" cy="38" r="6" fill="#345b45"/><text x="450" y="67" font-size="16" font-weight="650" fill="#1d3024">完整稿件</text><text x="450" y="87" font-size="12" fill="#405448">合并分析，保留引用</text>
-    <circle cx="632" cy="38" r="6" fill="#345b45"/><text x="632" y="67" font-size="16" font-weight="650" fill="#1d3024">独立检查</text><text x="632" y="87" font-size="12" fill="#405448">评审、审计、复查</text>
-    <circle cx="814" cy="38" r="6" fill="#345b45"/><text x="814" y="67" font-size="16" font-weight="650" fill="#1d3024">交付</text><text x="814" y="87" font-size="12" fill="#405448">成稿及对应回执</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 324" role="img" aria-labelledby="title desc">
+  <title id="title">长报告的四项工作</title>
+  <desc id="desc">明确任务。收到新问题或要求变更时。形成判断。结论影响读者决策时。合成主稿。各段研究需要合在一起时。审阅与交付。全稿完成或修订后</desc>
+  <defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M1 0l4 3-4 3" fill="none" stroke="#53715e"/></marker></defs>
+  <rect width="820" height="324" rx="10" fill="#f6f8f6"/>
+  <g font-family="system-ui, sans-serif">
+    <g>
+      <text x="24" y="41" fill="#1d3024" font-size="18" font-weight="650">明确任务</text>
+      <text x="24" y="63" fill="#405448" font-size="13">收到新问题或要求变更时</text>
+      <path d="M340 40h126m26 0h143" fill="none" stroke="#53715e" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <circle cx="331" cy="40" r="4" fill="#345b45"/><text x="331" y="66" text-anchor="middle" fill="#1d3024" font-size="14">研究问题</text>
+      <circle cx="496" cy="40" r="4" fill="#345b45"/><text x="496" y="66" text-anchor="middle" fill="#1d3024" font-size="14">读者与用途</text>
+      <circle cx="661" cy="40" r="4" fill="#345b45"/><text x="661" y="66" text-anchor="middle" fill="#1d3024" font-size="14">范围与要求</text>
+    </g>
+    <g>
+      <text x="24" y="119" fill="#1d3024" font-size="18" font-weight="650">形成判断</text>
+      <text x="24" y="141" fill="#405448" font-size="13">结论影响读者决策时</text>
+      <path d="M340 118h126m26 0h143" fill="none" stroke="#53715e" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <circle cx="331" cy="118" r="4" fill="#345b45"/><text x="331" y="144" text-anchor="middle" fill="#1d3024" font-size="14">原始资料</text>
+      <circle cx="496" cy="118" r="4" fill="#345b45"/><text x="496" y="144" text-anchor="middle" fill="#1d3024" font-size="14">核查与反证</text>
+      <circle cx="661" cy="118" r="4" fill="#345b45"/><text x="661" y="144" text-anchor="middle" fill="#1d3024" font-size="14">有条件的判断</text>
+    </g>
+    <g>
+      <text x="24" y="197" fill="#1d3024" font-size="18" font-weight="650">合成主稿</text>
+      <text x="24" y="219" fill="#405448" font-size="13">各段研究需要合在一起时</text>
+      <path d="M340 196h126m26 0h143" fill="none" stroke="#53715e" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <circle cx="331" cy="196" r="4" fill="#345b45"/><text x="331" y="222" text-anchor="middle" fill="#1d3024" font-size="14">分项研究</text>
+      <circle cx="496" cy="196" r="4" fill="#345b45"/><text x="496" y="222" text-anchor="middle" fill="#1d3024" font-size="14">交叉核对</text>
+      <circle cx="661" cy="196" r="4" fill="#345b45"/><text x="661" y="222" text-anchor="middle" fill="#1d3024" font-size="14">完整主稿</text>
+    </g>
+    <g>
+      <text x="24" y="275" fill="#1d3024" font-size="18" font-weight="650">审阅与交付</text>
+      <text x="24" y="297" fill="#405448" font-size="13">全稿完成或修订后</text>
+      <path d="M340 274h126m26 0h143" fill="none" stroke="#53715e" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <circle cx="331" cy="274" r="4" fill="#345b45"/><text x="331" y="300" text-anchor="middle" fill="#1d3024" font-size="14">独立评审</text>
+      <circle cx="496" cy="274" r="4" fill="#345b45"/><text x="496" y="300" text-anchor="middle" fill="#1d3024" font-size="14">审计和改稿</text>
+      <circle cx="661" cy="274" r="4" fill="#345b45"/><text x="661" y="300" text-anchor="middle" fill="#1d3024" font-size="14">复查通过即交付</text>
+    </g>
   </g>
 </svg>

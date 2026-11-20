@@ -391,7 +391,7 @@ def audit_response_template(request):
         "dispositions": decisions(current_findings(request["reviews"])),
         "prior_findings": decisions(prior),
         "critical_checks": [{"requirement_id": item["requirement_id"], "location": "", "result": "", "evidence": ""}
-                            for item in requirements],
+                            for item in requirements] or [{"location": "", "result": "", "evidence": ""}],
         "sample_checks": [{"location": "", "selection_reason": "", "result": "", "evidence": ""}],
         "open_issues": [],
     }
@@ -412,6 +412,8 @@ def pending_audit_template(root, progress, scope):
     plan = progress.get("review_plan") if scope == "full_report" else progress.get("unit_review_plans", {}).get(scope)
     if not plan:
         raise ValueError("No saved review plan for this scope. Prepare review assignments first.")
+    if plan.get("contract_version") not in NATIVE_CONTRACTS:
+        raise ValueError("This saved review plan predates native audit assignments. Inspect its recorded review contract.")
     checked_files(root, plan)
     selected = selected_results(root, plan)
     pending = next_slots(plan, selected)

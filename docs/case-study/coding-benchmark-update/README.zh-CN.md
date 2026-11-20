@@ -4,7 +4,7 @@
 
 2026 年 10 月 14 日，接续已有的“编程智能体排行榜能支持什么采购判断？”报告，补充来源中的区分性证据与执行条件。交付完整更新稿 3,839 个非空白字符，沿用 Full/self，由当前作者上下文自查。没有重跑完整模型评测，也没有重新执行这些编程基准。
 
-[更新终稿](report.zh-CN.md) · [本次首稿](first-update.zh-CN.md) · [此前终稿](../../../evals/studies/2026-10-14-native-agent/reports/toolkit/final.md) · [此前首稿](../../../evals/studies/2026-10-14-native-agent/reports/toolkit/first-draft.md)
+[更新终稿](report.zh-CN.md) · [本次首稿](first-update.zh-CN.md) · [此前终稿](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-14-native-agent/reports/toolkit/final.md) · [此前首稿](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-14-native-agent/reports/toolkit/first-draft.md)
 
 ## 来源核对如何改善正文
 

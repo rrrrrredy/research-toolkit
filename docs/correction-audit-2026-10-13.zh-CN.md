@@ -19,7 +19,7 @@ Research Toolkit 为现有 Agent 提供研究方法与可执行工具，帮助�
 | 中英文仍有“开发不否定真实性”等表述 | 当前说明、题集、案例目录直接使用肯定的任务口径 | 定向文本、双语审阅，网页与插件同步 |
 | 集合和完成说明围绕一篇报告 | 将全部集合连接到研究方法、工具行为与相关检查 | 来源／清单／归档盘点，单独上下文项目评审 |
 
-实际输入、初次审计发现、程序检查结果及针对性 Astra 评审保留在[项目整改记录](../evals/repairs/2026-10-13-project-remediation/README.zh-CN.md)。程序结果与内容判断分别报告。
+实际输入、初次审计发现、程序检查结果及针对性 Astra 评审保留在[项目整改记录](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-project-remediation/README.zh-CN.md)。程序结果与内容判断分别报告。
 
 ## 集合与受影响复验
 
@@ -27,21 +27,21 @@ Research Toolkit 为现有 Agent 提供研究方法与可执行工具，帮助�
 
 | 集合与入口 | 内容及其在项目中的用途 | 本次整改影响 |
 |---|---|---|
-| [专用题集（历史 fixture）](../evals/diagnostics/2026-11-09-retired-cases/cases/) | 七个研究任务：Agent 格局、视频投资、推理竞争、价格战、月度综合、来源指令边界、八公司管线 | 检查当前生成 prompt 与方法相容性；[七篇实际运行](../evals/diagnostics/2026-10-13-dedicated-seven/)和[管线修订](../evals/repairs/2026-10-13-pipeline-complete/)保留各自范围 |
-| [反例](../evals/regression_fixtures/manifest.json)／[正例](../evals/conformance_fixtures/manifest.json) | 22个反例、4个正例，检查交付、覆盖、来源和面向读者的输出 | Lite 改动后执行相关评估器／交付控制，预期失败仍保留 |
-| [当前语义目录](../evals/semantic_diagnostics/README.zh-CN.md) | 23组成对推理／读者任务，加载器对6＋14＋3条原题应用保留修订 | 当前 Full 方法复验分母、预测、时期／单位、因果相关样本；此前[四题输入复验](../evals/repairs/2026-10-13-wording-recheck/)单独保留 |
-| [写作参照](../evals/taste_anchors/) | 格局、管线、来源边界、意象负荷四组 | 检查当前说明，保留示例原来的来源与质量范围 |
-| [来源包](../evals/source_packs/) | 清理后知识材料、管线情境、来源指令边界三包 | 来源用途与完整性检查；原始事实和隔离规则保留 |
-| [五个开发题族（历史冻结）](../evals/studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json) | 备份预算、档案扫描、轮渡时间线、提醒与用水测量 | 共享方法和证据输入控制；未变稿件按原记录保留 |
-| [校准 v2](../evals/tasksets/judge-calibration-v2/)／[v3](../evals/tasksets/judge-calibration-v3/) | v2算术控制复用于v3四题族／12份输入 | 保留实际首评与互换结果，验证来源相同及分开上下文 |
-| [9月7日诊断](../evals/diagnostics/2026-09-07/) | 两个完整研究题族、四份初稿、两份修订和保留的模型诊断 | 用于历史错误与当前方法覆盖检查；原始记录保留 |
-| [10月10日](../evals/studies/2026-10-10-lite-four-models/)／[10月12日研究](../evals/studies/2026-10-12-lite-four-models/) | 冻结研究历史；10月12日有72次请求、20对报告，其中16对有判断、4对格式缺失，6次互换偏好变化 | 新输入使用来源定位修复；旧结果保留实际输入与失败 |
-| [接入](../evals/diagnostics/2026-10-12-connectivity/)／[格式](../evals/diagnostics/2026-10-12-longcat-format/)／[Astra校准](../evals/diagnostics/2026-10-12-astra-calibration/) | 服务执行、解析诊断及12份实际校准判断 | 保留执行和格式检查；说明变化无需新增供应商比较 |
-| [反馈探测](../evals/diagnostics/2026-10-13-feedback-probes/)／[原题新题复验](../evals/diagnostics/2026-10-13-targeted-recheck/) | 八份反馈初稿；四道复验题16份初稿、31次请求，其中10份经维护者修正 | 用已有约束／预测和来源归属样本复验新方法及输入；保留首轮失败 |
-| [此前报告修订](../evals/repairs/2026-10-13-astra/) | 两个实际报告修复及Astra评审 | 受约束建议的方法进入Full，原报告的通过仍对应原报告 |
+| [专用题集（历史 fixture）](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/diagnostics/2026-11-09-retired-cases/cases) | 七个研究任务：Agent 格局、视频投资、推理竞争、价格战、月度综合、来源指令边界、八公司管线 | 检查当前生成 prompt 与方法相容性；[七篇实际运行](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/diagnostics/2026-10-13-dedicated-seven)和[管线修订](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/repairs/2026-10-13-pipeline-complete)保留各自范围 |
+| [反例](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/regression_fixtures/manifest.json)／[正例](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/conformance_fixtures/manifest.json) | 22个反例、4个正例，检查交付、覆盖、来源和面向读者的输出 | Lite 改动后执行相关评估器／交付控制，预期失败仍保留 |
+| [当前语义目录](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/semantic_diagnostics/README.zh-CN.md) | 23组成对推理／读者任务，加载器对6＋14＋3条原题应用保留修订 | 当前 Full 方法复验分母、预测、时期／单位、因果相关样本；此前[四题输入复验](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/repairs/2026-10-13-wording-recheck)单独保留 |
+| [写作参照](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/taste_anchors) | 格局、管线、来源边界、意象负荷四组 | 检查当前说明，保留示例原来的来源与质量范围 |
+| [来源包](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/source_packs) | 清理后知识材料、管线情境、来源指令边界三包 | 来源用途与完整性检查；原始事实和隔离规则保留 |
+| [五个开发题族（历史冻结）](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json) | 备份预算、档案扫描、轮渡时间线、提醒与用水测量 | 共享方法和证据输入控制；未变稿件按原记录保留 |
+| [校准 v2](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/tasksets/judge-calibration-v2)／[v3](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/tasksets/judge-calibration-v3) | v2算术控制复用于v3四题族／12份输入 | 保留实际首评与互换结果，验证来源相同及分开上下文 |
+| [9月7日诊断](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/diagnostics/2026-09-07) | 两个完整研究题族、四份初稿、两份修订和保留的模型诊断 | 用于历史错误与当前方法覆盖检查；原始记录保留 |
+| [10月10日](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-10-lite-four-models)／[10月12日研究](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-12-lite-four-models) | 冻结研究历史；10月12日有72次请求、20对报告，其中16对有判断、4对格式缺失，6次互换偏好变化 | 新输入使用来源定位修复；旧结果保留实际输入与失败 |
+| [接入](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/diagnostics/2026-10-12-connectivity)／[格式](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/diagnostics/2026-10-12-longcat-format)／[Astra校准](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/diagnostics/2026-10-12-astra-calibration) | 服务执行、解析诊断及12份实际校准判断 | 保留执行和格式检查；说明变化无需新增供应商比较 |
+| [反馈探测](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/diagnostics/2026-10-13-feedback-probes)／[原题新题复验](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/diagnostics/2026-10-13-targeted-recheck) | 八份反馈初稿；四道复验题16份初稿、31次请求，其中10份经维护者修正 | 用已有约束／预测和来源归属样本复验新方法及输入；保留首轮失败 |
+| [此前报告修订](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/repairs/2026-10-13-astra) | 两个实际报告修复及Astra评审 | 受约束建议的方法进入Full，原报告的通过仍对应原报告 |
 | [API／浏览器案例](case-study/api-or-browser/README.md)／[办公Agent案例](case-study/office-agents/README.md) | 两篇完整公开研究，包含题目、报告、来源／主张及评审历史 | 将新方法与完整报告结构、来源归属核对；发现具体案例问题时才修改案例 |
-| [Lite](https://github.com/rrrrrredy/research-toolkit/tree/v2.5.5/examples/lite)／[MCP](../examples/mcp/)示例与[共享流程](usage-modes.zh-CN.md) | 入门及真实任务状态、评审、交付行为 | Lite义务检查、CLI/MCP共享流程、档位／后端和插件stdio测试 |
-| [评测模板](../evals/templates/) | 可选配对／盲评和任务选择配置 | 说明新的中性来源字段，保留特定比较自己的设计要求 |
+| [Lite](https://github.com/rrrrrredy/research-toolkit/tree/v2.5.5/examples/lite)／[MCP](https://github.com/rrrrrredy/research-toolkit/tree/main/examples/mcp)示例与[共享流程](usage-modes.zh-CN.md) | 入门及真实任务状态、评审、交付行为 | Lite义务检查、CLI/MCP共享流程、档位／后端和插件stdio测试 |
+| [评测模板](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/templates) | 可选配对／盲评和任务选择配置 | 说明新的中性来源字段，保留特定比较自己的设计要求 |
 | [公开v0.4历史语料](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md) | 内嵌v0.3：23份开发报告输入、22份配对输入、221条评审记录、34条作者尝试记录；历史诊断还记录50项／16个父主题 | 修当前生成器与访问／用途说明；首评按其原来源保留，版本和题族分别计数 |
 | [可执行数据发布](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md) | v0.4的17条可执行任务／98条覆盖记录；v0.5–0.16证据、修复、恢复和工作区任务；48条与32条模型轨迹研究 | 修当前策略／契约说明并执行受影响环境／生成器测试；保留原轨迹及训练用途权限 |
 

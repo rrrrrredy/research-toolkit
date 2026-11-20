@@ -4,7 +4,7 @@
 
 本契约用于 CLI／MCP 管理交付或任务明确要求其回执的情况。纯 Skill 报告完成约定研究与检查即可，不要求创建这些状态文件或回执。
 
-这是可选的离线记录一致性检查，不是运行时权限钩子；是否调用应核对实际执行记录。研究和写作要求以 [SKILL.md](../SKILL.md) 为准，本页说明检查器接口。
+这是可选的离线记录一致性检查，不是运行时权限钩子；是否调用应核对实际执行记录。研究和写作要求以 [SKILL.md](https://github.com/rrrrrredy/research-toolkit/blob/main/SKILL.md) 为准，本页说明检查器接口。
 
 默认采用 **delivery contract 3**，凭证外层仍为 `schema_version: 1`。`delivery_contract_version` 与 `current_contract_checked` 标明检查版本；`semantic_verification: false` 表示授权仍须核对用户决定，阅读须核对笔记及原文，编辑质量由独立内容审阅判断。
 
@@ -152,3 +152,5 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-me
 版本 2 控制包括有无授权的需求关闭、全文与部分阅读、当前稿件及过期全局/专项评审。旧正常和回归样例明确用版本 1 保留历史比较；原输入和哈希不变，新正例仅在临时副本中构造。
 
 `scripts/check_review_completion_contract.py` 的版本 3 控制覆盖缺失或失败席位、不完整或过期证据、重复回复、独立裁定、负评评测结果、抽查及兼容。所有记录样例明确为合成数据，不是模型评审证据。
+
+离线使用时可从插件根目录打开`SKILL.md`。

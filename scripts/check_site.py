@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 import re
 import time
+import tarfile
 from urllib.parse import parse_qsl, unquote, urljoin, urlsplit
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
@@ -142,6 +143,41 @@ def fetch(address, github_token=None, expected_type=None):
         if response.geturl()!=address: raise ValueError(f'{address}: unexpected redirect to {response.geturl()}')
         return response.read().decode('utf-8')
 
+def check_pages_artifact(archive):
+    """Check every rendered page, including pages Jekyll creates from source Markdown."""
+    with tarfile.open(archive) as bundle:
+        files = {entry.name.removeprefix('./'): entry for entry in bundle if entry.isfile()}
+        def content(name):
+            return bundle.extractfile(files[name]).read().decode('utf-8')
+        index = set(re.findall(r'\]\((https?://[^)\s]+)\)', content('llms.txt')))
+        pages = [name for name in files if name.endswith('.html')]
+        for name in pages:
+            page = Page(content(name))
+            address = urljoin(BASE, name)
+            if len(page.markdown) != 1:
+                raise ValueError(name + ': expected one Markdown alternate')
+            target = page.markdown[0]
+            if target not in index or not target.startswith(BASE) or not target.endswith('.md'):
+                raise ValueError(name + ': Markdown alternate missing from llms.txt: ' + target)
+            raw = unquote(urlsplit(target).path.removeprefix(urlsplit(BASE).path))
+            links = {urljoin(address, href) for href in page.anchors}
+            if raw not in files or target not in links:
+                raise ValueError(name + ': Markdown source or reader link missing: ' + target)
+            for link in links:
+                u = urlsplit(link)
+                if u.netloc != urlsplit(BASE).netloc:
+                    continue
+                if not u.path.startswith(urlsplit(BASE).path):
+                    if u.path not in ('', '/'):
+                        raise ValueError(name + ': link escapes the published project: ' + link)
+                    continue
+                path = unquote(u.path.removeprefix(urlsplit(BASE).path))
+                directory = (path.rstrip('/') + '/' if path.strip('/') else '') + 'index.html'
+                if not any(candidate in files for candidate in (path, path + '.html', directory)):
+                    raise ValueError(name + ': missing published link: ' + link)
+    print(f'PASS: verified reader links, Markdown sources and Agent index for all {len(pages)} deployed HTML pages.')
+
+
 def live_checks(base):
     base=base.rstrip('/')+'/'
     def check(path):
@@ -187,8 +223,10 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--self-test',action='store_true'); parser.add_argument('--live',action='store_true')
     parser.add_argument('--base-url',default=BASE); parser.add_argument('--attempts',type=int,default=1); parser.add_argument('--delay',type=int,default=15)
+    parser.add_argument('--pages-artifact', type=Path, help='Validate all HTML and Markdown in the official Pages artifact.tar')
     parser.add_argument('--stars-output'); args=parser.parse_args()
     local_checks()
+    if args.pages_artifact: check_pages_artifact(args.pages_artifact)
     if args.self_test: self_test()
     if args.live:
         for attempt in range(max(1,args.attempts)):

@@ -2,7 +2,7 @@
 
 [English](review-completion.md) | [简体中文](review-completion.zh-CN.md)
 
-本页说明现有 `research_review` 与完成检查如何保留独立工作；实质方法以[角色规范](../references/subagents-and-review-loop.zh-CN.md)为准。新研究和继续交付采用当前契约，冻结结果保留原契约与历史。
+本页说明现有 `research_review` 与完成检查如何保留独立工作；实质方法以[角色规范](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.zh-CN.md)为准。新研究和继续交付采用当前契约，冻结结果保留原契约与历史。
 
 ## 执行独立工作
 
@@ -87,7 +87,7 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
 
 v3 的 `audit_scaffold` 自动列出实际意见编号、位置、可能重复的意见及应核查内容。审计 Agent 确认哪些意见可以共用一次裁定。对同一处提出同一个问题的意见只查一次。在 `disposition_groups` 中写一份证据和裁定，包含 `finding_ids`、`decision`、`reason`、`evidence`。旧稿意见可用 `prior_finding_groups`。工具验证每条原始编号恰好被覆盖一次，并保留意见原文和裁定。
 
-**版本说明**　此命令随 v3.0.0 之后的[仓库源码](https://github.com/rrrrrredy/research-toolkit)提供。审计任务的 `response_template_ref` 指向可复制的 JSON 回复骨架。要直接取得当前待办审计的骨架，运行 `python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK`。它输出真实评审和意见编号、每项适用要求以及稿件和派工版本。独立审计 Agent 填写判断、理由和原件位置，按证据选取抽样；如果合并意见，将对应编号从单项移入同一 `disposition_groups`。空骨架无法通过提交检查。
+从 v3.1.0 起，插件包内可运行此命令。审计任务的 `response_template_ref` 指向可复制的 JSON 回复骨架。要直接取得当前待办审计的骨架，运行 `python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK`。它输出真实评审和意见编号、每项适用要求以及稿件和派工版本。独立审计 Agent 填写判断、理由和原件位置，按证据选取抽样；如果合并意见，将对应编号从单项移入同一 `disposition_groups`。空骨架无法通过提交检查。例如任务保存在 `work/tasks/gpai`，就传 `--workspace work/tasks --task gpai`。
 
 
 影响交付的分歧若还缺依据，审计 Agent 用 `verification_requests` 安排一项针对性核验。新的 Agent 先看这个问题和原件，再由审计 Agent 根据返回的依据判断。四路一致和一路提出都需要有证据。
@@ -145,3 +145,5 @@ Agent 工具取消、依赖不可用或回复格式错误时，保留失败原�
 早期 `model_review`、`review_audit`、`sampling_audit`、处置和回执按实际使用的条件保留。1.x 自评、合并视角和可选审计记录不升级为 v2 验收。继续交付时复用原材料，完成当前独立工作，不抹去旧失败或声称这些工作早已发生。见[兼容性](compatibility.zh-CN.md)。
 
 冻结评测和研究对照沿用其原始协议，描述当时研究，不作为新研究的默认要求。软件正负对照明确标注合成，不能代替真实 Agent 工具执行。
+
+离线使用时可从插件根目录打开`references/subagents-and-review-loop.zh-CN.md`。

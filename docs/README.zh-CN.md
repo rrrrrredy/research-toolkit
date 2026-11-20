@@ -1,12 +1,12 @@
 # 文档
 
-[English](README.md) · [简体中文](README.zh-CN.md) · [Research Toolkit](../README.zh-CN.md)
+[English](README.md) · [简体中文](README.zh-CN.md) · [Research Toolkit](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md)
 
 [快速安装](quickstart.zh-CN.md) · [按主题浏览中文文档](zh/README.md)
 
 
 - [当前长研究案例](case-study/long-research-2026-11/index.zh-CN.html)：微短剧市场与推理时计算，分别提供独立撰写的中英文报告。
-- [长研究 benchmark](../evals/README.zh-CN.md)：13 个问题、15 份报告任务、执行说明与对应具体段落的判定。
+- [长研究 benchmark](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md)：13 个问题、15 份报告任务、执行说明与对应具体段落的判定。
 
 
 ## 使用 Research Toolkit
@@ -14,7 +14,7 @@
 - [开始研究](conduct-research.zh-CN.md)：一套完整研究入口，按任务展开长文、深度分析、修订与更新。
 
 - [使用与接入](usage-modes.zh-CN.md)：仓库、文件与文本输入，可选的 Skill、插件、MCP，以及审阅配置。
-- [在你的 Agent 中使用](../agents/README.zh-CN.md)：通用输入方式、纯聊天边界与各工具的接入。
+- [在你的 Agent 中使用](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)：通用输入方式、纯聊天边界与各工具的接入。
 - [更新安装](installation-versioning.zh-CN.md)：选择和替换预期的软件包副本。
 
 ## 按当前工作找方法
@@ -23,14 +23,14 @@
 
 | 正在做什么 | 直接读哪里 |
 | --- | --- |
-| 理解请求、确定需要展开的问题 | [研究需求与深度规划](../references/research-workflow.zh-CN.md)；首次使用可看[研究指南](research-guide.zh-CN.md)。 |
-| 阅读材料、比较和解释 | [来源与主张](../references/research-standard.zh-CN.md#8-来源与主张) · [按问题选择分析方法](../references/optional-analysis-lenses.zh-CN.md) |
-| 委派独立研究、接收可用成果 | [实质研究与交接](../references/subagents-and-review-loop.zh-CN.md#实质研究与交接) · [共同上下文与实际调用](usage-modes.zh-CN.md#研究委派与成果交接) |
-| 写出完整报告、统稿与修订 | [写作规范](../references/writing-style.zh-CN.md) · [组稿](../references/research-workflow.zh-CN.md#9-组稿) |
-| 接续任务或落实新要求 | [任务接续](../references/task-continuity.zh-CN.md) · [当前主稿与需求变更](usage-modes.zh-CN.md#当前主稿与需求变更) |
-| 完成独立审阅、审计与验收 | [审阅方法](../references/subagents-and-review-loop.zh-CN.md#按视角分工) · [完成条件](../references/quality-gates.zh-CN.md)；工具记录细节见下方“审阅与评测”。 |
+| 理解请求、确定需要展开的问题 | [研究需求与深度规划](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.zh-CN.md)；首次使用可看[研究指南](research-guide.zh-CN.md)。 |
+| 阅读材料、比较和解释 | [来源与主张](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-standard.zh-CN.md#8-来源与主张) · [按问题选择分析方法](https://github.com/rrrrrredy/research-toolkit/blob/main/references/optional-analysis-lenses.zh-CN.md) |
+| 委派独立研究、接收可用成果 | [实质研究与交接](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.zh-CN.md#实质研究与交接) · [共同上下文与实际调用](usage-modes.zh-CN.md#研究委派与成果交接) |
+| 写出完整报告、统稿与修订 | [写作规范](https://github.com/rrrrrredy/research-toolkit/blob/main/references/writing-style.zh-CN.md) · [组稿](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.zh-CN.md#9-组稿) |
+| 接续任务或落实新要求 | [任务接续](https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.zh-CN.md) · [当前主稿与需求变更](usage-modes.zh-CN.md#当前主稿与需求变更) |
+| 完成独立审阅、审计与验收 | [审阅方法](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.zh-CN.md#按视角分工) · [完成条件](https://github.com/rrrrrredy/research-toolkit/blob/main/references/quality-gates.zh-CN.md)；工具记录细节见下方“审阅与评测”。 |
 
-遇到具体问题时再查[常见研究问题](../references/gotchas.zh-CN.md)，无需另起一套流程。
+遇到具体问题时再查[常见研究问题](https://github.com/rrrrrredy/research-toolkit/blob/main/references/gotchas.zh-CN.md)，无需另起一套流程。
 
 ## 报告与案例
 
@@ -50,7 +50,7 @@
 - [未达标与修正](failure-handling.zh-CN.md)：来源核对、稿件预检、PR 验收与停止规则。
 - [报告评测标准](report-evaluation-standard.zh-CN.md)：区分稿件质量、交付状态和工具效果研究。
 - [必要缺陷标签](necessary-defects.zh-CN.md)：稳定类别、有证据的处置和版本化诊断索引。
-- [评测集](../evals/README.zh-CN.md)：题目、对照样例、回归样例、诊断与离线检查。
+- [评测集](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md)：题目、对照样例、回归样例、诊断与离线检查。
 - [评测现状](evaluation-status.zh-CN.md)与[评测计划](evaluation-roadmap.zh-CN.md)：已有证据与待完成工作。
 - [评测数据审计](evaluation-data-audit.zh-CN.md)：公开数据的组成与证据范围。
 - [来源提取](source-extraction.zh-CN.md)：来源记录与原文留存。
@@ -72,4 +72,4 @@
 
 [历史改进计划](improvement-plan.zh-CN.md)：早期优先级、研究设计及当时结果。
 
-[贡献指南](../CONTRIBUTING.zh-CN.md) · [更新记录](../CHANGELOG.zh-CN.md) · [插件包](../plugins/research-toolkit/README.zh-CN.md) · [脚本](../scripts/) · [MIT 许可](../LICENSE)
+[贡献指南](https://github.com/rrrrrredy/research-toolkit/blob/main/CONTRIBUTING.zh-CN.md) · [更新记录](https://github.com/rrrrrredy/research-toolkit/blob/main/CHANGELOG.zh-CN.md) · [插件包](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/README.zh-CN.md) · [脚本](https://github.com/rrrrrredy/research-toolkit/tree/main/scripts) · [MIT 许可](https://github.com/rrrrrredy/research-toolkit/blob/main/LICENSE)

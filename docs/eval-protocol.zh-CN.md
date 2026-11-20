@@ -2,8 +2,8 @@
 
 [English](eval-protocol.md) | [简体中文](eval-protocol.zh-CN.md)
 
-当前研究和 benchmark 使用[统一入口](../SKILL.zh-CN.md)及 [evals 执行安排](../evals/README.zh-CN.md)。旧的单次回应研究执行器及其准备、运行命令已经移除。
+当前研究和 benchmark 使用[统一入口](https://github.com/rrrrrredy/research-toolkit/blob/main/SKILL.zh-CN.md)及 [evals 执行安排](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md)。旧的单次回应研究执行器及其准备、运行命令已经移除。
 
-2026 年 10 月的原始题面、方法快照、请求、失败和判断保存在 [studies](../evals/studies/)。它们记录的是当时的实际行为，不是当前任务的方法选项。原件和哈希不改写；需要重现当时的执行代码时使用记录对应的历史版本。
+2026 年 10 月的原始题面、方法快照、请求、失败和判断保存在 [studies](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies)。它们记录的是当时的实际行为，不是当前任务的方法选项。原件和哈希不改写；需要重现当时的执行代码时使用记录对应的历史版本。
 
 仓库保留读取原始记录、解析输出及核对历史统计所需的能力。普通研究与修复不再调用旧实验流程，也不由这些历史参数决定研究职责。

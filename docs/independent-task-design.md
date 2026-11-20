@@ -25,4 +25,4 @@ Routine work follows problem, repair and recheck. Fix tool defects in PRs and re
 
 An effect comparison simply compares results with and without the Toolkit. When that question is relevant, specify tasks, versions, resources and the comparison before running. It is not a prerequisite for repairs or merges. A specific claim to use previously unused held-out tasks needs an accurate usage history; record that study-specific usage label alongside the real task’s identity.
 
-The [task-selection template](../evals/templates/heldout-intake.json) is optional. Its legacy filename preserves links; it does not indicate missing tasks or require outside authors. The [improvement plan](improvement-plan.md) lists concrete repair work.
+The [task-selection template](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/templates/heldout-intake.json) is optional. Its legacy filename preserves links; it does not indicate missing tasks or require outside authors. The [improvement plan](improvement-plan.md) lists concrete repair work.

@@ -17,8 +17,11 @@ STALE = re.compile(r'\bseven (?:distinct )?independent (?:agents?|contexts?|revi
 
 def check(write=False):
     claims = tomllib.loads((ROOT/'docs/claims.toml').read_text(encoding='utf-8'))
-    tools = [n.name for n in ast.parse((ROOT/'scripts/research_mcp.py').read_text(encoding='utf-8')).body
-             if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)) and n.name.startswith('research_')]
+    module = ast.parse((ROOT/'scripts/research_mcp.py').read_text(encoding='utf-8'))
+    tools = {n.name for n in module.body if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))
+             and any(isinstance(d, ast.Call) and isinstance(d.func, ast.Attribute)
+                     and isinstance(d.func.value, ast.Name) and d.func.value.id == 'server'
+                     and d.func.attr == 'tool' for d in n.decorator_list)}
     flattened = [name for group in REVIEW_GROUPS.values() for name in group]
     actual = (CURRENT_REVIEW_CONTRACT, len(REVIEW_GROUPS), len(DIMENSIONS), len(tools))
     if tuple(claims[k] for k in ('review_contract','review_groups','perspectives','tools')) != actual or sorted(flattened) != sorted(DIMENSIONS):
@@ -41,9 +44,13 @@ def check(write=False):
             if old != new:
                 if not write: raise ValueError('Stale current review rule in '+str(path))
                 path.write_text(new, encoding='utf-8', newline='\n')
-    paths = [*ROOT.glob('README*.md'), *ROOT.glob('SKILL*.md'), *(ROOT/'agents').glob('*.md'),
-             *(ROOT/'references').glob('*.md'), *(ROOT/'docs').glob('*.md'), *(ROOT/'docs').glob('*.html'),
-             ROOT/'docs/llms.txt', *(ROOT/'plugins/research-toolkit/docs').glob('*.md')]
+    paths = [*ROOT.glob('README*.md'), *ROOT.glob('SKILL*.md'), ROOT/'AGENTS.md', ROOT/'REVIEW.md',
+             *(ROOT/'agents').rglob('*.md'), *(ROOT/'references').rglob('*.md'),
+             *(ROOT/'examples').rglob('*.md'), *(ROOT/'plugins/research-toolkit').rglob('*.md')]
+    docs = ROOT/'docs'
+    # Dated releases and archived research manuscripts retain their original task contract.
+    paths.extend(path for path in docs.rglob('*') if path.suffix in {'.md', '.html', '.txt'}
+                 and not {'releases', 'case-study'}.intersection(path.relative_to(docs).parts))
     errors = []
     for path in paths:
         for i, line in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):

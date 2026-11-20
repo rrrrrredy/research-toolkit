@@ -58,6 +58,9 @@ jobs:
         run: python scripts/check_project.py --group site
 
   deployed-site:
+    permissions:
+      contents: read
+      actions: read
     if: >-
       github.event_name == 'workflow_run' &&
       github.event.workflow_run.conclusion == 'success' &&
@@ -75,6 +78,13 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
+      - name: Verify Markdown links across the complete Pages deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_RUN: ${{ github.event.workflow_run.id }}
+        run: |
+          gh run download "$PAGES_RUN" -n github-pages -D "$RUNNER_TEMP/published-site"
+          python scripts/check_site.py --pages-artifact "$RUNNER_TEMP/published-site/artifact.tar"
       - name: Verify deployed raw HTML, assets, language URLs and sitemap
         run: python scripts/check_site.py --live --attempts 6 --delay 15
       - name: Observe public star total without attribution

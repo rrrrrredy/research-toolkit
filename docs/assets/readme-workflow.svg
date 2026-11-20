@@ -1,13 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 126" role="img" aria-labelledby="title desc">
-  <title id="title">How a long report reaches delivery</title>
-  <desc id="desc">Trace a question through evidence, a manuscript, independent review and a final check. Required corrections return to the manuscript.</desc>
-  <rect width="900" height="126" rx="12" fill="#f6f8f6"/>
-  <g stroke="#526d5d" fill="none" stroke-width="1.7"><path d="M75 38H813"/><path d="M624 92v14H450v-9m-4 5 4-5 4 5"/></g>
-  <g font-family="system-ui, sans-serif" text-anchor="middle">
-    <circle cx="86" cy="38" r="6" fill="#345b45"/><text x="86" y="67" font-size="16" font-weight="650" fill="#1d3024">Question</text><text x="86" y="87" font-size="12" fill="#405448">Purpose and scope</text>
-    <circle cx="268" cy="38" r="6" fill="#345b45"/><text x="268" y="67" font-size="16" font-weight="650" fill="#1d3024">Evidence</text><text x="268" y="87" font-size="12" fill="#405448">Sources and claims</text>
-    <circle cx="450" cy="38" r="6" fill="#345b45"/><text x="450" y="67" font-size="16" font-weight="650" fill="#1d3024">Manuscript</text><text x="450" y="87" font-size="12" fill="#405448">Analysis and citations</text>
-    <circle cx="632" cy="38" r="6" fill="#345b45"/><text x="632" y="67" font-size="16" font-weight="650" fill="#1d3024">Independent checks</text><text x="632" y="87" font-size="12" fill="#405448">Review, audit, final check</text>
-    <circle cx="814" cy="38" r="6" fill="#345b45"/><text x="814" y="67" font-size="16" font-weight="650" fill="#1d3024">Delivery</text><text x="814" y="87" font-size="12" fill="#405448">Report and receipt</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 324" role="img" aria-labelledby="title desc">
+  <title id="title">Four responsibilities in a long study</title>
+  <desc id="desc">Define the task. When opening a study or changing scope; Support a claim. When a conclusion affects a decision; Assemble the draft. When findings need to work together; Review and deliver. When a full draft is ready or revised</desc>
+  <defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M1 0l4 3-4 3" fill="none" stroke="#53715e"/></marker></defs>
+  <rect width="820" height="324" rx="10" fill="#f6f8f6"/>
+  <g font-family="system-ui, sans-serif">
+    <g>
+      <text x="24" y="41" fill="#1d3024" font-size="18" font-weight="650">Define the task</text>
+      <text x="24" y="63" fill="#405448" font-size="13">When opening a study or changing scope</text>
+      <path d="M340 40h126m26 0h143" fill="none" stroke="#53715e" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <circle cx="331" cy="40" r="4" fill="#345b45"/><text x="331" y="66" text-anchor="middle" fill="#1d3024" font-size="14">Question</text>
+      <circle cx="496" cy="40" r="4" fill="#345b45"/><text x="496" y="66" text-anchor="middle" fill="#1d3024" font-size="14">Reader and use</text>
+      <circle cx="661" cy="40" r="4" fill="#345b45"/><text x="661" y="66" text-anchor="middle" fill="#1d3024" font-size="14">Brief</text>
+    </g>
+    <g>
+      <text x="24" y="119" fill="#1d3024" font-size="18" font-weight="650">Support a claim</text>
+      <text x="24" y="141" fill="#405448" font-size="13">When a conclusion affects a decision</text>
+      <path d="M340 118h126m26 0h143" fill="none" stroke="#53715e" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <circle cx="331" cy="118" r="4" fill="#345b45"/><text x="331" y="144" text-anchor="middle" fill="#1d3024" font-size="14">Source</text>
+      <circle cx="496" cy="118" r="4" fill="#345b45"/><text x="496" y="144" text-anchor="middle" fill="#1d3024" font-size="14">Check and challenge</text>
+      <circle cx="661" cy="118" r="4" fill="#345b45"/><text x="661" y="144" text-anchor="middle" fill="#1d3024" font-size="14">Claim and limits</text>
+    </g>
+    <g>
+      <text x="24" y="197" fill="#1d3024" font-size="18" font-weight="650">Assemble the draft</text>
+      <text x="24" y="219" fill="#405448" font-size="13">When findings need to work together</text>
+      <path d="M340 196h126m26 0h143" fill="none" stroke="#53715e" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <circle cx="331" cy="196" r="4" fill="#345b45"/><text x="331" y="222" text-anchor="middle" fill="#1d3024" font-size="14">Research units</text>
+      <circle cx="496" cy="196" r="4" fill="#345b45"/><text x="496" y="222" text-anchor="middle" fill="#1d3024" font-size="14">Cross-check</text>
+      <circle cx="661" cy="196" r="4" fill="#345b45"/><text x="661" y="222" text-anchor="middle" fill="#1d3024" font-size="14">Main draft</text>
+    </g>
+    <g>
+      <text x="24" y="275" fill="#1d3024" font-size="18" font-weight="650">Review and deliver</text>
+      <text x="24" y="297" fill="#405448" font-size="13">When a full draft is ready or revised</text>
+      <path d="M340 274h126m26 0h143" fill="none" stroke="#53715e" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <circle cx="331" cy="274" r="4" fill="#345b45"/><text x="331" y="300" text-anchor="middle" fill="#1d3024" font-size="14">Review</text>
+      <circle cx="496" cy="274" r="4" fill="#345b45"/><text x="496" y="300" text-anchor="middle" fill="#1d3024" font-size="14">Audit and revise</text>
+      <circle cx="661" cy="274" r="4" fill="#345b45"/><text x="661" y="300" text-anchor="middle" fill="#1d3024" font-size="14">Final check and delivery</text>
+    </g>
   </g>
 </svg>

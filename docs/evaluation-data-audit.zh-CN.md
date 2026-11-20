@@ -11,7 +11,7 @@
 - S011 将 XGBoost 归于腾讯。[原论文](https://arxiv.org/pdf/1603.02754)的作者为华盛顿大学 Tianqi Chen 和 Carlos Guestrin；合并关键点被排除，没有悄悄改写成新来源。
 - 历史 AI Agent 风格示例中，四条说明不支持的 AgentSDK 表述已移除；从 GUI 基准困难推导编程 Agent 成熟度及绝对市场判断的外推已收窄。
 
-排除的准确文字、理由和证据保存在 [source_policy.json](../evals/source_policy.json)，原始完整记录仍在 Git 提交 `b541a667b89a4ea9da8fffd8d58851e5f03b795e` 中。来源编号与题目映射稳定；生成器应用相同排除规则，回归控制重新引入原文字以确认会被拒绝。
+排除的准确文字、理由和证据保存在 [source_policy.json](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/source_policy.json)，原始完整记录仍在 Git 提交 `b541a667b89a4ea9da8fffd8d58851e5f03b795e` 中。来源编号与题目映射稳定；生成器应用相同排除规则，回归控制重新引入原文字以确认会被拒绝。
 
 ## 当前清单与用途
 

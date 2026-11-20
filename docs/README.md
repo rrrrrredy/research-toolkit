@@ -1,12 +1,12 @@
 # Documentation
 
-[English](README.md) · [简体中文](README.zh-CN.md) · [Research Toolkit](../README.md)
+[English](README.md) · [简体中文](README.zh-CN.md) · [Research Toolkit](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md)
 
 [Quick install](quickstart.md) · [Browse English documentation](en/README.md)
 
 
 - [Current long-research cases](case-study/long-research-2026-11/index.html): microdrama markets and test-time compute, with independently authored English and Chinese reports.
-- [Long-research benchmark](../evals/README.md): 13 questions, 15 report assignments, execution instructions and located judgments.
+- [Long-research benchmark](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.md): 13 questions, 15 report assignments, execution instructions and located judgments.
 
 
 ## Use Research Toolkit
@@ -14,7 +14,7 @@
 - [Start research](conduct-research.md): one complete entry for long-form research, in-depth analysis, revision and updates.
 
 - [Usage and integration](usage-modes.md): repository, file, and text inputs; optional Skill, plugin, and MCP; review configuration.
-- [Use with your agent](../agents/README.md): common input methods, chat-only limits, and tool-specific setup.
+- [Use with your agent](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md): common input methods, chat-only limits, and tool-specific setup.
 - [Updating an installation](installation-versioning.md): choose and replace the intended package copy.
 
 ## Find methods for the current work
@@ -23,14 +23,14 @@ These are on-demand entry points within one study, not a reading list to finish 
 
 | What you are doing | Where to read |
 | --- | --- |
-| Understand the request and plan depth | [Research requirements and depth planning](../references/research-workflow.md); the [research guide](research-guide.md) introduces first use. |
-| Read material, compare and explain | [Sources and claims](../references/research-standard.md#8-source-and-claim-discipline) · [Choose analysis methods by question](../references/optional-analysis-lenses.md) |
-| Delegate research and receive usable results | [Research production and handoff](../references/subagents-and-review-loop.md#research-production-and-handoff) · [Shared context and actual requests](usage-modes.md#research-delegation-and-handoff) |
-| Write, assemble and revise a complete report | [Writing style](../references/writing-style.md) · [Assembly](../references/research-workflow.md#9-assembly) |
-| Resume work or apply new requirements | [Task continuity](../references/task-continuity.md) · [Current artifact and scope updates](usage-modes.md#current-artifact-and-scope-updates) |
-| Complete independent review, audit and acceptance | [Review methods](../references/subagents-and-review-loop.md#assign-work-by-perspective) · [Completion conditions](../references/quality-gates.md); tool record details are under “Reviews and evaluation” below. |
+| Understand the request and plan depth | [Research requirements and depth planning](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.md); the [research guide](research-guide.md) introduces first use. |
+| Read material, compare and explain | [Sources and claims](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-standard.md#8-source-and-claim-discipline) · [Choose analysis methods by question](https://github.com/rrrrrredy/research-toolkit/blob/main/references/optional-analysis-lenses.md) |
+| Delegate research and receive usable results | [Research production and handoff](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.md#research-production-and-handoff) · [Shared context and actual requests](usage-modes.md#research-delegation-and-handoff) |
+| Write, assemble and revise a complete report | [Writing style](https://github.com/rrrrrredy/research-toolkit/blob/main/references/writing-style.md) · [Assembly](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.md#9-assembly) |
+| Resume work or apply new requirements | [Task continuity](https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.md) · [Current artifact and scope updates](usage-modes.md#current-artifact-and-scope-updates) |
+| Complete independent review, audit and acceptance | [Review methods](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.md#assign-work-by-perspective) · [Completion conditions](https://github.com/rrrrrredy/research-toolkit/blob/main/references/quality-gates.md); tool record details are under “Reviews and evaluation” below. |
 
-Consult [recurring research problems](../references/gotchas.md) when a specific problem arises; no separate workflow is needed.
+Consult [recurring research problems](https://github.com/rrrrrredy/research-toolkit/blob/main/references/gotchas.md) when a specific problem arises; no separate workflow is needed.
 
 ## Reports and cases
 
@@ -50,7 +50,7 @@ Consult [recurring research problems](../references/gotchas.md) when a specific 
 - [Failed checks and repairs](failure-handling.md): source-based corrections, draft preflight, PR acceptance and stopping rules.
 - [Report evaluation standard](report-evaluation-standard.md): separate manuscript quality, delivery readiness, and toolkit-effect studies.
 - [Necessary-defect labels](necessary-defects.md): stable categories, evidence-based dispositions and a versioned diagnostic index.
-- [Evaluation suite](../evals/README.md): tasks, controls, fixtures, diagnostics, and offline checks.
+- [Evaluation suite](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.md): tasks, controls, fixtures, diagnostics, and offline checks.
 - [Evaluation status](evaluation-status.md) and [roadmap](evaluation-roadmap.md): available evidence and open evaluation work.
 - [Evaluation data audit](evaluation-data-audit.md): what the public datasets contain and support.
 - [Source extraction](source-extraction.md): provenance and retained source text.
@@ -72,4 +72,4 @@ Directories retain their content roles; shared implementations connect the resea
 
 [Historical improvement plans](improvement-plan.md): earlier priorities, study designs and their recorded outcomes.
 
-[Contributing](../CONTRIBUTING.md) · [Changelog](../CHANGELOG.md) · [Plugin package](../plugins/research-toolkit/) · [Scripts](../scripts/) · [MIT license](../LICENSE)
+[Contributing](https://github.com/rrrrrredy/research-toolkit/blob/main/CONTRIBUTING.md) · [Changelog](https://github.com/rrrrrredy/research-toolkit/blob/main/CHANGELOG.md) · [Plugin package](https://github.com/rrrrrredy/research-toolkit/tree/main/plugins/research-toolkit) · [Scripts](https://github.com/rrrrrredy/research-toolkit/tree/main/scripts) · [MIT license](https://github.com/rrrrrredy/research-toolkit/blob/main/LICENSE)

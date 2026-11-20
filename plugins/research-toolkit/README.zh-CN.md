@@ -8,6 +8,17 @@
 
 重开会话，选择 Research Toolkit，确认九个 `research_*` 工具可用。提供研究问题或已有报告、来源与用途，Agent 使用完整研究方法。安装插件提供了可调用工具，不要求每份报告都创建工具管理的任务。
 
+## 包内命令
+
+在解压后的插件根目录运行。审计命令读取已有任务的待办审计，输出包含原意见、位置和要求的 JSON，判断与依据由 Agent 填写。配置命令显示目标路径和钩子。新安装默认关闭基础使用记录。例如任务保存在 `work/tasks/gpai`，就传 `--workspace work/tasks --task gpai`。
+
+```sh
+python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK_ID
+python scripts/research_workflow.py setup --host codex --project . --dry-run
+```
+
+[审计与复查](docs/review-completion.zh-CN.md) · [使用记录设置](docs/usage-data.zh-CN.md) · [离线研究方法](references/research-workflow.zh-CN.md) · [评审分工](references/subagents-and-review-loop.zh-CN.md) · [接续原任务](references/task-continuity.zh-CN.md)
+
 **[完整安装与使用说明](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md)** · [研究入口](SKILL.zh-CN.md) · [完整规范](references/research-standard.zh-CN.md)
 
 新建工具管理任务通过独立 Agent 分组审阅、审计和判断就绪，按宿主可用名额执行。当前报告通过独立最终复查后，`finish` 记录完成，Agent 直接交付成稿。原生委派沿用宿主已有访问权限。

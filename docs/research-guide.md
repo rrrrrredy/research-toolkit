@@ -2,7 +2,7 @@
 
 [English](research-guide.md) | [简体中文](research-guide.zh-CN.md)
 
-[Project overview](../README.md) · [Start research](conduct-research.md) · [Installation and tools](usage-modes.md)
+[Project overview](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md) · [Start research](conduct-research.md) · [Installation and tools](usage-modes.md)
 
 Agents use Research Toolkit for long-form research and writing in English or Chinese across domains. The task defines the reader, purpose and depth; shared methods connect evidence, analysis, writing and independent assessment.
 
@@ -39,14 +39,14 @@ Read the relevant method for the current action. This guide links to the normati
 
 | Need | Normative source |
 | --- | --- |
-| Entry and responsibilities | [SKILL](../SKILL.md) and [research standard](../references/research-standard.md) |
-| Understanding the brief, outlining and developing arguments | [Research workflow](../references/research-workflow.md) |
-| Choosing comparison, explanation, synthesis or recommendation methods | [Optional analysis lenses](../references/optional-analysis-lenses.md) |
-| Writing for the reader and retaining meaning during revision | [Writing style](../references/writing-style.md) |
-| Production delegation, independent review, audit and acceptance | [Agent roles and handoff](../references/subagents-and-review-loop.md) |
-| Requirements, original materials and task resumption | [Task continuity](../references/task-continuity.md) |
-| Completing the current deliverable | [Quality gates](../references/quality-gates.md) |
-| Diagnosing a concrete failure | [Gotchas](../references/gotchas.md) and [postmortem lessons](../references/postmortem-lessons.md) |
+| Entry and responsibilities | [SKILL](https://github.com/rrrrrredy/research-toolkit/blob/main/SKILL.md) and [research standard](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-standard.md) |
+| Understanding the brief, outlining and developing arguments | [Research workflow](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.md) |
+| Choosing comparison, explanation, synthesis or recommendation methods | [Optional analysis lenses](https://github.com/rrrrrredy/research-toolkit/blob/main/references/optional-analysis-lenses.md) |
+| Writing for the reader and retaining meaning during revision | [Writing style](https://github.com/rrrrrredy/research-toolkit/blob/main/references/writing-style.md) |
+| Production delegation, independent review, audit and acceptance | [Agent roles and handoff](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.md) |
+| Requirements, original materials and task resumption | [Task continuity](https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.md) |
+| Completing the current deliverable | [Quality gates](https://github.com/rrrrrredy/research-toolkit/blob/main/references/quality-gates.md) |
+| Diagnosing a concrete failure | [Gotchas](https://github.com/rrrrrredy/research-toolkit/blob/main/references/gotchas.md) and [postmortem lessons](https://github.com/rrrrrredy/research-toolkit/blob/main/references/postmortem-lessons.md) |
 
 The same sources serve lead agents, research workers, assembling agents and reviewers. A role reads what its task needs; it does not receive every method and developer instruction on each turn.
 
@@ -56,7 +56,7 @@ The same sources serve lead agents, research workers, assembling agents and revi
 
 The auditor selects samples from the whole actual report and original inputs. Decisive requirements, claims, figures, sources, counter-evidence and consequential decisions are checked fully; other selections have reasons and locations. Problems lead to follow-up on the same source, measure, branch or transformation. This work belongs to audit and acceptance, without another sampling role.
 
-The author may self-edit or explain a disagreement, but cannot replace independent review or close its own required findings. A negative review is retained and used to repair the actual report. Full details belong to the [role methods](../references/subagents-and-review-loop.md); CLI/MCP records are explained in [review completion](review-completion.md).
+The author may self-edit or explain a disagreement, but cannot replace independent review or close its own required findings. A negative review is retained and used to repair the actual report. Full details belong to the [role methods](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.md); CLI/MCP records are explained in [review completion](review-completion.md).
 
 ## Task records and continuation
 
@@ -85,4 +85,4 @@ For a quality-improvement claim, identify the compared report versions and sourc
 
 `SKILL.md` is the shared entry; `references/` owns methods; `scripts/` provides shared CLI/MCP logic; `agents/` documents agent tool integration; `docs/` provides usage and the website. `plugins/research-toolkit/` is generated from shared sources. `examples/` demonstrates interfaces, and `evals/` preserves research and relevant checks.
 
-Maintenance and experimental execution instructions are in [Contributing](../CONTRIBUTING.md), [evaluation documentation](../evals/README.md) and [site maintenance](site-maintenance.md). They are not extra steps for every research task. [MIT license](../LICENSE).
+Maintenance and experimental execution instructions are in [Contributing](https://github.com/rrrrrredy/research-toolkit/blob/main/CONTRIBUTING.md), [evaluation documentation](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.md) and [site maintenance](site-maintenance.md). They are not extra steps for every research task. [MIT license](https://github.com/rrrrrredy/research-toolkit/blob/main/LICENSE).

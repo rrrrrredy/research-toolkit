@@ -192,7 +192,7 @@ After installation, read the [long-report guide](https://raw.githubusercontent.c
 
 [English](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/research-guide.md) | [简体中文](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/research-guide.zh-CN.md)
 
-[Project overview](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/README.md) · [Start research](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/conduct-research.md) · [Installation and tools](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.md)
+[Project overview](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md) · [Start research](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/conduct-research.md) · [Installation and tools](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.md)
 
 Agents use Research Toolkit for long-form research and writing in English or Chinese across domains. The task defines the reader, purpose and depth; shared methods connect evidence, analysis, writing and independent assessment.
 
@@ -229,14 +229,14 @@ Read the relevant method for the current action. This guide links to the normati
 
 | Need | Normative source |
 | --- | --- |
-| Entry and responsibilities | [SKILL](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/SKILL.md) and [research standard](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/research-standard.md) |
-| Understanding the brief, outlining and developing arguments | [Research workflow](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/research-workflow.md) |
-| Choosing comparison, explanation, synthesis or recommendation methods | [Optional analysis lenses](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/optional-analysis-lenses.md) |
-| Writing for the reader and retaining meaning during revision | [Writing style](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/writing-style.md) |
-| Production delegation, independent review, audit and acceptance | [Agent roles and handoff](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.md) |
-| Requirements, original materials and task resumption | [Task continuity](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/task-continuity.md) |
-| Completing the current deliverable | [Quality gates](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/quality-gates.md) |
-| Diagnosing a concrete failure | [Gotchas](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/gotchas.md) and [postmortem lessons](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/postmortem-lessons.md) |
+| Entry and responsibilities | [SKILL](https://github.com/rrrrrredy/research-toolkit/blob/main/SKILL.md) and [research standard](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-standard.md) |
+| Understanding the brief, outlining and developing arguments | [Research workflow](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.md) |
+| Choosing comparison, explanation, synthesis or recommendation methods | [Optional analysis lenses](https://github.com/rrrrrredy/research-toolkit/blob/main/references/optional-analysis-lenses.md) |
+| Writing for the reader and retaining meaning during revision | [Writing style](https://github.com/rrrrrredy/research-toolkit/blob/main/references/writing-style.md) |
+| Production delegation, independent review, audit and acceptance | [Agent roles and handoff](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.md) |
+| Requirements, original materials and task resumption | [Task continuity](https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.md) |
+| Completing the current deliverable | [Quality gates](https://github.com/rrrrrredy/research-toolkit/blob/main/references/quality-gates.md) |
+| Diagnosing a concrete failure | [Gotchas](https://github.com/rrrrrredy/research-toolkit/blob/main/references/gotchas.md) and [postmortem lessons](https://github.com/rrrrrredy/research-toolkit/blob/main/references/postmortem-lessons.md) |
 
 The same sources serve lead agents, research workers, assembling agents and reviewers. A role reads what its task needs; it does not receive every method and developer instruction on each turn.
 
@@ -246,7 +246,7 @@ The same sources serve lead agents, research workers, assembling agents and revi
 
 The auditor selects samples from the whole actual report and original inputs. Decisive requirements, claims, figures, sources, counter-evidence and consequential decisions are checked fully; other selections have reasons and locations. Problems lead to follow-up on the same source, measure, branch or transformation. This work belongs to audit and acceptance, without another sampling role.
 
-The author may self-edit or explain a disagreement, but cannot replace independent review or close its own required findings. A negative review is retained and used to repair the actual report. Full details belong to the [role methods](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.md); CLI/MCP records are explained in [review completion](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.md).
+The author may self-edit or explain a disagreement, but cannot replace independent review or close its own required findings. A negative review is retained and used to repair the actual report. Full details belong to the [role methods](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.md); CLI/MCP records are explained in [review completion](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.md).
 
 ## Task records and continuation
 
@@ -275,7 +275,7 @@ For a quality-improvement claim, identify the compared report versions and sourc
 
 `SKILL.md` is the shared entry; `references/` owns methods; `scripts/` provides shared CLI/MCP logic; `agents/` documents agent tool integration; `docs/` provides usage and the website. `plugins/research-toolkit/` is generated from shared sources. `examples/` demonstrates interfaces, and `evals/` preserves research and relevant checks.
 
-Maintenance and experimental execution instructions are in [Contributing](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/CONTRIBUTING.md), [evaluation documentation](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/evals/README.md) and [site maintenance](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/site-maintenance.md). They are not extra steps for every research task. [MIT license](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/LICENSE).
+Maintenance and experimental execution instructions are in [Contributing](https://github.com/rrrrrredy/research-toolkit/blob/main/CONTRIBUTING.md), [evaluation documentation](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.md) and [site maintenance](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/site-maintenance.md). They are not extra steps for every research task. [MIT license](https://github.com/rrrrrredy/research-toolkit/blob/main/LICENSE).
 
 ---
 
@@ -285,7 +285,7 @@ Maintenance and experimental execution instructions are in [Contributing](https:
 
 [English](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/research-guide.md) | [简体中文](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/research-guide.zh-CN.md)
 
-[项目介绍](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/README.zh-CN.md) · [开始研究](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/conduct-research.zh-CN.md) · [安装与工具](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.zh-CN.md)
+[项目介绍](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md) · [开始研究](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/conduct-research.zh-CN.md) · [安装与工具](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.zh-CN.md)
 
 Agent 使用 Research Toolkit 开展中英文、多领域长研究与研究写作。任务决定读者、用途和深度，共同方法连接证据、分析、写作与独立审阅。
 
@@ -322,14 +322,14 @@ Agent 使用 Research Toolkit 开展中英文、多领域长研究与研究写�
 
 | 当前需要 | 规范原件 |
 | --- | --- |
-| 入口与职责 | [SKILL](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/SKILL.zh-CN.md) 与[研究标准](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/research-standard.zh-CN.md) |
-| 理解需求、提纲与论证展开 | [研究流程](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/research-workflow.zh-CN.md) |
-| 选择比较、解释、综合或建议方法 | [可选分析视角](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/optional-analysis-lenses.zh-CN.md) |
-| 面向读者写作，修订时保留含义 | [写作规范](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/writing-style.zh-CN.md) |
-| 生产委派、独立审阅、审计与验收 | [Agent 职责与交接](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.zh-CN.md) |
-| 保留要求、原始材料与接续研究 | [任务接续](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/task-continuity.zh-CN.md) |
-| 完成当前成果 | [完成条件](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/quality-gates.zh-CN.md) |
-| 定位实际失败 | [常见问题](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/gotchas.zh-CN.md)与[复盘经验](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/postmortem-lessons.zh-CN.md) |
+| 入口与职责 | [SKILL](https://github.com/rrrrrredy/research-toolkit/blob/main/SKILL.zh-CN.md) 与[研究标准](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-standard.zh-CN.md) |
+| 理解需求、提纲与论证展开 | [研究流程](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.zh-CN.md) |
+| 选择比较、解释、综合或建议方法 | [可选分析视角](https://github.com/rrrrrredy/research-toolkit/blob/main/references/optional-analysis-lenses.zh-CN.md) |
+| 面向读者写作，修订时保留含义 | [写作规范](https://github.com/rrrrrredy/research-toolkit/blob/main/references/writing-style.zh-CN.md) |
+| 生产委派、独立审阅、审计与验收 | [Agent 职责与交接](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.zh-CN.md) |
+| 保留要求、原始材料与接续研究 | [任务接续](https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.zh-CN.md) |
+| 完成当前成果 | [完成条件](https://github.com/rrrrrredy/research-toolkit/blob/main/references/quality-gates.zh-CN.md) |
+| 定位实际失败 | [常见问题](https://github.com/rrrrrredy/research-toolkit/blob/main/references/gotchas.zh-CN.md)与[复盘经验](https://github.com/rrrrrredy/research-toolkit/blob/main/references/postmortem-lessons.zh-CN.md) |
 
 主 Agent、研究者、统稿者和审阅者共用这些原件，各自读取当前任务所需部分，不在每一轮注入所有方法和维护说明。
 
@@ -339,7 +339,7 @@ Agent 使用 Research Toolkit 开展中英文、多领域长研究与研究写�
 
 审计者从实际全文与原始输入选择样本。关键要求、决定性主张、数字、引用、反证及重要处置全部核查；其他抽查有原因和位置。发现问题，沿同源、同指标、同支线或同种改写继续查清。抽查属于审计和验收，不另设一层角色。
 
-作者可以自改或回应争议，但不能代替独立审阅、关闭自己的必改项。保留负评并落实到实际报告。完整内容方法在[角色规范](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.zh-CN.md)，CLI／MCP 记录见[审阅完成](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.zh-CN.md)。
+作者可以自改或回应争议，但不能代替独立审阅、关闭自己的必改项。保留负评并落实到实际报告。完整内容方法在[角色规范](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.zh-CN.md)，CLI／MCP 记录见[审阅完成](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.zh-CN.md)。
 
 ## 任务记录与接续
 
@@ -368,7 +368,7 @@ Agent 使用 Research Toolkit 开展中英文、多领域长研究与研究写�
 
 `SKILL.md` 是统一入口，`references/` 保存方法原件，`scripts/` 提供 CLI／MCP 共同实现，`agents/` 说明 Agent 工具接入，`docs/` 承载使用与网站。`plugins/research-toolkit/` 从共同原件生成，`examples/` 展示接口，`evals/` 保留研究及相关检查。
 
-维护和实验执行说明放在[贡献指南](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/CONTRIBUTING.zh-CN.md)、[评测文档](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/evals/README.zh-CN.md)与[网站维护](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/site-maintenance.md)，不是每次研究的额外步骤。[MIT 许可](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/LICENSE)。
+维护和实验执行说明放在[贡献指南](https://github.com/rrrrrredy/research-toolkit/blob/main/CONTRIBUTING.zh-CN.md)、[评测文档](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md)与[网站维护](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/site-maintenance.md)，不是每次研究的额外步骤。[MIT 许可](https://github.com/rrrrrredy/research-toolkit/blob/main/LICENSE)。
 
 ---
 
@@ -1285,7 +1285,7 @@ Reader-ready delivery requires resolved necessary corrections, complete independ
 
 [English](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.md) | [简体中文](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.zh-CN.md)
 
-This page describes how the existing `research_review` and completion checker retain independent work. The [role reference](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.md) owns the substantive methods. New research and continued deliveries use the current contract; frozen results retain their original contract and history.
+This page describes how the existing `research_review` and completion checker retain independent work. The [role reference](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.md) owns the substantive methods. New research and continued deliveries use the current contract; frozen results retain their original contract and history.
 
 ## Conduct the independent work
 
@@ -1370,7 +1370,7 @@ The auditor reads the complete current report, requirements, review outputs and 
 
 The v3 request supplies `audit_scaffold` with actual finding IDs, locations and details, possible duplicate groups and coverage items. The auditor confirms which findings can share one decision. Check equivalent findings at the same location once. Submit one `disposition_groups` entry for that evidence and judgment, with `finding_ids`, `decision`, `reason` and `evidence`. `prior_finding_groups` works the same way for previous-version findings. The tool checks that every ID is covered exactly once and retains the original findings and reviewed decision.
 
-**Availability**　This command is available in the [repository source](https://github.com/rrrrrredy/research-toolkit) after v3.0.0. Each pending auditor assignment includes a `response_template_ref` to an editable JSON response skeleton. Run `python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK` to print the template for the current pending audit. It includes the real review and finding IDs, applicable requirements, input version and assignment version. The independent auditor supplies decisions, reasons, evidence and independently selected samples. To group equivalent findings, move their IDs from individual entries into one `disposition_groups` decision. A blank template fails submission validation.
+The v3.1.0 plugin package includes this command. Each pending auditor assignment includes a `response_template_ref` to an editable JSON response skeleton. Run `python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK` to print the template for the current pending audit. It includes the real review and finding IDs, applicable requirements, input version and assignment version. The independent auditor supplies decisions, reasons, evidence and independently selected samples. To group equivalent findings, move their IDs from individual entries into one `disposition_groups` decision. A blank template fails submission validation. For a task saved at `work/tasks/gpai`, pass `--workspace work/tasks --task gpai`.
 
 
 If a dispute can change delivery and still needs evidence, the auditor can request a focused `verification_requests` assignment. A fresh agent checks just the question before seeing the earlier verdicts. The auditor uses the returned evidence to settle the dispute. Four matching opinions have the same obligation to show evidence as one.
@@ -1429,6 +1429,8 @@ Keep earlier `model_review`, `review_audit`, `sampling_audit`, dispositions and 
 
 Frozen evaluation fixtures and research comparisons retain their recorded protocols. They describe those studies; they are not default instructions for new research. Software control fixtures are labelled synthetic and do not stand in for actual agent tool execution.
 
+In an offline installation, open the following files from the plugin root: `references/subagents-and-review-loop.md`.
+
 ---
 
 [Source](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.zh-CN.md)
@@ -1437,7 +1439,7 @@ Frozen evaluation fixtures and research comparisons retain their recorded protoc
 
 [English](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.md) | [简体中文](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.zh-CN.md)
 
-本页说明现有 `research_review` 与完成检查如何保留独立工作；实质方法以[角色规范](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.zh-CN.md)为准。新研究和继续交付采用当前契约，冻结结果保留原契约与历史。
+本页说明现有 `research_review` 与完成检查如何保留独立工作；实质方法以[角色规范](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.zh-CN.md)为准。新研究和继续交付采用当前契约，冻结结果保留原契约与历史。
 
 ## 执行独立工作
 
@@ -1522,7 +1524,7 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
 
 v3 的 `audit_scaffold` 自动列出实际意见编号、位置、可能重复的意见及应核查内容。审计 Agent 确认哪些意见可以共用一次裁定。对同一处提出同一个问题的意见只查一次。在 `disposition_groups` 中写一份证据和裁定，包含 `finding_ids`、`decision`、`reason`、`evidence`。旧稿意见可用 `prior_finding_groups`。工具验证每条原始编号恰好被覆盖一次，并保留意见原文和裁定。
 
-**版本说明**　此命令随 v3.0.0 之后的[仓库源码](https://github.com/rrrrrredy/research-toolkit)提供。审计任务的 `response_template_ref` 指向可复制的 JSON 回复骨架。要直接取得当前待办审计的骨架，运行 `python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK`。它输出真实评审和意见编号、每项适用要求以及稿件和派工版本。独立审计 Agent 填写判断、理由和原件位置，按证据选取抽样；如果合并意见，将对应编号从单项移入同一 `disposition_groups`。空骨架无法通过提交检查。
+从 v3.1.0 起，插件包内可运行此命令。审计任务的 `response_template_ref` 指向可复制的 JSON 回复骨架。要直接取得当前待办审计的骨架，运行 `python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK`。它输出真实评审和意见编号、每项适用要求以及稿件和派工版本。独立审计 Agent 填写判断、理由和原件位置，按证据选取抽样；如果合并意见，将对应编号从单项移入同一 `disposition_groups`。空骨架无法通过提交检查。例如任务保存在 `work/tasks/gpai`，就传 `--workspace work/tasks --task gpai`。
 
 
 影响交付的分歧若还缺依据，审计 Agent 用 `verification_requests` 安排一项针对性核验。新的 Agent 先看这个问题和原件，再由审计 Agent 根据返回的依据判断。四路一致和一路提出都需要有证据。
@@ -1580,3 +1582,5 @@ Agent 工具取消、依赖不可用或回复格式错误时，保留失败原�
 早期 `model_review`、`review_audit`、`sampling_audit`、处置和回执按实际使用的条件保留。1.x 自评、合并视角和可选审计记录不升级为 v2 验收。继续交付时复用原材料，完成当前独立工作，不抹去旧失败或声称这些工作早已发生。见[兼容性](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/compatibility.zh-CN.md)。
 
 冻结评测和研究对照沿用其原始协议，描述当时研究，不作为新研究的默认要求。软件正负对照明确标注合成，不能代替真实 Agent 工具执行。
+
+离线使用时可从插件根目录打开`references/subagents-and-review-loop.zh-CN.md`。
