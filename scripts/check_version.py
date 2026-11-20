@@ -69,12 +69,21 @@ def check_upgrade_support(root):
     for contract, rule in contracts.items():
         if not rule["continue"] or not rule["historical_receipt"] or not (root / rule["evidence"]).is_file():
             return ["Missing upgrade decision or evidence for contract "+contract]
-    for receipt in (root / "evals").rglob("final_delivery.json"):
+    # Incomplete regression fixtures deliberately omit progress. Their receipt schema is still recorded.
+    archives = ("studies", "diagnostics", "regression_fixtures", "conformance_fixtures", "repairs")
+    receipts = [path for name in archives for path in (root / "evals" / name).rglob("final_delivery.json")]
+    receipts.append(root / "docs/case-study/v3-review/live/receipt.json")
+    for receipt in receipts:
+        schema = json.loads(receipt.read_text(encoding="utf-8-sig")).get("schema_version")
+        if schema not in policy["receipt_schemas"]:
+            return [f"{receipt}: unsupported archived receipt schema {schema}"]
         progress = receipt.with_name("progress.json")
         if progress.exists():
             version = json.loads(progress.read_text(encoding="utf-8-sig")).get("review_contract", 1)
             if str(version) not in contracts:
                 return [f"{receipt}: unsupported archived review contract {version}"]
+        elif policy["receipt_without_progress"] != "inspect_recorded_schema_only":
+            return ["Missing support decision for a receipt archived without task progress"]
     return []
 
 
