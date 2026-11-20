@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-This archive contains real research cases and continuation records with retained drafts, reviews and revisions. The dedicated seven-task Toolkit evaluation set and the other test materials are listed in the [evaluation inventory](../../evals/README.md#case-and-dataset-inventory). Existing cases can be reused for tests and repairs; they do not require outside task contributions or an additional outside reviewer. Astra can review in a context separate from the author.
+This archive contains real research cases and continuation records with retained drafts, reviews and revisions. See the [November long-research baseline](../../evals/studies/2026-11-09-long-research/README.md) for 13 questions and 15 reports. The [evaluation inventory](../../evals/README.md#case-and-dataset-inventory) also links the retired seven-question set and other retained evidence.
 
 ## Updating a coding-benchmark procurement report
 

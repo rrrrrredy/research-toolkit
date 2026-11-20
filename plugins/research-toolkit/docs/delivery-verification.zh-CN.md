@@ -27,7 +27,7 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory> --require-c
 用 `--delivery-message note.md` 指定其他交付说明文件，凭证须绑定选定文件。成果、凭证和拟交付说明的路径均须位于任务目录内。
 
 
-新研究和继续交付须完成分别独立的内容视角、领域专审、独立审计和最终验收。历史回执按当时完成规则可读，见[兼容性](compatibility.zh-CN.md)。
+新研究和继续交付按适用的[审阅契约](review-completion.zh-CN.md)执行。新建全稿采用三个独立评审组、按需加领域专审，并由独立 Agent 分别执行审计和最终复查。已保存计划和历史回执见[兼容性说明](compatibility.zh-CN.md)。
 
 <a id="完成-full-交付"></a>
 
@@ -111,7 +111,7 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-me
 
 ## 必需模型评审的完成
 
-交付检查读取[审阅完成记录](review-completion.zh-CN.md)。当前任务标记 `review_contract: 2`，计划绑定分别独立的内容视角、领域专审、独立审计和最终验收；各项保留真实原始回复、执行证据及输入版本。作者自检不能满足这些角色。
+交付检查读取[审阅完成记录](review-completion.zh-CN.md)。新建全稿任务记录 `progress.review_contract: 3`。计划绑定覆盖七个视角的三个独立评审组、按需设置的领域专审、独立审计和独立最终复查。已保存的 v2 计划按原分工处理。各项保留真实回复、执行证据及输入版本。作者自检不能满足这些角色。
 
 全局 PASS 不能补齐缺失任务，执行失败与正文发现分开保留。审阅完成和报告就绪不同：真实负评可以完成审阅，必要修正仍阻止交付。独立审计核对发现和抽查内容，最终验收覆盖修订后的完整报告。检查历史记录不改写当时契约。
 
