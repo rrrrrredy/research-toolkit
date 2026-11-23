@@ -680,23 +680,24 @@ class ResearchHost:
         if kind == "request":
             return self.observe({"outcome": "host_request", "method": event["method"],
                                  **({"error": event["error"]} if event.get("error") else {})})
-        if kind == "error":
-            self.fail_active(f"{self.host.name} connection ended before all results were received.", event.get("raw"))
-            return None
         thread, turn = event.get("session"), event.get("turn")
+        if kind == "error" and not (thread and turn):
+            self.fail_active(event.get("error") or f"{self.host.name} connection ended before all results were received.", event.get("raw"))
+            return None
         job = self.active.get((thread, turn))
         if not job:
             return None
         if kind == "message":
             job["messages"][event["id"]] = event
-        if kind != "completed":
+        if kind not in {"completed", "error"}:
             return None
         self.active.pop((thread, turn))
         prefix = job["prefix"]
-        content = self._capture(job, event["status"], event.get("raw"))
+        status = "failed" if kind == "error" else event["status"]
+        content = self._capture(job, status, event.get("raw"))
         try:
-            if event["status"] != "completed" or not content.strip():
-                detail = event.get("raw", {}).get("error")
+            if status != "completed" or not content.strip():
+                detail = event.get("error") or event.get("raw", {}).get("error")
                 raise ValueError(detail or "Native turn did not return a completed, nonempty result.")
             if job["kind"] == "work":
                 current = self.context(job)

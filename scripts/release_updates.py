@@ -10,7 +10,7 @@ import socket
 from urllib.parse import urlsplit
 from urllib.request import HTTPRedirectHandler, HTTPSHandler, ProxyHandler, Request, build_opener
 
-from extract_source_text import extract_html
+from extract_source_text import extract_html, html_decoder
 from record_changes import history, impact_view, rows_from
 from check_delivery import reading_evidence_target
 from run_observation import now
@@ -92,14 +92,15 @@ def fetch_log(url):
         if len(data) > MAX_BYTES:
             raise ValueError("Release log exceeds the 4 MiB read limit.")
         encoding = response.headers.get_content_charset()
-        return (extract_html(data, encoding=encoding)["text"] if kind == "text/html"
-                else data.decode(encoding or "utf-8-sig"))
+        if kind == "text/html":
+            return extract_html(data, encoding=html_decoder(encoding) if encoding else None, omit_page_chrome=True)["text"]
+        return data.decode(encoding or "utf-8-sig")
 
 
 def release_entries(text):
     """Support date headings followed by a version, including saved web text."""
     if re.search(r"<!doctype html|<html\b", text, re.I):
-        text = extract_html(text.encode("utf-8"), encoding="utf-8")["text"]
+        text = extract_html(text.encode("utf-8"), encoding="utf-8", omit_page_chrome=True)["text"]
     if re.search(r"^L\d+:", text, re.M):
         text = re.sub(r"\bL\d+:\s*", "\n", text)
     text = re.sub(r"\ue200.*?\ue201|\[href: [^\]]*\]", "", text)

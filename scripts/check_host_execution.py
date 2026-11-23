@@ -13,6 +13,7 @@ from unittest.mock import patch
 
 import agent_session
 import cli_agent_session
+import codex_session
 import host_review
 import research_host
 import research_workflow as workflow
@@ -51,6 +52,10 @@ def fake_codex(mode):
             thread = params["threadId"]
             turn = f"turn-{turns}"
             emit(id=request["id"], result={"turn": {"id": turn}})
+            if mode == "malformed-terminal":
+                emit(method="item/completed", params={})
+                emit(method="turn/completed", params={"threadId": thread, "turn": {"id": turn}})
+                continue
             disconnect = thread == "thread-2" and mode == "disconnect"
             content = "Partial observation." if disconnect else "The source supports twelve shipments."
             if mode == "complete":
@@ -191,6 +196,29 @@ def check_cli_transport(workspace):
         require(run["process"].poll() is not None and not run["worker"].is_alive(), f"Leaked {mode} host process.")
 
 
+def check_codex_protocol_failure(workspace):
+    with patch.object(agent_session, "executable_for", return_value=command("codex", "malformed-terminal")):
+        session = agent_session.CodexAgentSession(workspace, workspace / "malformed-terminal")
+    try:
+        thread, turn = session.start("Synthetic request.")
+        event = session.next_event(timeout=5)
+        require(event["kind"] == "error" and "turn/completed" in event["error"], event)
+        require(event["raw"]["params"] == {"threadId": thread, "turn": {"id": turn}}, event)
+    finally:
+        stop = codex_session.stop_native_process
+        def cleanup_error(process, job):
+            stop(process, job)
+            raise codex_session.ProcessCleanupError("fixture cleanup failure")
+        with patch.object(codex_session, "stop_native_process", side_effect=cleanup_error):
+            try:
+                session.close()
+            except codex_session.ProcessCleanupError:
+                pass
+            else:
+                raise AssertionError("Cleanup failure must remain visible")
+        require(session.client.trace.closed and session.client.stderr.closed, "Unclosed Codex trace or stderr")
+
+
 def check_continuation(workspace):
     root = workspace / "case"
     workflow.start(workspace, "case", {"question": "What did the depot ship?", "audience": "Manager",
@@ -328,6 +356,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix="rtk-host-", dir=os.environ.get("IRF_TEST_TMPDIR")) as folder:
         workspace = Path(folder)
         check_cli_transport(workspace)
+        check_codex_protocol_failure(workspace)
         check_continuation(workspace)
         check_completion(workspace)
     print("Optional host execution passed readiness, cleanup, two-slot scheduling, revision, and automatic verified delivery.")

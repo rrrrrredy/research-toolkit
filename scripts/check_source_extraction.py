@@ -72,6 +72,25 @@ class SourceExtractionTests(unittest.TestCase):
         self.assertEqual(extractor.extract_html(b"<p>\xff</p>", encoding="latin-1")["text"], "ÿ")
         self.assertEqual(extractor.extract_html("<p>研究</p>".encode("utf-16"))["text"], "研究")
 
+    def test_saved_chinese_web_encodings_and_strict_fallback(self):
+        for label in ("gb2312", "x-gbk"):
+            data = f'<meta charset="{label}"><meta charset="gbk"><p>镕</p>'.encode("gbk")
+            result = extractor.extract_html(data)
+            self.assertEqual(result["text"], "镕")
+            self.assertEqual(result["decoding"]["declared_encoding"], label)
+            self.assertEqual(result["decoding"]["decoder_used"], "gb18030")
+            self.assertFalse(result["decoding"]["conflicting_declarations"])
+        data = '<meta charset="utf8-invalid"><p>中文</p>'.encode()
+        result = extractor.extract_html(data)
+        self.assertEqual(result["text"], "中文")
+        self.assertEqual(result["decoding"]["decoder_used"], "utf-8")
+        self.assertIn("fallback", result["decoding"]["selection_basis"])
+        self.assertFalse(result["decoding"]["replacement_characters_inserted"])
+        with self.assertRaises(LookupError):
+            extractor.extract_html(data, encoding="utf8-invalid")
+        with self.assertRaises(UnicodeDecodeError):
+            extractor.extract_html(data + b"\xff")
+
     def test_creation_and_access_do_not_become_publication(self):
         result = extractor.extract_html(
             b'<script type="application/ld+json">{"dateCreated":"2020"}</script><p>x</p>',

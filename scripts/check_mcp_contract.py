@@ -107,8 +107,14 @@ async def verify(base):
     env = {"RESEARCH_TOOLKIT_WORKSPACE": str(workspace), "RESEARCH_TOOLKIT_REVIEW_CONFIG": "",
            "RESEARCH_TOOLKIT_REVIEW_BACKEND": "", "PYTHONDONTWRITEBYTECODE": "1",
            "RESEARCH_TOOLKIT_TELEMETRY": "off"}
-    server = StdioServerParameters(command=sys.executable,
-        args=["-B", "-X", "utf8", str(ROOT/"plugins/research-toolkit/scripts/research_mcp.py")], env=env)
+    plugin = ROOT / "plugins/research-toolkit"
+    entry = json.loads((plugin / ".mcp.json").read_text(encoding="utf-8"))["mcpServers"]["research-toolkit"]
+    portable = json.loads((plugin / "mcp.json").read_text(encoding="utf-8"))["mcpServers"]["research-toolkit"]
+    assert (entry["command"], entry["args"]) == (portable["command"], portable["args"])
+    env["PATH"] = str(Path(sys.executable).parent) + os.pathsep + os.environ["PATH"]
+    env["PYTHONUTF8"] = "1"
+    server = StdioServerParameters(command=entry["command"],
+        args=[arg.replace("${PLUGIN_ROOT}", str(plugin)) for arg in entry["args"]], env=env)
     async with Client(server, read_timeout_seconds=30) as client:
         async def call(name, arguments, *, error=False):
             result = await client.call_tool(name, arguments)

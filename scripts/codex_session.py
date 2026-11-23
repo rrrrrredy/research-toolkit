@@ -1,6 +1,7 @@
 """Small stdio client for the installed Codex agent tool; no model or account overrides."""
 from __future__ import annotations
 
+from contextlib import ExitStack
 from datetime import datetime, timezone
 import json
 import os
@@ -34,16 +35,16 @@ class CodexSession:
         self.next_id = 0
         self.closed = False
         self.disconnected = False
-        self.trace = (directory / "protocol.jsonl").open("a", encoding="utf-8")
-        self.stderr = (directory / "stderr.txt").open("a", encoding="utf-8")
+        self.logs = ExitStack()
         self.job = None
         self.process = None
-        executable = command or [shutil.which("codex.exe") or shutil.which("codex")]
-        if not executable[0]:
-            self.close()
-            raise OSError("Codex executable not found. Use the installed agent tool's native agents, or add Codex to PATH.")
-        command = executable + ["app-server", "--listen", "stdio://"]
         try:
+            self.trace = self.logs.enter_context((directory / "protocol.jsonl").open("a", encoding="utf-8"))
+            self.stderr = self.logs.enter_context((directory / "stderr.txt").open("a", encoding="utf-8"))
+            executable = command or [shutil.which("codex.exe") or shutil.which("codex")]
+            if not executable[0]:
+                raise OSError("Codex executable not found. Use the installed agent tool's native agents, or add Codex to PATH.")
+            command = executable + ["app-server", "--listen", "stdio://"]
             self.job = WindowsJob() if os.name == "nt" else None
             argv = ([sys.executable, "-c", WINDOWS_GATE, json.dumps(command)] if self.job else command)
             self.process = subprocess.Popen(argv, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
@@ -64,6 +65,8 @@ class CodexSession:
             raise
 
     def _record(self, direction, message):
+        if self.trace.closed:  # The reader can outlive failed process cleanup.
+            return
         self.trace.write(json.dumps({"at": datetime.now(timezone.utc).isoformat(),
             "direction": direction, "message": message}, ensure_ascii=False) + "\n")
         self.trace.flush()
@@ -96,6 +99,7 @@ class CodexSession:
         except (OSError, ValueError) as exc:
             self.events.put({"method": "transport/error", "params": {"error": str(exc)}})
         finally:
+            self.process.stdout.close()
             with self.mutex:
                 self.disconnected = True
                 for waiter in self.pending.values():
@@ -144,9 +148,10 @@ class CodexSession:
             "input": [{"type": "text", "text": prompt}]})
 
     def close(self):
-        if self.closed:
-            return
-        self.closed = True
+        with self.mutex:
+            if self.closed:
+                return
+            self.closed = True
         try:
             if self.process:
                 try:
@@ -160,11 +165,13 @@ class CodexSession:
                 self.reader.join(timeout=PROCESS_EXIT_TIMEOUT)
                 if self.reader.is_alive():
                     raise ProcessCleanupError(f"Codex protocol reader did not close; see {self.trace.name}.")
-            if self.process:
-                self.process.stdout.close()
         finally:
-            self.stderr.close()
-        self.trace.close()
+            try:
+                if self.process and (not hasattr(self, "reader") or not self.reader.is_alive()):
+                    self.process.stdout.close()
+            finally:
+                with self.mutex:
+                    self.logs.close()
 
     def __enter__(self):
         return self

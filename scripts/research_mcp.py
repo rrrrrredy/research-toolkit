@@ -4,9 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import json
-import threading
 from typing import Any, Literal
-from collections import defaultdict
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
 import research_workflow as workflow
@@ -34,7 +32,6 @@ class ResearchServer(MCPServer):
 
 server = ResearchServer("research-toolkit")
 WORKSPACE = workflow.workspace_default()
-TASK_LOCKS = defaultdict(threading.Lock)
 
 
 def call(function, *args, **kwargs):
@@ -43,16 +40,6 @@ def call(function, *args, **kwargs):
         return observed_call(function, args, kwargs, entry="mcp")
     except (ValueError, OSError, KeyError, TypeError) as exc:
         raise ToolError(str(exc)) from None
-
-
-def mutate(function, task, *args, **kwargs):
-    lock = TASK_LOCKS[task]
-    if not lock.acquire(blocking=False):
-        raise ToolError("This task already has an active operation. Wait for it to finish; do not start duplicate reviews.")
-    try:
-        return call(function, WORKSPACE, task, *args, **kwargs)
-    finally:
-        lock.release()
 
 
 @server.tool(structured_output=True)
@@ -65,7 +52,7 @@ def research_start(task: str, brief: dict[str, str], language: str = "en") -> di
     Resume saved materials through research_status; historical receipts remain unchanged.
     New work uses independent agent review, audit and acceptance. review_readiness defaults to host_native.
     """
-    return mutate(workflow.start, task, brief, language)
+    return call(workflow.start, WORKSPACE, task, brief, language)
 
 
 @server.tool(structured_output=True)
@@ -105,7 +92,7 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
     changes summarizes the latest record-save batch and candidate claim/report locations; identical bytes are not rewritten.
     Saving a source ID also compares local evidence against its previous save observation. First observations are explicit.
     """
-    return mutate(workflow.save_records, task, sources, claims, requirements, draft, replace, brief)
+    return call(workflow.save_records, WORKSPACE, task, sources, claims, requirements, draft, replace, brief)
 
 
 @server.tool(structured_output=True)
@@ -115,7 +102,7 @@ def research_check_updates(task: str, source_id: str) -> dict[str, Any]:
     Requires official_release/release_notes/changelog and saved evidence with dated version entries.
     Read failures are explicit. Does not follow links, change evidence/reading status, or revise reports.
     """
-    return mutate(workflow.check_updates, task, source_id)
+    return call(workflow.check_updates, WORKSPACE, task, source_id)
 
 
 @server.tool(structured_output=True)
@@ -145,8 +132,7 @@ def research_status(task: str, language: str = "en", stage: str | None = None,
     send the input through the application’s existing subagent tools, preserving its actual task handle for follow-up.
     No agent is launched by this read. Omit stage to prepare independent work without changing global progress.
     """
-    return (mutate(workflow.status, task, language, stage, methods, work) if stage is not None or work is not None
-            else call(workflow.status, WORKSPACE, task, language, stage, methods, work))
+    return call(workflow.status, WORKSPACE, task, language, stage, methods, work)
 
 
 @server.tool(structured_output=True)
@@ -199,7 +185,7 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     reviewer=self and self_review remain recognizable legacy parameters but cannot complete current independent review.
     Explicitly configured external backends execute the same assignments; ordinary use stays in the agent tool.
     """
-    result = await asyncio.to_thread(mutate, workflow.review, task, evidence_paths,
+    result = await asyncio.to_thread(call, workflow.review, WORKSPACE, task, evidence_paths,
                                      artifact, purpose, revision, reviewer, self_review, include_assignment and not summary,
                                      host_result, scope, perspectives, domains, audit)
     return workflow.review_summary(result) if summary else result
@@ -218,7 +204,7 @@ async def research_finish(task: str, message: str | None = None, artifact: str =
     Independent audit adjudicates no-change decisions; an author's appended disposition cannot clear required findings.
     Evaluation tasks end with evaluation_complete from research_review, without repairing samples.
     """
-    return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact,
+    return await asyncio.to_thread(call, workflow.finish, WORKSPACE, task, message, artifact,
                                    delivery_message=delivery_message)
 
 
@@ -230,7 +216,7 @@ def research_check_draft(task: str, artifact: str = "final.md") -> dict[str, Any
     ok describes these mechanical checks only, never semantic quality or delivery approval.
     Correct ordinary drafts and recheck; preserve frozen evaluation originals.
     """
-    return mutate(workflow.check_draft, task, artifact)
+    return call(workflow.check_draft, WORKSPACE, task, artifact)
 
 
 @server.tool(structured_output=True)

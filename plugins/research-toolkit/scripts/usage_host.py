@@ -116,7 +116,9 @@ def handle(payload, host):
             db.execute("INSERT INTO sessions VALUES (?,?,?,?) ON CONFLICT(id) DO UPDATE SET active=1,task=excluded.task,parent=excluded.parent",
                        (host+":"+child, 1, task, session))
         if event == "SessionEnd":
-            db.execute("UPDATE sessions SET active=0 WHERE id=? OR parent=?", (scoped, session))
+            # Existing databases store parent IDs without their host prefix.
+            db.execute("UPDATE sessions SET active=0 WHERE id=? OR (parent=? AND id LIKE ?)",
+                       (scoped, session, host + ":%"))
     usage.schedule_upload()
 
 

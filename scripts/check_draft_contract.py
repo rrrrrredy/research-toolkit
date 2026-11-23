@@ -102,6 +102,16 @@ class DraftChecks(unittest.TestCase):
                 # Indentation alone does not turn a paragraph continuation into code.
                 self.assertIn("line(s) 2", " ".join(w.citation_export_warnings("A paragraph\n    " + token)))
 
+    def test_loose_list_citations_keep_their_original_lines(self):
+        token = "\ue200cite\ue202turn1search0\ue201"
+        report = (f"- Parent\n\n    - Child {token}\n\n        1. Grandchild {token}\n\n"
+                  f"           ~~~text\n           {token}\n           ~~~\n\n"
+                  f"Paragraph\n\n    - literal list example {token}\n")
+        w.save_text(self.root, "final.md", report)
+        warnings = " ".join(w.check_draft(self.workspace, "case")["warnings"])
+        self.assertIn("2 private chat", warnings)
+        self.assertIn("line(s) 3, 5", warnings)
+
     def bound(self, **rule):
         w.save_text(self.root, "state/requirements.jsonl", json.dumps({
             "requirement_id": "L1", "summary": "Agreed whole-file range for the synthetic control.",
