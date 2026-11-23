@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v3.1.2 — 2026-11-23
+
+Read archived tasks without writing a lock file, extract Chinese web pages with legacy encoding labels, and locate private citations in nested lists. Release comparisons ignore page-level navigation and footers. The packaged MCP server now starts through the CLI supplied by its pinned SDK.
+
+[English release notes](docs/releases/v3.1.2.md) · [中文发布说明](docs/releases/v3.1.2.zh-CN.md)
+
 ## v3.1.1 — 2026-11-20
 
 Reviewers check an important conclusion against a concrete exception in its source. When a revision touches a previously reviewed issue, the auditor answers the reader's original question again using the current text.
