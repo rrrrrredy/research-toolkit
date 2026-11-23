@@ -34,6 +34,8 @@ Earlier references to an effect study meant comparing Toolkit and baseline resul
 
 The [paired template](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/templates/paired-study.json) and [task-selection guide](independent-task-design.md) organize that comparison; filling them is not a gate to ordinary work. Explain results for the actual completed tasks. Preserve original failures and do not present revisions as first drafts.
 
+For a v3 comparison, give the native Agent and the Agent using the pinned Toolkit the same question, source access, model and reasoning setting. Start each attempt in a fresh session and working directory. User-level installations can load in a new directory, so exclude the Toolkit Skill and MCP tools from the native condition and check what the Agent can see. Keep earlier drafts and judgments out of both contexts. Leave the template's historical `profile` field empty for v3, which has one research workflow. Count repeat attempts under the same question.
+
 ## Historical records and publication
 
 Preserve older experiments with their actual models, reviewer counts, scales, attempts and failures. Do not backfill new rules; historical four-model configurations are not current defaults. Publish shareable material with necessary source and version information. Merge verified repair PRs without waiting for an extra comparison.

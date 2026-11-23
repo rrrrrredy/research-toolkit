@@ -77,6 +77,8 @@ The 0–100 score normalizes the remaining mechanical items: required files (20)
 
 Missing required files block a pass regardless of score. Malformed requirement or conversation JSONL and invalid source or claim CSVs produce explicit failure findings; a damaged case does not prevent the remaining cases from being reported. CSV counts use logical records. Canonical source IDs and titles match within the same record; a source pack's explicit `task_source_id` alias also requires the exact source URL. A report can cite the source's title or public URL.
 
+URL matching includes the path and query. For example, citing a paper's table at `/tables/2` counts that page once. A `#` fragment can locate a passage on the cited page. The evaluator also lists private chat citation markers in report prose by line number in `review_warnings`, using the same advisory as the draft checker. A reviewer can use those locations to restore citations from the original sources.
+
 Actual outputs are available in the [2026-09-07 development package](./diagnostics/2026-09-07/): four original calibration reader reports, two repairs, three-model text replies and an explicitly retained incomplete response. These are real executed tests on distinct tasks, with their original reports and results retained.
 
 See [evaluation status and version boundaries](../docs/evaluation-status.md) for completed historical first-review counts and their interpretation. The public files below are a subset of the retained evaluation material.

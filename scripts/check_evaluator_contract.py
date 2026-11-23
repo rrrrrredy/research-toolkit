@@ -426,6 +426,36 @@ class EvaluatorContractTests(unittest.TestCase):
         self.assertEqual(evaluator.count_registry_sources(control, ids, sources), 2)
         self.assertEqual(evaluator.count_registry_sources(swapped, ids, sources), 0)
 
+    def test_reader_references_distinguish_an_article_from_its_table(self):
+        article_id = "ai_drug_discovery--AIDD-S02"
+        table_id = "ai_drug_discovery--AIDD-S23"
+        article = self.sources[article_id]["url"]
+        table = self.sources[table_id]["url"]
+        case = {**self.case, "source_ids": [article_id, table_id]}
+        for report, expected in (
+            (f"[Table 2]({table})", 1),
+            (f"See <{article}#results> and [Table 2]({table}).", 2),
+            (f"Different resource: {table}?download=1", 0),
+        ):
+            with self.subTest(report=report):
+                (self.root / "final.md").write_text(report, encoding="utf-8")
+                result = evaluator.evaluate_case(case, self.root, self.sources)
+                self.assertEqual(result["final_reference_hits"], expected)
+
+    def test_offline_eval_locates_private_citations_in_archived_reports(self):
+        pair = REPO / "evals/studies/2026-10-13-before-after/authors/coding_benchmark_decision_zh"
+        for version in ("before", "after"):
+            with self.subTest(version=version):
+                shutil.copyfile(pair / version / "report.md", self.root / "final.md")
+                result = evaluator.evaluate_case(self.case, self.root, self.sources)
+                notices = [w for w in result["review_warnings"] if "private chat citation" in w]
+                if version == "after":
+                    self.assertEqual(len(notices), 1)
+                    self.assertIn("6 private chat citation", notices[0])
+                    self.assertIn("line(s) 7, 11, 13, 15, 27, 31", notices[0])
+                else:
+                    self.assertEqual(notices, [])
+
     def test_csv_multiline_claim_counts_as_one_record(self):
         content = 'claim_id,claim\nC1,"first line\nsecond line\nthird line"\n'
         self.assertEqual(evaluator.data_row_count(content), 1)
