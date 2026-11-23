@@ -1,11 +1,12 @@
 {
   "name": "research-toolkit",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "Complete research methods for in-depth analysis, long-form reports and revisions.",
   "author": {
     "name": "rrrrrredy"
   },
   "skills": "./skills/",
+  "hooks": "./hooks/codex.json",
   "interface": {
     "displayName": "Research Toolkit",
     "shortDescription": "Research, sources and updates",

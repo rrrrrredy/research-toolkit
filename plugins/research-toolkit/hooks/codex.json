@@ -1,0 +1,101 @@
+{
+  "description": "Toolkit basic usage metadata; no prompts, reports, tool arguments or paths. Disable with RESEARCH_TOOLKIT_TELEMETRY=off. See docs/usage-data.md.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "root=\"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-${CODEX_PLUGIN_ROOT:-}}}\"; case \"$root\" in /*|[a-zA-Z]:[\\\\/]*) ;; *) exit 0 ;; esac; [ -f \"$root/scripts/usage_host.py\" ] || exit 0; py=$(command -v python3 || command -v python) || exit 0; exec \"$py\" -Es \"$root/scripts/usage_host.py\" --host auto",
+            "timeout": 3,
+            "commandWindows": "python -I -c \"import os,runpy,sys; root=os.getenv('PLUGIN_ROOT') or os.getenv('CLAUDE_PLUGIN_ROOT') or os.getenv('CODEX_PLUGIN_ROOT') or ''; path=os.path.join(root,'scripts','usage_host.py'); (os.path.isabs(root) and os.path.isfile(path)) or sys.exit(0); sys.path.insert(0,os.path.dirname(path)); runpy.run_path(path,run_name='__main__')\" --host auto"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "root=\"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-${CODEX_PLUGIN_ROOT:-}}}\"; case \"$root\" in /*|[a-zA-Z]:[\\\\/]*) ;; *) exit 0 ;; esac; [ -f \"$root/scripts/usage_host.py\" ] || exit 0; py=$(command -v python3 || command -v python) || exit 0; exec \"$py\" -Es \"$root/scripts/usage_host.py\" --host auto",
+            "timeout": 3,
+            "commandWindows": "python -I -c \"import os,runpy,sys; root=os.getenv('PLUGIN_ROOT') or os.getenv('CLAUDE_PLUGIN_ROOT') or os.getenv('CODEX_PLUGIN_ROOT') or ''; path=os.path.join(root,'scripts','usage_host.py'); (os.path.isabs(root) and os.path.isfile(path)) or sys.exit(0); sys.path.insert(0,os.path.dirname(path)); runpy.run_path(path,run_name='__main__')\" --host auto"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "root=\"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-${CODEX_PLUGIN_ROOT:-}}}\"; case \"$root\" in /*|[a-zA-Z]:[\\\\/]*) ;; *) exit 0 ;; esac; [ -f \"$root/scripts/usage_host.py\" ] || exit 0; py=$(command -v python3 || command -v python) || exit 0; exec \"$py\" -Es \"$root/scripts/usage_host.py\" --host auto",
+            "timeout": 3,
+            "commandWindows": "python -I -c \"import os,runpy,sys; root=os.getenv('PLUGIN_ROOT') or os.getenv('CLAUDE_PLUGIN_ROOT') or os.getenv('CODEX_PLUGIN_ROOT') or ''; path=os.path.join(root,'scripts','usage_host.py'); (os.path.isabs(root) and os.path.isfile(path)) or sys.exit(0); sys.path.insert(0,os.path.dirname(path)); runpy.run_path(path,run_name='__main__')\" --host auto"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "root=\"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-${CODEX_PLUGIN_ROOT:-}}}\"; case \"$root\" in /*|[a-zA-Z]:[\\\\/]*) ;; *) exit 0 ;; esac; [ -f \"$root/scripts/usage_host.py\" ] || exit 0; py=$(command -v python3 || command -v python) || exit 0; exec \"$py\" -Es \"$root/scripts/usage_host.py\" --host auto",
+            "timeout": 3,
+            "commandWindows": "python -I -c \"import os,runpy,sys; root=os.getenv('PLUGIN_ROOT') or os.getenv('CLAUDE_PLUGIN_ROOT') or os.getenv('CODEX_PLUGIN_ROOT') or ''; path=os.path.join(root,'scripts','usage_host.py'); (os.path.isabs(root) and os.path.isfile(path)) or sys.exit(0); sys.path.insert(0,os.path.dirname(path)); runpy.run_path(path,run_name='__main__')\" --host auto"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "root=\"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-${CODEX_PLUGIN_ROOT:-}}}\"; case \"$root\" in /*|[a-zA-Z]:[\\\\/]*) ;; *) exit 0 ;; esac; [ -f \"$root/scripts/usage_host.py\" ] || exit 0; py=$(command -v python3 || command -v python) || exit 0; exec \"$py\" -Es \"$root/scripts/usage_host.py\" --host auto",
+            "timeout": 3,
+            "commandWindows": "python -I -c \"import os,runpy,sys; root=os.getenv('PLUGIN_ROOT') or os.getenv('CLAUDE_PLUGIN_ROOT') or os.getenv('CODEX_PLUGIN_ROOT') or ''; path=os.path.join(root,'scripts','usage_host.py'); (os.path.isabs(root) and os.path.isfile(path)) or sys.exit(0); sys.path.insert(0,os.path.dirname(path)); runpy.run_path(path,run_name='__main__')\" --host auto"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "root=\"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-${CODEX_PLUGIN_ROOT:-}}}\"; case \"$root\" in /*|[a-zA-Z]:[\\\\/]*) ;; *) exit 0 ;; esac; [ -f \"$root/scripts/usage_host.py\" ] || exit 0; py=$(command -v python3 || command -v python) || exit 0; exec \"$py\" -Es \"$root/scripts/usage_host.py\" --host auto",
+            "timeout": 3,
+            "commandWindows": "python -I -c \"import os,runpy,sys; root=os.getenv('PLUGIN_ROOT') or os.getenv('CLAUDE_PLUGIN_ROOT') or os.getenv('CODEX_PLUGIN_ROOT') or ''; path=os.path.join(root,'scripts','usage_host.py'); (os.path.isabs(root) and os.path.isfile(path)) or sys.exit(0); sys.path.insert(0,os.path.dirname(path)); runpy.run_path(path,run_name='__main__')\" --host auto"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "root=\"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-${CODEX_PLUGIN_ROOT:-}}}\"; case \"$root\" in /*|[a-zA-Z]:[\\\\/]*) ;; *) exit 0 ;; esac; [ -f \"$root/scripts/usage_host.py\" ] || exit 0; py=$(command -v python3 || command -v python) || exit 0; exec \"$py\" -Es \"$root/scripts/usage_host.py\" --host auto",
+            "timeout": 3,
+            "commandWindows": "python -I -c \"import os,runpy,sys; root=os.getenv('PLUGIN_ROOT') or os.getenv('CLAUDE_PLUGIN_ROOT') or os.getenv('CODEX_PLUGIN_ROOT') or ''; path=os.path.join(root,'scripts','usage_host.py'); (os.path.isabs(root) and os.path.isfile(path)) or sys.exit(0); sys.path.insert(0,os.path.dirname(path)); runpy.run_path(path,run_name='__main__')\" --host auto"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "root=\"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT:-${CODEX_PLUGIN_ROOT:-}}}\"; case \"$root\" in /*|[a-zA-Z]:[\\\\/]*) ;; *) exit 0 ;; esac; [ -f \"$root/scripts/usage_host.py\" ] || exit 0; py=$(command -v python3 || command -v python) || exit 0; exec \"$py\" -Es \"$root/scripts/usage_host.py\" --host auto",
+            "timeout": 3,
+            "commandWindows": "python -I -c \"import os,runpy,sys; root=os.getenv('PLUGIN_ROOT') or os.getenv('CLAUDE_PLUGIN_ROOT') or os.getenv('CODEX_PLUGIN_ROOT') or ''; path=os.path.join(root,'scripts','usage_host.py'); (os.path.isabs(root) and os.path.isfile(path)) or sys.exit(0); sys.path.insert(0,os.path.dirname(path)); runpy.run_path(path,run_name='__main__')\" --host auto"
+          }
+        ]
+      }
+    ]
+  }
+}

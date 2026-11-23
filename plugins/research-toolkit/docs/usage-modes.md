@@ -98,7 +98,11 @@ Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log
 python3 scripts/research_workflow.py check-updates --workspace ../research-work --request check-updates.json
 ```
 
-Use the existing `official_release` source type, or `release_notes`/`changelog`. The registered `url` must be a public HTTPS log; `evidence_path` (or a parseable `read_evidence`) points to saved UTF-8 log text inside the task. Supported HTML/plain text/Markdown has standalone `YYYY-MM-DD` or `YYYY年MM月DD日` dates, a version on the next nonempty line, and a body. HTML comparisons skip page-level footers and navigation, retaining footers inside articles and sections. Saved web-tool `Lnumber:` prefixes are ignored. Login pages, JavaScript-only bodies, other date formats, or pages missing the latest saved release fail explicitly rather than reporting no change.
+Use the existing `official_release` source type, or `release_notes`/`changelog`. The registered `url` must be a public HTTPS log. Set `evidence_path` (or a parseable `read_evidence`) to saved UTF-8 log text inside the task.
+
+HTML, plain text and Markdown can put a date on its own line and the version on the next nonempty line. They can also use a single heading such as `## v3.1.2 — 2026-11-23`, `## [3.1.2] - 2026-11-23`, `## v3.1.2 (2026-11-23)`, `## 2026-11-23 — v3.1.2` or `## 2026年11月23日 v3.1.2`. The version accepts an optional `v`, including inside brackets. Dash separators can be `-`, `–` or `—`. Use one date style consistently within each label. Every entry needs a nonempty body below the heading.
+
+HTML comparisons skip page-level footers and navigation, retaining footers inside articles and sections. Saved web-tool `Lnumber:` prefixes are ignored. Login pages, JavaScript-only bodies, invalid dates and missing baselines return a failure with the phase and reason.
 
 This is a manual call: one registered URL, no redirects, other-page crawling or scheduling. It compares the latest saved date and newer entries, not revisions to older history. Deletions/replacements within compared entries are returned too. Dates are source labels, not exact publication timestamps. Report locations reuse literal matching; inspect manually when no location is found.
 

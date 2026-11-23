@@ -98,7 +98,11 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 python3 scripts/research_workflow.py check-updates --workspace ../research-work --request check-updates.json
 ```
 
-来源的 `source_type` 使用已有的 `official_release`，或 `release_notes`／`changelog`；`url` 是公开 HTTPS 日志地址，`evidence_path`（或可解析的 `read_evidence`）指向任务内已保存的 UTF-8 日志正文。只支持 HTML／纯文本／Markdown 中独占一行的 `YYYY-MM-DD` 或 `YYYY年MM月DD日`，下一非空行须含版本号，随后为条目正文；已有网页工具导出的 `L数字:` 行号会被忽略。比较 HTML 时会略过页面级导航和页脚，保留文章和章节内部的页脚。登录页、依赖 JavaScript 才能显示的正文、其他日期格式和无可对应旧版本的页面明确报错，不当作无变化。
+来源的 `source_type` 使用 `official_release`、`release_notes` 或 `changelog`。`url` 是公开 HTTPS 日志地址，`evidence_path`（或可解析的 `read_evidence`）指向任务内已保存的 UTF-8 日志正文。
+
+HTML、纯文本和 Markdown 可以将日期独占一行，下一非空行写版本号。也支持单行标题，例如 `## v3.1.2 — 2026-11-23`、`## [3.1.2] - 2026-11-23`、`## v3.1.2 (2026-11-23)`、`## 2026-11-23 — v3.1.2` 或 `## 2026年11月23日 v3.1.2`。版本号可带 `v` 前缀，方括号内也可以。分隔日期和版本可用 `-`、`–` 或 `—`。同一个日期内须统一使用短横或中文年月写法。每条记录的标题下方都须有非空正文。
+
+已有网页工具导出的 `L数字:` 行号会被忽略。比较 HTML 时会略过页面级导航和页脚，保留文章和章节内部的页脚。遇到登录页、依赖 JavaScript 的正文、无效日期或找不到基线版本时，工具会返回失败阶段和原因。
 
 这是一项手动调用：每次只请求登记网址，不跟随跳转、不抓其他页面、不定时运行。仅比较最新保存日期和更新条目，不追查更早版本的修订。相同条目中的删改也会返回，日期是来源标签，不冒充精确发布时间。关联段落复用现有字面匹配；未定位时需自行检查。
 

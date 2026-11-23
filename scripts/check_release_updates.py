@@ -47,6 +47,50 @@ class ReleaseUpdateTests(unittest.TestCase):
     def check(self):
         return workflow.dispatch("check-updates", {"task": "case", "source_id": "S3"}, self.workspace)
 
+    def test_single_line_release_headings(self):
+        for heading in ("v3.1.2 — 2026-11-23", "3.1.2 - 2026-11-23", "v3.1.2 – 2026-11-23",
+                        "[3.1.2] - 2026-11-23", "[v3.1.2] - 2026-11-23", "v3.1.2 (2026-11-23)",
+                        "2026-11-23 — v3.1.2", "2026年11月23日 v3.1.2"):
+            with self.subTest(heading=heading):
+                entries = release_updates.release_entries(f"## {heading}\n\n- Release body.\n")
+                self.assertEqual(list(entries), [("2026-11-23", "3.1.2")])
+                self.assertEqual(next(iter(entries.values()))["content"], ["Release body."])
+
+    def test_compare_single_line_log_and_reuse_returned_excerpt(self):
+        saved = "## v3.1.2 — 2026-11-23\nFirst body.\n" + OLD
+        current = ("## [3.1.3] - 2026-11-23\nNew body.\n"
+                   "## 2026年11月23日 v3.1.2\nRevised body.\n" + OLD)
+        self.baseline.write_text(saved, encoding="utf-8")
+        with patch("release_updates.fetch_log", return_value=current):
+            result = self.check()
+            self.assertEqual(result["status"], "changed", result)
+            self.assertEqual([(r["version"], r["kind"], r["added_content"], r["removed_content"])
+                              for r in result["changes"]], [
+                                  ("3.1.3", "new_entry", ["New body."], []),
+                                  ("3.1.2", "updated_entry", ["Revised body."], ["First body."])])
+            self.baseline.write_text(result["current_excerpt"], encoding="utf-8")
+            self.assertEqual(self.check()["status"], "unchanged")
+
+    def test_mixed_separators_and_bodyless_headings_do_not_form_entries(self):
+        for heading in ("2026年11-23\nv3.1.2", "v3.1.2 — 2026-11月23日",
+                        "2026年11-23 v3.1.2", "v3.1.2 (2026-02-30)"):
+            with self.subTest(heading=heading), self.assertRaises(ValueError):
+                release_updates.release_entries(OLD + heading + "\nDetails.\n")
+        for text in ("## [3.1.2] - 2026-11-23\n\n", "## v3.1.2 — 2026-11-23\n" + OLD,
+                     "- [v3.1.2](#v312) — 2026-11-23\nTable of contents."):
+            with self.subTest(text=text), self.assertRaises(ValueError):
+                release_updates.release_entries(text)
+
+    def test_repository_changelogs(self):
+        root = Path(__file__).resolve().parents[1]
+        current = (root / "VERSION").read_text(encoding="utf-8").strip()
+        for name in ("CHANGELOG.md", "CHANGELOG.zh-CN.md"):
+            with self.subTest(name=name):
+                entries = release_updates.release_entries((root / name).read_text(encoding="utf-8"))
+                self.assertEqual(next(iter(entries.values()))["version"], current)
+                self.assertTrue(entries["2026-11-23", "3.1.2"]["content"])
+                self.assertTrue(entries["2026-09-08", "0.1.3"]["content"])
+
     def test_new_release_returns_content_date_and_existing_location(self):
         report_before = (self.root / "report.md").read_bytes()
         with (self.root / "data/claims_registry.csv").open("a", encoding="utf-8") as file:

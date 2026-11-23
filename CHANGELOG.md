@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v3.1.3 — 2026-11-23
+
+Recognize paired Markdown delimiters in labelled sharing examples, select host-specific hook files, and compare single-line changelog headings. Offline evaluation now distinguishes a cited page from its parent and locates private chat citations.
+
+[English release notes](docs/releases/v3.1.3.md) · [中文发布说明](docs/releases/v3.1.3.zh-CN.md)
+
 ## v3.1.2 — 2026-11-23
 
 Read archived tasks without writing a lock file, extract Chinese web pages with legacy encoding labels, and locate private citations in nested lists. Release comparisons ignore page-level navigation and footers. The packaged MCP server now starts through the CLI supplied by its pinned SDK.

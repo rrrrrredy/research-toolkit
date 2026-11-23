@@ -12,6 +12,13 @@ PLUGIN = ROOT/"plugins/research-toolkit"
 RUNTIME = ["task_storage.py", "research_guidance.py", "check_delivery.py", "check_review_completion.py", "research_workflow.py", "research_records.py", "record_changes.py", "release_updates.py", "extract_source_text.py", "run_observation.py", "review_runner.py", "review_process.py", "task_lock.py", "task_context.py", "task_reading.py", "host_review.py", "codex_session.py", "agent_session.py", "cli_agent_session.py", "research_host.py", "usage_events.py", "usage_host.py", "install_usage.py", "usage_opencode.mjs"]
 MANIFEST = ".generated-files.json"
 DISCOVERY_SKILL = "skills/research-toolkit/SKILL.md"
+CODEX_HOOKS = "hooks/codex.json"
+WINDOWS_USAGE_COMMAND = (
+    'python -I -c "import os,runpy,sys; '
+    "root=os.getenv('PLUGIN_ROOT') or os.getenv('CLAUDE_PLUGIN_ROOT') or os.getenv('CODEX_PLUGIN_ROOT') or ''; "
+    "path=os.path.join(root,'scripts','usage_host.py'); (os.path.isabs(root) and os.path.isfile(path)) or sys.exit(0); "
+    "sys.path.insert(0,os.path.dirname(path)); runpy.run_path(path,run_name='__main__')\" --host auto"
+)
 
 
 def digest(content: bytes) -> str:
@@ -20,7 +27,7 @@ def digest(content: bytes) -> str:
 
 def managed_name(relative: str) -> bool:
     parts = PurePosixPath(relative).parts
-    return (relative in {"VERSION", "SKILL.md", "SKILL.zh-CN.md", "LICENSE", "requirements-mcp.txt", "scripts/usage_opencode.mjs", "hooks/hooks.json", DISCOVERY_SKILL}
+    return (relative in {"VERSION", "SKILL.md", "SKILL.zh-CN.md", "LICENSE", "requirements-mcp.txt", "scripts/usage_opencode.mjs", "hooks/hooks.json", CODEX_HOOKS, DISCOVERY_SKILL}
             or len(parts) == 2 and parts[0] in {"references", "docs", "scripts"}
             and parts[1] not in {".", ".."} and relative == "/".join(parts)
             and "\\" not in relative
@@ -52,6 +59,13 @@ def payload() -> dict[str, bytes]:
     if mcp.is_file():
         paths.extend([mcp, ROOT/"requirements-mcp.txt"])
     files = {path.relative_to(ROOT).as_posix(): path.read_bytes() for path in paths}
+    # Both Codex manifests select this variant. Claude discovers the shared default.
+    codex_hooks = json.loads(files["hooks/hooks.json"])
+    for groups in codex_hooks["hooks"].values():
+        for group in groups:
+            for handler in group["hooks"]:
+                handler["commandWindows"] = WINDOWS_USAGE_COMMAND
+    files[CODEX_HOOKS] = (json.dumps(codex_hooks, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
     skill = files["SKILL.md"].decode("utf-8").splitlines()
     if not skill or skill[0] != "---":
         raise ValueError("SKILL.md must start with YAML frontmatter")

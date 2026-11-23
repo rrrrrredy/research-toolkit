@@ -499,18 +499,32 @@ def check_shared_file(relative, text):
               r'''(?i)\b(?:password|passwd|pwd|client_secret|api_key)["']?\s*[:=]\s*["']?([^\s"'`,;]+)''',
               r'''(?i)\b(?:postgres(?:ql)?|mysql|mariadb|mongodb(?:\+srv)?|rediss?|mssql)://[^\s/:@]+:([^\s/@]+)@''']
 
+    def documented_assignment(match):
+        if "\n" in match[0]:
+            return False
+        prefix = text[text.rfind("\n", 0, match.start()) + 1:match.start()].strip()
+        label = prefix.rstrip("`")
+        ticks = prefix[len(label):]
+        if ticks and (not text.startswith(ticks, match.end()) or text.startswith("`", match.end() + len(ticks))):
+            return False
+        if re.fullmatch(r"(?:[-*] )?(?:field requirements?|字段要求)\s*[:：]\s*", label, re.I):
+            return bool(re.fullmatch(r"(?:api_key|client_secret|password|passwd|pwd)\s*:\s*(?:required|optional)",
+                                     match[0], re.I))
+        opening = re.fullmatch(r"(?:[-*] )?(?:(?:current )?working directory|(?:当前)?工作目录)\s*([(（])\s*",
+                               label, re.I)
+        if not opening or not match[0].lower().startswith("pwd"):
+            return False
+        closing = ")" if opening[1] == "(" else "）"
+        # A plain assignment captures the closing parenthesis; a code span ends before its backticks.
+        path = match[1] if ticks else match[1].rstrip(".").removesuffix(closing)
+        return (re.fullmatch(r"(?:/|[.]{1,2}/|~/|[a-z]:[\\/])[^\s@()（）]+", path, re.I) is not None
+                and text.startswith(ticks + closing, match.start(1) + len(path)))
+
     def assigned_secret(match):
+        if relative.suffix.lower() in {".md", ".markdown"} and documented_assignment(match):
+            return False
         # Keep clearly redacted values and variable references usable in reports.
         value = match.group(1).rstrip(".")
-        if relative.suffix.lower() in {".md", ".markdown"}:
-            prefix = text[text.rfind("\n", 0, match.start()) + 1:match.start()].strip()
-            if (re.fullmatch(r"(?:api_key|client_secret|password|passwd|pwd)\s*:\s*(?:required|optional)", match[0], re.I) and
-                    re.fullmatch(r"(?:[-*] )?(?:field requirements?|字段要求)\s*[:：]\s*", prefix, re.I)):
-                return False
-            if (match[0].lower().startswith("pwd") and "@" not in value and
-                    re.fullmatch(r"(?:/|[.]{1,2}/|~/|[a-z]:[\\/])[^\s()（）]+[)）]", value, re.I) and
-                    re.fullmatch(r"(?:[-*] )?(?:(?:current )?working directory|(?:当前)?工作目录)\s*[(（]", prefix, re.I)):
-                return False
         return not (value.lower() in {"", "redacted", "[redacted]", "<redacted>", "xxx", "xxxx"}
                     or re.fullmatch(r"<[^>]+>|\$\{[^}]+\}|\$[A-Za-z_][A-Za-z0-9_]*|%[A-Za-z_][A-Za-z0-9_]*%|\*+", value)
                     or re.fullmatch(r"(?:YOUR|EXAMPLE|PLACEHOLDER)_[A-Z0-9_]+", value))
