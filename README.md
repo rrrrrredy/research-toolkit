@@ -6,11 +6,43 @@
 
 **Develop long-form research in English or Chinese from a question or existing material, with concrete judgments and traceable sources.**
 
-Use it for long-form research and writing across fields, including industry, companies, technology, policy and science. Start a new study, revise an existing report against its sources, or update conclusions when new material arrives. Agents operate Toolkit to research, write and independently review; the report serves its specified readers and purpose. Toolkit connects methods, evidence and deliverables through one research entry and optional task tools.
+Use it to research a new question, revise a report against its sources, or update a conclusion when new evidence arrives. The methods apply across fields, including industry, companies, technology, policy and science.
 
-With the task tools, you can trace findings and revisions to their sources. The delivery check stops while a required issue remains open.
+In the Test-Time Compute study, the draft decision diagram allocated more computation without rechecking the result. The revision checks the result and the remaining budget before another round. [Read the case online](https://rrrrrredy.github.io/research-toolkit/#case) · [See the original revision](./evals/studies/2026-11-09-long-research/reports/test_time_compute_en/analysis/change-note-full-01.md)
 
-[**Choose an entry**](#which-should-i-use) · [Quick install](#quick-start) · [Request research](#usage) · [See a research case](#research-case) · [Documentation](#documentation)
+[**Quick start**](#quick-start) · [Choose an entry](#which-should-i-use) · [Research cases](#research-case) · [Documentation](#documentation)
+
+## Quick start
+
+Copy the request that fits your task and supply the details you know. If your agent cannot open the repository link, attach or paste `SKILL.md` and the references the task needs. You can use the methods without installing Python, MCP or the Skill.
+
+<a id="usage"></a>
+
+### Request research
+
+```text
+Use Research Toolkit (https://github.com/rrrrrredy/research-toolkit).
+Read SKILL.md. Research [question] or revise [draft and requested changes].
+Write for [readers and intended use]. Use [available sources and constraints].
+Deliver a complete report with usable citations. For a revision, add a brief change note.
+```
+
+### Review an existing draft
+
+```text
+Use Research Toolkit (https://github.com/rrrrrredy/research-toolkit).
+Read SKILL.md. Review the attached draft in a context separate from its author.
+Check it against the task requirements and available sources. Preserve the original draft.
+For each substantive issue, give its location, evidence, impact and smallest useful correction.
+```
+
+You can send the draft to a fresh session that did not write it. Toolkit includes the review methods. For a standalone installation, use [Research Review](https://github.com/rrrrrredy/research-review).
+
+### Install for repeat use
+
+[Download the compact release package](https://github.com/rrrrrredy/research-toolkit/releases/latest) and [verify and unpack it](./docs/installation-versioning.md#install-a-version-pinned-skill). Follow the project setup for [Codex](./agents/codex.md#install), [Claude Code](./agents/claude.md#install) or [another agent](./agents/README.md#choose-your-tool), then reopen the project. In Codex, select the project's `research-toolkit` Skill from `/skills`. In Claude Code, invoke `/research-toolkit`.
+
+For saved task state or delivery checks, see [optional local tool setup](./docs/quickstart.md#install-the-local-tools-optional).
 
 ## How does a study get done?
 
@@ -39,7 +71,7 @@ These are four connected responsibilities, not four fixed agents or four indepen
 
 | Your situation | What to use or install | How to start |
 | --- | --- | --- |
-| You want your existing agent to follow the research methods | **Skill**: read the methods directly, or install them for repeated use. The methods themselves need neither Python nor MCP; no usage recording is enabled on first use. | Send the request below; the agent reads methods as needed and uses its existing research and writing capabilities. |
+| You want your existing agent to follow the research methods | **Skill**: read the methods directly, or install them for repeated use. The methods themselves need neither Python nor MCP; no usage recording is enabled on first use. | Send a [research request](#usage). The agent uses the relevant methods with its existing research and writing capabilities. |
 | You want methods and task tools together, and your agent tool supports plugins | **Plugin**: installs the Skill and MCP together; local tools need Python 3.10+ and MCP dependencies. | Follow the [plugin instructions](./docs/usage-modes.md#install-the-plugin), reopen the session, select Toolkit and describe the research. |
 | You need saved task state, recovery and links between sources and drafts, and your agent tool supports local MCP | **MCP**: configure the local service and use the same Skill for methods. No separate MCP setup is needed if the plugin already supplies it. | Follow the [MCP setup](./docs/usage-modes.md#connect-mcp-separately); the agent calls `research_*` tools. |
 | You work in a terminal or script, or your agent tool has no MCP support | **CLI**: download the repository and use Python 3.10+; no MCP dependencies needed. | The agent reads the same Skill and invokes the same task tools through the [command line](./docs/usage-modes.md#skill-only-and-cli-fallback). |
@@ -51,36 +83,6 @@ For a first use, start directly with the Skill. Add task tools when persistent s
 [Research from scratch](./docs/conduct-research.md#research-from-scratch) · [Revise or update a report](./docs/conduct-research.md#revise-or-update-a-report) · [Install for your agent tool](./agents/README.md#choose-your-tool) · [Install a fixed Skill version](./docs/installation-versioning.md#install-a-version-pinned-skill)
 
 **What happens on first use?** You can read the methods directly. Usage recording is off by default. With task tools the agent can queue review work within the host’s available capacity, revise and verify the report, and deliver the complete result. See [usage data settings](./docs/usage-data.md) and [autonomous review](./docs/review-completion.md#run-the-review-and-revision-loop).
-
-## Quick start
-
-[Download the compact package and install it in your agent](docs/quickstart.md). Confirm that the host can load the `research-toolkit` Skill or list the local `research_*` tools for the route you chose.
-
-<a id="usage"></a>
-
-## Request research
-
-Describe your question or requested revision in your own words to an agent that can read the repository and sources. The example below is a starting point; you do not need to fill in undecided details. The agent uses existing context to propose an approach and clarifies only consequential gaps. You can start with the repository link; no setup for usage recording is required.
-
-```text
-Use Research Toolkit: https://github.com/rrrrrredy/research-toolkit
-Read SKILL.md and follow the methods needed for this task.
-
-I want to understand or resolve: [The question, or what to change in an existing report.]
-Report target readers and intended use: [Who will read the report and why, if known.]
-Material and explicit requirements: [Sources, scope, cutoff, format or length, if available.]
-
-Deliver a complete report that answers these questions with usable citations;
-include a short change note when revising.
-```
-
-[**Start research: one usage guide**](./docs/conduct-research.md)
-
-One method set supports long-form and in-depth research, revisions and updates. The request determines scope, length and depth; the agents load methods for their current work and complete independent review, audit and acceptance.
-
-**Only need to review an existing report?** Use the standalone [Research Review](https://github.com/rrrrrredy/research-review) Skill. Toolkit already includes these review capabilities; existing users do not need a second installation.
-
-Have a draft or new material? [Revise or update existing research](./docs/usage-modes.md#continue-existing-research), reusing completed research and its sources.
 
 ## Research case
 
@@ -104,7 +106,7 @@ The two language versions independently use each question’s frozen materials; 
 
 | How you want to use it | Entry |
 | --- | --- |
-| Read the methods directly | Send the request above; for files or text-only chats, see [agent setup](./agents/README.md#use-without-installation). |
+| Read the methods directly | Copy a [request above](#usage). For files or text-only chats, see [agent setup](./agents/README.md#use-without-installation). |
 | Install a Skill or plugin | [Choose your agent](./agents/README.md#choose-your-tool) · [Plugin installation](./docs/usage-modes.md#install-the-plugin) |
 | Save progress and call workflow tools | [MCP installation and client configuration](./docs/usage-modes.md#connect-mcp-separately) · [CLI](./docs/usage-modes.md#skill-only-and-cli-fallback) |
 | Try the local tools | [Runnable MCP example and captured responses](./examples/mcp/README.md); synthetic examples explain the interface, while real execution records retain their actual review scope. |

@@ -10,10 +10,10 @@
 
 可直接读取方法，也可按需安装 Skill 或 MCP。新安装默认关闭基础使用记录，已有开启或关闭设置继续生效。用户选择记录 Agent 会话时，按需配置项目 hooks。[使用数据与控制](usage-data.zh-CN.md)。
 
-- **仓库链接：**将[研究请求](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#使用)交给能读取 GitHub 的 Agent。
-- **文件或附件：**下载仓库，提供 `SKILL.md`，并按任务需要提供参考文件。
-- **粘贴文本：**粘贴完整入口指令与所需方法章节。见[纯聊天使用边界](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md#只能在聊天中使用时)。
-- **原生 Skill：**通过 Agent 工具支持的技能机制安装完整工具箱。见[Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。
+- **仓库链接**：将[研究请求](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#使用)交给能读取 GitHub 的 Agent。
+- **文件或附件**：下载仓库，提供 `SKILL.md`，并按任务需要提供参考文件。
+- **粘贴文本**：粘贴完整入口指令与所需方法章节。见[纯聊天使用边界](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md#只能在聊天中使用时)。
+- **原生 Skill**：通过 Agent 工具支持的技能机制安装完整工具箱。见[Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。
 
 读取和使用研究方法无须 Python 或特定厂商 CLI。Agent 使用 Agent 工具检索、访问文件，并组织下文规定的独立内容审阅、审计与验收。
 
