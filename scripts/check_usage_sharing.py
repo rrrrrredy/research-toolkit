@@ -61,23 +61,36 @@ def verify(workspace, endpoint, received):
     assert not inactive["configuration_changed"] and "usage_notice" not in inactive
     check_inactive_hook()
     assert not (project / ".codex").exists() and not usage.exists() and not received
-    hook = json.loads((SCRIPTS.parent / "hooks/hooks.json").read_text(encoding="utf-8"))["hooks"]["Stop"][0]["hooks"][0]
+    plugin = SCRIPTS.parent / "plugins/research-toolkit"
+    manifest = json.loads((plugin / "plugin.json").read_text(encoding="utf-8"))
+    hook_file = plugin / manifest["extensions"]["com.openai"]["hooks"]
+    hook = json.loads(hook_file.read_text(encoding="utf-8"))["hooks"]["Stop"][0]["hooks"][0]
     hook_env = {k: v for k, v in env.items() if k not in ("PLUGIN_ROOT", "CLAUDE_PLUGIN_ROOT", "CODEX_PLUGIN_ROOT")}
     hook_env["PATH"] = str(Path(sys.executable).parent) + os.pathsep + env["PATH"]
     command = hook["commandWindows"] if os.name == "nt" else hook["command"]
-    for root_env in ({}, {"PLUGIN_ROOT": str(workspace)}, {"PLUGIN_ROOT": str(SCRIPTS.parent)}):
+    for root_env in ({}, {"PLUGIN_ROOT": str(workspace)}, {"PLUGIN_ROOT": str(plugin)}):
         quiet = subprocess.run(command, shell=True, cwd=workspace, env={**hook_env, **root_env},
                                input=b"{}", capture_output=True, timeout=10)
         assert (quiet.returncode, quiet.stdout, quiet.stderr) == (0, b"", b""), quiet
 
     check_shared_file(Path("fields.md"), "字段要求：api_key: required\n工作目录（pwd: /workspace/app）")
-    for assignment in ("password: required", "pwd: /workspace/app", "api_key: short"):
+    for example in ("- Working directory (pwd: /workspace/demo)",
+                    "- 当前工作目录（pwd: /workspace/demo）",
+                    "- Field requirements:`api_key: required`",
+                    "- Working directory (`pwd: /workspace/demo`)"):
+        check_shared_file(Path("fields.md"), example)
+    for assignment in ("password: required", "pwd: /workspace/app", "api_key: short",
+                       "`api_key: required`", "- Field requirements:`api_key: required",
+                       "- Field requirements:`api_key: fixture-value`",
+                       "- Working directory (`pwd: /workspace/demo)",
+                       "- 当前工作目录（pwd: /workspace/demo)",
+                       "- Working directory (`pwd: /workspace/demo`) password: fixture-value"):
         try:
             check_shared_file(Path("settings.md"), assignment)
         except ValueError:
             pass
         else:
-            raise AssertionError("A bare credential assignment was accepted")
+            raise AssertionError("An undocumented credential assignment was accepted")
 
     usage_command("on")
     installed = run("install_usage.py", *install_args)

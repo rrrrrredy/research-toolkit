@@ -17,8 +17,15 @@ from run_observation import now
 
 MAX_BYTES = 4 * 1024 * 1024
 SOURCE_TYPES = {"official_release", "release_notes", "changelog"}
-DATE = re.compile(r"^(\d{4})(?:年|-)(\d{1,2})(?:月|-)(\d{1,2})日?$")
-VERSION = re.compile(r"(?<![\w.])v?(\d+\.\d+(?:\.\d+)*(?:[-+][\w.-]+)?)(?![\w.])")
+DATE_LABEL = r"\d{4}[年-]\d{1,2}[月-]\d{1,2}日?"
+VERSION_NUMBER = r"\d+(?:\.\d+)+(?:[-+][\w.-]+)?"
+VERSION = re.compile(rf"(?<![\w.])v?({VERSION_NUMBER})(?![\w.])")
+VERSION_LABEL = rf"(?:v?{VERSION_NUMBER}|\[v?{VERSION_NUMBER}\](?:\((?!#)[^\s()]+\))?)"
+SINGLE_LINE_HEADINGS = (
+    re.compile(rf"(?P<title>{VERSION_LABEL})\s*[-–—]\s*(?P<date>{DATE_LABEL})"),
+    re.compile(rf"(?P<title>{VERSION_LABEL})\s*\((?P<date>{DATE_LABEL})\)"),
+    re.compile(rf"(?P<date>{DATE_LABEL})(?:\s*[-–—]\s*|\s+)(?P<title>{VERSION_LABEL})"),
+)
 
 
 class NoRedirect(HTTPRedirectHandler):
@@ -98,34 +105,50 @@ def fetch_log(url):
 
 
 def release_entries(text):
-    """Support date headings followed by a version, including saved web text."""
+    """Read dated version headings and legacy date/title pairs from saved or fetched text."""
     if re.search(r"<!doctype html|<html\b", text, re.I):
         text = extract_html(text.encode("utf-8"), encoding="utf-8", omit_page_chrome=True)["text"]
     if re.search(r"^L\d+:", text, re.M):
         text = re.sub(r"\bL\d+:\s*", "\n", text)
     text = re.sub(r"\ue200.*?\ue201|\[href: [^\]]*\]", "", text)
-    lines = []
+    lines, headings = [], []
     for line in text.splitlines():
-        line = re.sub(r"^[\s#>*-]+", "", line.replace("\u200b", "")).strip()
-        line = " ".join(line.split())
-        if line:
-            lines.append(line)
-    headings = [(i, DATE.fullmatch(line)) for i, line in enumerate(lines) if DATE.fullmatch(line)]
+        raw = line.replace("\u200b", "")
+        line = " ".join(re.sub(r"^[\s#>*-]+", "", raw).split())
+        if not line:
+            continue
+        if re.fullmatch(DATE_LABEL, line):
+            headings.append((len(lines), line, None))
+        else:
+            # Keep list markers on possible one-line headings so a table of contents stays a list.
+            candidate = raw.lstrip(" \t#>").strip()
+            for pattern in SINGLE_LINE_HEADINGS:
+                if match := pattern.fullmatch(candidate):
+                    headings.append((len(lines), match["date"], match["title"]))
+                    break
+        lines.append(line)
     entries = {}
-    for index, (start, match) in enumerate(headings):
+    for index, (start, date_raw, inline_title) in enumerate(headings):
+        if not re.fullmatch(r"\d{4}-\d{1,2}-\d{1,2}|\d{4}年\d{1,2}月\d{1,2}日?", date_raw):
+            raise ValueError(f"Invalid release date {date_raw!r}; use YYYY-MM-DD or YYYY年MM月DD日.")
+        published = date(*map(int, re.findall(r"\d+", date_raw))).isoformat()
         end = headings[index + 1][0] if index + 1 < len(headings) else len(lines)
         block = lines[start + 1:end]
-        version = VERSION.search(block[0]) if block else None
-        if not version or len(block) < 2:
+        title = inline_title or (block[0] if block else "")
+        content = block if inline_title else block[1:]
+        version = VERSION.search(title)
+        if not version or not content or (inline_title and all(
+                re.fullmatch(r"\[[^\]]+\]:\s*\S.*|\[[^\]]+\]\(#[^)]*\)", row) for row in content)):
             raise ValueError(f"Unrecognized release entry after {lines[start]}; expected version and body.")
-        published = date(*(int(part) for part in match.groups())).isoformat()
         key = (published, version[1])
         if key in entries:
             raise ValueError(f"Duplicate release date/version: {key}.")
-        entries[key] = {"date": published, "date_raw": lines[start], "version": version[1],
-                        "title": block[0], "content": block[1:]}
+        entries[key] = {"date": published, "date_raw": date_raw, "version": version[1],
+                        "title": title, "content": content}
     if not entries:
-        raise ValueError("No dated release entries found; expected YYYY-MM-DD or YYYY年MM月DD日 followed by a version and body. Login/JavaScript-only pages are unsupported.")
+        raise ValueError("No dated release entries found; use a date and version on one heading "
+                         "(e.g. ## [3.1.2] - 2026-11-23), or YYYY-MM-DD / YYYY年MM月DD日 on its own "
+                         "line followed by a version. Each entry needs a nonempty body.")
     return entries
 
 

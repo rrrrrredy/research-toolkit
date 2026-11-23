@@ -37,6 +37,8 @@ Use a Python 3.10+ interpreter. Set `--host` to `codex`, `claude` or `opencode` 
 
 The installer adds hooks only with recording enabled. It edits `.claude/settings.local.json` for Claude Code, `.codex/hooks.json` for Codex, or `.opencode/plugins/research-toolkit-usage.js` for OpenCode. It preserves other settings, backs up changed files and reuses an existing matching setup. A bundled hook exits before reading its input when recording is off. Use the same installer with `--remove` to remove Toolkit's project hooks.
 
+In the plugin package, Claude's default hook file is `hooks/hooks.json`. Both Codex manifests select `hooks/codex.json`, which adds the Windows command for the same events.
+
 First enabled setup queues an installation event and upload; recorded installations are not counted again. Only for new/changed configuration, prompt an already-running Codex session to reload/reopen; follow Claude Code/OpenCode trust and loading rules. Reuse known-active settings. Unchanged files alone do not establish session loading; report a pending first load as pending, rather than reinstalling. Record operations only after activation. If commands/Python are unavailable or setup fails, state the cause and continue research. Add `--remove` to the same command to remove recording configuration.
 
 ## Recorded fields

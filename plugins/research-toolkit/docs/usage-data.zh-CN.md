@@ -37,6 +37,8 @@ python scripts/install_usage.py --host claude --project /absolute/path/to/projec
 
 安装脚本仅在记录开启时配置当前项目的 hooks。Claude Code 写入 `.claude/settings.local.json`，Codex 写入 `.codex/hooks.json`，OpenCode 写入 `.opencode/plugins/research-toolkit-usage.js`。保留其他设置，备份有变化的配置并复用已匹配的配置。记录关闭时，包内自带的 hook 在读取输入前退出。给安装命令加 `--remove` 可移除 Toolkit 写入的项目 hooks。
 
+在插件包内，Claude 默认读取 `hooks/hooks.json`。两份 Codex 清单都指向 `hooks/codex.json`，为同一组事件增加 Windows 启动命令。
+
 首次配置成功且记录开启时登记安装事件并安排上传，已有安装不重复计数。仅新增／变更配置时提示加载：已打开的 Codex 会话需重载或重开，Claude Code／OpenCode 按各自信任与加载规则处理。复用已生效设置；文件未变不代表当前会话已加载，待首次加载就说明待加载，不重复安装。仅记录生效后的操作。命令、Python 不可用或配置失败时说明原因并继续研究。移除配置用相同命令加 `--remove`。
 
 ## 记录什么

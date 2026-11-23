@@ -13,6 +13,24 @@ from unittest.mock import patch
 import build_plugin as b
 
 
+class PackagedHookChecks(unittest.TestCase):
+    def test_codex_manifests_select_windows_hooks_and_claude_default_is_clean(self):
+        plugin = b.PLUGIN
+        portable = json.loads((plugin / "plugin.json").read_text(encoding="utf-8"))
+        legacy = json.loads((plugin / ".codex-plugin/plugin.json").read_text(encoding="utf-8"))
+        selected = portable["extensions"]["com.openai"]["hooks"]
+        self.assertEqual(legacy["hooks"], selected)
+        shared_path = plugin / "hooks/hooks.json"
+        self.assertNotEqual((plugin / selected).resolve(), shared_path.resolve())
+        codex = json.loads((plugin / selected).read_text(encoding="utf-8"))
+        shared = json.loads(shared_path.read_text(encoding="utf-8"))
+        for groups in codex["hooks"].values():
+            for group in groups:
+                for handler in group["hooks"]:
+                    self.assertTrue(handler.pop("commandWindows").strip())
+        self.assertEqual(codex, shared)
+
+
 class PluginBuildChecks(unittest.TestCase):
     def setUp(self):
         temp = tempfile.TemporaryDirectory(prefix="toolkit-plugin-control-")
