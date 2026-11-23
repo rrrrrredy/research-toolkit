@@ -104,7 +104,7 @@ state/final_delivery.json    # finish 为已验收的最终交付生成
 
 以下复用[八家公司管线研究](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/repairs/2026-10-13-pipeline-complete)中已取得的材料，示范其中一个问题的展开。该研究的[首次审阅 F02](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/reviews/01-review.json)指出：提到容器、轨迹和部署配置，仍不足以解释 Serving 在 Agent 任务中的变化。
 
-**用户问题（据原任务归纳）：**Agent 出现后，Serving 的侧重点发生什么变化？公司的具体设计怎样体现这些变化及其取舍？
+**用户问题（据原任务归纳）**：Agent 出现后，Serving 的侧重点发生什么变化？公司的具体设计怎样体现这些变化及其取舍？
 
 **可用于回答的已有证据：**
 
@@ -114,7 +114,7 @@ state/final_delivery.json    # finish 为已验收的最终交付生成
 | [Seed2.0 模型卡 §1–2](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s07)将不同规格定位于复杂推理、通用应用或高吞吐低延迟负荷。 | 用于比较通过选择模型规格适配负荷的设计，不把官方定位当作跨公司实测排名。 |
 | [2025 年 5 月 Codex 系统卡首页](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s01)描述装有仓库和开发依赖的独立容器，以及其中的文件修改、命令执行和结果交付。 | 用于说明完整任务还包含模型生成之外的执行环节；不代表当前所有 Codex 形态。 |
 
-**如何形成论证：**前两项支持比较模型调用层面的计算选择，第三项提供任务执行层面的具体实例。综合分析说明，研究这些已记载的设计时，为什么还要考察完整任务的质量、时间与成本。跨公司的效果估计需要共同任务下的测量；判断早期系统中的工具或状态管理情况，需要相应系统的历史记录。
+**如何形成论证**：前两项支持比较模型调用层面的计算选择，第三项提供任务执行层面的具体实例。综合分析说明，研究这些已记载的设计时，为什么还要考察完整任务的质量、时间与成本。跨公司的效果估计需要共同任务下的测量；判断早期系统中的工具或状态管理情况，需要相应系统的历史记录。
 
 **可写入正文的示范：**
 

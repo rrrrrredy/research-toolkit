@@ -6,6 +6,7 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from html.parser import HTMLParser
+from itertools import groupby
 import json
 import os
 from pathlib import Path
@@ -17,6 +18,55 @@ from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
 from build_site import BASE, DESCRIPTIONS, DOCS, PAIRS, ROOT, url, markdown_path
+from research_workflow import prose_lines
+
+
+def markdown_source_errors(source):
+    """Check the two Markdown forms that lose formatting on GitHub."""
+    if '：**' not in source and '<!-- current-review -->' not in source:
+        return []
+    # Reuse the same block-code rules inside quoted prose as in the outer document.
+    quote = re.compile(r'^(?: {0,3}>[ \t]?)+')
+    lines = []
+    for quoted, block in groupby(prose_lines(source), key=lambda line: bool(quote.match(line))):
+        if quoted:
+            block = prose_lines(''.join(quote.sub('', line, count=1) for line in block))
+        lines.extend(block)
+    prose = ''.join(lines)
+
+    def mask(match):
+        return re.sub(r'[^\n]+', '·', match[0])
+
+    # Keep line numbers and keep literal examples from joining adjacent prose.
+    prose = re.sub(r'<!--(?! /?current-review -->).*?-->|<(pre|code)\b[^>]*>.*?</\1>',
+                   mask, prose, flags=re.I | re.S)
+    code_span = r'(?<![\\`])(`+)(?!`).*?(?<!`)\1(?!`)'
+    paragraphs = re.split(r'(\n[ \t]*\n)', prose)
+    prose = ''.join(re.sub(code_span, mask, part, flags=re.S) for part in paragraphs)
+
+    label = re.compile(r'(?<![\w*\\])\*\*([\w（(][\w （）()-]*)：\*\*(?=[^\W\d_])')
+    review_link = re.compile(r'^ {0,3}<!-- current-review -->.*?<!-- /current-review -->'
+                             r'.*?(?<!\\)\[[^\]]+\]\([^\s)]+')
+    errors = []
+    for number, line in enumerate(prose.splitlines(), 1):
+        for match in label.finditer(line):
+            errors.append((number, f'move the colon outside the bold label: **{match[1]}**：'))
+        if review_link.search(line):
+            errors.append((number, 'start a new paragraph for the link after the current-review marker'))
+    return errors
+
+
+def maintained_markdown():
+    patterns = ('*.md', '.github/*.md', 'agents/**/*.md', 'references/**/*.md',
+                'templates/**/*.md', 'examples/**/README*.md', 'docs/**/*.md')
+    for pattern in patterns:
+        for path in sorted(ROOT.glob(pattern)):
+            section = path.relative_to(ROOT).parts[:2]
+            if section == ('docs', 'markdown'):
+                continue  # Generated from the published pages.
+            if section == ('docs', 'case-study') and not path.name.startswith('README'):
+                continue  # Preserve the original reports, reviews and execution records.
+            yield path
 
 class Page(HTMLParser):
     def __init__(self, source):
@@ -93,6 +143,9 @@ def local_target(path, href):
 
 def local_checks():
     errors=[]; pages={}; links=0
+    for path in maintained_markdown():
+        for number, message in markdown_source_errors(path.read_text(encoding='utf-8-sig')):
+            errors.append(f'{path.relative_to(ROOT).as_posix()}:{number}: {message}')
     actual={p.relative_to(DOCS).as_posix() for p in DOCS.rglob('*.html') if not any(part.startswith('_') for part in p.relative_to(DOCS).parts)}
     if actual!=set(DESCRIPTIONS): errors.append('HTML inventory differs from metadata manifest: '+str(actual^set(DESCRIPTIONS)))
     for path in sorted(actual):
@@ -217,7 +270,17 @@ def self_test():
     for changed in mutations:
         if not metadata_errors('index.html',Page(changed)): raise ValueError('Mutation fixture was not detected')
     if local_target('framework.html','missing-page.html')[0].exists(): raise ValueError('Missing-link fixture unexpectedly exists')
-    print('PASS: malformed title, canonical, language, hreflang and parameter fixtures rejected.')
+    source_markdown = (
+        "**开始研究：**使用指南。\n"
+        "<!-- current-review -->Rule.<!-- /current-review --> See [guide](guide.md).\n\n"
+        "**开始研究**：使用指南。[**在线阅读全文**](guide.md) **标签：** 后有空格。\n"
+        "| <!-- current-review -->Rule.<!-- /current-review --> [guide](guide.md) |\n\n"
+        "``示例 ` **标签：**正文\n仍在代码中`` 和 \\*\\*标签：\\*\\*正文。\n\n"
+        "    **标签：**正文\n\n~~~markdown\n**标签：**正文\n~~~\n"
+    )
+    if [line for line, _ in markdown_source_errors(source_markdown)] != [1, 2]:
+        raise ValueError('Expected only the unrendered label and review link in Markdown prose')
+    print('PASS: site metadata and GitHub Markdown regression checks.')
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)

@@ -6,7 +6,7 @@
 
 [规范入口](../SKILL.md)与[中文阅读版](../SKILL.zh-CN.md)指向各研究阶段需要的方法。原生 Skill 安装是可选方式；可调用的执行工具见[插件与 MCP 配置](../docs/usage-modes.zh-CN.md)。
 
-**开始研究：**使用[完整研究指南](../docs/conduct-research.zh-CN.md)和统一方法，按需求展开研究。可直接读取方法，MCP 按需安装。已有稿件可[接续、修订或更新](../docs/usage-modes.zh-CN.md#接续已有研究)。
+**开始研究**：使用[完整研究指南](../docs/conduct-research.zh-CN.md)和统一方法，按需求展开研究。可直接读取方法，MCP 按需安装。已有稿件可[接续、修订或更新](../docs/usage-modes.zh-CN.md#接续已有研究)。
 
 
 可直接读取方法，也可按需安装 Skill 或 MCP。新安装默认关闭基础使用记录，已有开启或关闭设置继续生效。Codex、Claude Code、OpenCode 的项目 hooks 在用户选择开启记录后按需配置。[使用数据与控制](../docs/usage-data.zh-CN.md)。
@@ -29,7 +29,9 @@
 
 在 Codex、Claude Code 等 Agent 工具中，直接使用其子 Agent 工具完成研究、统稿和独立审阅，无需另配 API。按[共同交接方法](../references/subagents-and-review-loop.zh-CN.md)提供当前要求、有边界的问题和可读原件，保留完整贡献及实际执行 Agent 的身份。
 
-<!-- current-review -->三个独立的非作者评审组覆盖七个内容视角。<!-- /current-review -->另做相关领域专审、独立审计和单独的就绪评估。按宿主当前可用的工作名额分批执行。由 CLI／MCP 管理任务时，`review` 准备并记录这些工作，`finish` 在当前报告通过独立最终复查后记录交付完成。[审阅指南](../docs/review-completion.zh-CN.md)。
+<!-- current-review -->三个独立的非作者评审组覆盖七个内容视角。<!-- /current-review -->
+
+另做相关领域专审、独立审计和单独的就绪评估。按宿主当前可用的工作名额分批执行。由 CLI／MCP 管理任务时，`review` 准备并记录这些工作，`finish` 在当前报告通过独立最终复查后记录交付完成。[审阅指南](../docs/review-completion.zh-CN.md)。
 
 没有子 Agent 或文件能力的聊天界面仍可帮助阅读、分析和起草。独立工作需交给其他可用的新会话，提供完整任务、报告和依据；保留或导出有效要求、原件、现稿和未完成工作供接续。在独立职责完成前，成果保持进行中，不用作者自评代替。
 

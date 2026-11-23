@@ -6,11 +6,42 @@
 
 **从研究问题或已有材料出发，完成中英文长研究与写作，交付判断具体、来源可查的报告。**
 
-面向行业、公司、技术、政策、科学等多领域的长研究与长文写作。可以从零开展研究，对照来源修订已有报告，也可以在新资料到来后更新判断。Codex、Claude Code 等工具中的 Agent 直接操作 Toolkit，负责研究、写作和独立审阅；报告服务于任务指定的实际读者与用途。Toolkit 用统一入口、研究方法与可选任务工具连接材料、协作和成果。
+可以从零研究，对照来源修订现稿，或随新证据更新判断。适用于行业、公司、技术、政策和科学等领域。
 
-使用任务工具时，可以查到问题在哪一段、依据是哪份原文、后来怎么改。必要问题还没解决，工具会拦住交付。
+微短剧报告初稿用应用端增长来说明已有观众正在改变观看入口。审阅发现两组数据的时期和统计口径不同，成稿把渠道迁移保留为一种可能解释。[在线阅读案例](https://rrrrrredy.github.io/research-toolkit/index.zh-CN.html#case) · [查看原始修订](./evals/studies/2026-11-09-long-research/reports/microdrama_market_zh/analysis/change-note-full-01.md)
 
-[**选用与安装**](#选哪一种) · [快速安装](#快速开始) · [提出研究需求](#使用) · [看研究案例](#研究案例) · [文档](#文档)
+[**快速开始**](#快速开始) · [选哪一种](#选哪一种) · [研究案例](#研究案例) · [文档](#文档)
+
+## 快速开始
+
+选一条请求复制给 Agent，补上已经确定的信息。如果它打不开仓库链接，就附上或粘贴 `SKILL.md` 和本次需要的参考文件。直接读取研究方法无需安装 Skill、Python 或 MCP。
+
+<a id="使用"></a>
+
+### 提出研究需求
+
+```text
+使用 Research Toolkit（https://github.com/rrrrrredy/research-toolkit），先读 SKILL.md。
+请研究[问题]，或按[修改要求]修订随附初稿。
+报告给[读者]用于[用途]。请使用随附来源，并遵循我给出的范围、截止日期或篇幅要求。
+交付一份引用可查的完整报告。修订已有稿件时，附简要变化说明。
+```
+
+### 只审阅现稿
+
+```text
+使用 Research Toolkit（https://github.com/rrrrrredy/research-toolkit），先读 SKILL.md。
+请用独立于作者的上下文审阅随附初稿，对照任务要求和可用来源，保留原稿。
+对每个影响报告使用的问题，给出原文位置、证据、影响和最小修改建议。
+```
+
+可以把初稿交给未参与起草的新会话。Toolkit 已包含审阅方法。如需单独安装审阅技能，可用 [Research Review](https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md)。
+
+### 安装后重复使用
+
+[下载精简发布包](https://github.com/rrrrrredy/research-toolkit/releases/latest)，[核对校验和并解压](./docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)。按 [Codex](./agents/codex.zh-CN.md#安装)、[Claude Code](./agents/claude.zh-CN.md#安装) 或[其他 Agent](./agents/README.zh-CN.md#选择工具) 的指南安装，再重新打开项目。在 Codex 的 `/skills` 里选中项目内的 `research-toolkit` 技能，在 Claude Code 中调用 `/research-toolkit`。
+
+需要保存任务状态或检查交付条件时，见[可选的本地工具配置](./docs/quickstart.zh-CN.md#安装本地工具可选)。
 
 ## 一项研究怎样完成？
 
@@ -39,7 +70,7 @@
 
 | 你的情况 | 用什么、装什么 | 怎样开始 |
 | --- | --- | --- |
-| 希望已有 Agent 按方法完成研究 | **Skill**：直接读取研究方法，或安装后重复使用。方法本身不依赖 Python 或 MCP；首次使用默认关闭使用记录。 | 发送下方研究请求，让 Agent 按需读取方法，用已有能力检索、分析和写作。 |
+| 希望已有 Agent 按方法完成研究 | **Skill**：直接读取研究方法，或安装后重复使用。方法本身不依赖 Python 或 MCP；首次使用默认关闭使用记录。 | 发送[研究请求](#使用)，让 Agent 按需读取方法，用已有能力检索、分析和写作。 |
 | 希望方法与任务工具一起接入，Agent 工具支持插件 | **插件**：一次安装包含 Skill 和 MCP；本地工具需要 Python 3.10+ 及 MCP 依赖。 | 按[插件说明](./docs/usage-modes.zh-CN.md#安装插件)安装，重开会话、选用 Toolkit 后提出研究需求。 |
 | 需要保存任务状态、恢复工作、关联来源和稿件，Agent 工具支持本地 MCP | **MCP**：配置本地服务；方法仍读同一份 Skill。已有插件时不必重复配置。 | 按[MCP 配置](./docs/usage-modes.zh-CN.md#单独接入-mcp)接入，由 Agent 调用 `research_*` 工具。 |
 | 在终端或脚本中工作，或 Agent 工具没有 MCP | **CLI**：下载仓库，使用 Python 3.10+；无需 MCP 依赖。 | Agent 读取同一份 Skill，用[命令行](./docs/usage-modes.zh-CN.md#只用-skill或使用-cli)调用相同的任务工具。 |
@@ -51,35 +82,6 @@
 [从零做一项研究](./docs/conduct-research.zh-CN.md#从零研究的步骤) · [修订或更新已有报告](./docs/conduct-research.zh-CN.md#修订或更新已有报告) · [按所用工具安装](./agents/README.zh-CN.md#选择工具) · [安装固定版本的 Skill](./docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)
 
 **首次使用会做什么？** 可以直接读研究方法。使用记录默认关闭。接入任务工具后，Agent 可以按宿主能提供的并发名额排队，自行审计、改稿和复查，通过独立复查后直接交付成稿。见[使用数据设置](./docs/usage-data.zh-CN.md)和[自动审阅和改稿](./docs/review-completion.zh-CN.md#自动运行审阅和改稿)。
-
-## 快速开始
-
-[下载精简发布包并按宿主安装](docs/quickstart.zh-CN.md)。在宿主中看到 `research-toolkit` 技能或本地 `research_*` 工具即完成对应安装。
-
-<a id="使用"></a>
-
-## 提出研究需求
-
-用自己的话向能读取仓库和来源材料的 Agent 提出问题或修改要求。下面是可用的起点，不必填写尚未确定的细节；Agent 利用已有背景提出做法，只澄清会改变成果的重要缺项。可以直接发送仓库链接，使用记录默认关闭。
-
-```text
-使用 Research Toolkit：https://github.com/rrrrrredy/research-toolkit
-先阅读 SKILL.md，按本次任务需要使用相关方法。
-
-我想了解或解决：[研究问题，或已有报告需要修改的内容。]
-报告目标读者与用途：[谁会阅读报告、用来做什么，如已知。]
-已有材料和明确要求：[如有，提供材料、范围、截止日、格式或篇幅。]
-
-交付能回答上述问题的完整报告和可用引用；修订时附简短变化说明。
-```
-
-[**开始研究：统一使用指南**](./docs/conduct-research.zh-CN.md)
-
-同一套方法支持长文、深度研究、修订与更新。研究范围、篇幅和深度由需求决定，各 Agent 按工作需要读取方法，完成独立审阅、审计和验收。
-
-**只想审查一份现成报告？** 使用独立 Skill [Research Review](https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md)。Toolkit 已包含相应审查能力，现有用户无需重复安装。
-
-已有稿件或新材料？直接[修订或更新已有研究](./docs/usage-modes.zh-CN.md#接续已有研究)，复用已完成的研究与来源。
 
 ## 研究案例
 
@@ -103,7 +105,7 @@
 
 | 使用方式 | 入口 |
 | --- | --- |
-| 直接读取方法 | 发送上面的请求；使用附件或纯文本时，见 [Agent 接入说明](./agents/README.zh-CN.md#直接读取使用)。 |
+| 直接读取方法 | 复制[上方请求](#使用)。使用附件或纯文本时，见 [Agent 接入说明](./agents/README.zh-CN.md#直接读取使用)。 |
 | 安装 Skill 或插件 | [选择你的 Agent](./agents/README.zh-CN.md#选择工具) · [插件安装](./docs/usage-modes.zh-CN.md#安装插件) |
 | 保存进度并调用执行工具 | [MCP 安装与客户端配置](./docs/usage-modes.zh-CN.md#单独接入-mcp) · [CLI](./docs/usage-modes.zh-CN.md#只用-skill或使用-cli) |
 | 体验本地工具 | [可运行的 MCP 示例与实际返回](./examples/mcp/README.zh-CN.md)；合成示例说明接口，真实运行记录保留实际审阅范围。 |

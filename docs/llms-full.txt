@@ -35,7 +35,9 @@ Use sources for what they can establish. Distinguish facts, source claims, inter
 
 Write progressively, retaining each contribution's reasoning and support. The assembler reads the full contributions and relevant originals, aligns definitions and connects the parts into a complete argument. A completion message or compressed handoff is not a substitute for reading that material. Review the assembled report as a whole; author checks prepare the draft but do not replace independent review.
 
-<!-- current-review -->Three independent non-author review groups cover seven content perspectives.<!-- /current-review --> See the [role assignments](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.md#assign-work-by-perspective). Add relevant specialist review. Respect available worker slots and continue queued assignments as slots open. An independent auditor adjudicates the findings against original evidence. A separate agent first checks the complete current report independently, then reconciles its findings with the audit and actual fixes. Seek a fresh check for a consequential unresolved disagreement. Keep the actual replies and failures, and repair necessary findings in the report itself.
+<!-- current-review -->Three independent non-author review groups cover seven content perspectives.<!-- /current-review -->
+
+See the [role assignments](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.md#assign-work-by-perspective). Add relevant specialist review. Respect available worker slots and continue queued assignments as slots open. An independent auditor adjudicates the findings against original evidence. A separate agent first checks the complete current report independently, then reconciles its findings with the audit and actual fixes. Seek a fresh check for a consequential unresolved disagreement. Keep the actual replies and failures, and repair necessary findings in the report itself.
 
 ## Load the relevant method
 
@@ -95,7 +97,9 @@ description: "用于有来源依据的中英文多领域长研究与长文写作
 
 逐步成稿，保留各项成果的推理与依据。统稿者阅读完整成果及相关原件，统一口径，把各部分组织成完整论证；完成通知或压缩交接不能代替这些阅读。组稿后通读全文，作者自检用于准备稿件，不能代替独立审阅。
 
-<!-- current-review -->三个独立的非作者评审组覆盖七个内容视角。<!-- /current-review --> 见[角色分工](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.zh-CN.md#按视角分工)，按需加领域专审。按宿主空位派工，收回一份结果就继续待做工作。独立审计者用原始证据裁定意见。另一个 Agent 先独立检查当前完整稿件，再与审计意见和实际改动对照。会改变结论的争议仍未解决时，另开上下文核查。保留原始回复和失败尝试，把必要修正落实到正文。
+<!-- current-review -->三个独立的非作者评审组覆盖七个内容视角。<!-- /current-review -->
+
+见[角色分工](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/references/subagents-and-review-loop.zh-CN.md#按视角分工)，按需加领域专审。按宿主空位派工，收回一份结果就继续待做工作。独立审计者用原始证据裁定意见。另一个 Agent 先独立检查当前完整稿件，再与审计意见和实际改动对照。会改变结论的争议仍未解决时，另开上下文核查。保留原始回复和失败尝试，把必要修正落实到正文。
 
 ## 按当前工作读取方法
 
@@ -242,7 +246,9 @@ The same sources serve lead agents, research workers, assembling agents and revi
 
 ## Review and acceptance
 
-<!-- current-review -->Three independent non-author review groups cover seven content perspectives.<!-- /current-review --> See the [review contract](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.md#conduct-the-independent-work). Add domain specialists as needed. A separate auditor checks substantive reviews, consequential findings and passed-content samples. On the first final check, a separate Agent makes an independent assessment of the current full report before seeing earlier verdicts, then checks the audit and actual corrections. The Agent delivers the report when the final check passes.
+<!-- current-review -->Three independent non-author review groups cover seven content perspectives.<!-- /current-review -->
+
+See the [review contract](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.md#conduct-the-independent-work). Add domain specialists as needed. A separate auditor checks substantive reviews, consequential findings and passed-content samples. On the first final check, a separate Agent makes an independent assessment of the current full report before seeing earlier verdicts, then checks the audit and actual corrections. The Agent delivers the report when the final check passes.
 
 The auditor selects samples from the whole actual report and original inputs. Decisive requirements, claims, figures, sources, counter-evidence and consequential decisions are checked fully; other selections have reasons and locations. Problems lead to follow-up on the same source, measure, branch or transformation. This work belongs to audit and acceptance, without another sampling role.
 
@@ -335,7 +341,9 @@ Agent 使用 Research Toolkit 开展中英文、多领域长研究与研究写�
 
 ## 审阅与验收
 
-<!-- current-review -->三个独立的非作者评审组覆盖七个内容视角。<!-- /current-review -->按需加领域专审。具体分工见[审阅契约](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.zh-CN.md#执行独立工作)。独立审计者核对实质审阅、重要发现及已通过内容的样本。首次最终复查时，另一位独立 Agent 先对当前全文作出判断，再核对审计和实际修订。通过后直接交付成稿。
+<!-- current-review -->三个独立的非作者评审组覆盖七个内容视角。<!-- /current-review -->
+
+按需加领域专审。具体分工见[审阅契约](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/review-completion.zh-CN.md#执行独立工作)。独立审计者核对实质审阅、重要发现及已通过内容的样本。首次最终复查时，另一位独立 Agent 先对当前全文作出判断，再核对审计和实际修订。通过后直接交付成稿。
 
 审计者从实际全文与原始输入选择样本。关键要求、决定性主张、数字、引用、反证及重要处置全部核查；其他抽查有原因和位置。发现问题，沿同源、同指标、同支线或同种改写继续查清。抽查属于审计和验收，不另设一层角色。
 
@@ -1019,7 +1027,7 @@ state/final_delivery.json    # finish 为已验收的最终交付生成
 
 以下复用[八家公司管线研究](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/repairs/2026-10-13-pipeline-complete)中已取得的材料，示范其中一个问题的展开。该研究的[首次审阅 F02](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/reviews/01-review.json)指出：提到容器、轨迹和部署配置，仍不足以解释 Serving 在 Agent 任务中的变化。
 
-**用户问题（据原任务归纳）：**Agent 出现后，Serving 的侧重点发生什么变化？公司的具体设计怎样体现这些变化及其取舍？
+**用户问题（据原任务归纳）**：Agent 出现后，Serving 的侧重点发生什么变化？公司的具体设计怎样体现这些变化及其取舍？
 
 **可用于回答的已有证据：**
 
@@ -1029,7 +1037,7 @@ state/final_delivery.json    # finish 为已验收的最终交付生成
 | [Seed2.0 模型卡 §1–2](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s07)将不同规格定位于复杂推理、通用应用或高吞吐低延迟负荷。 | 用于比较通过选择模型规格适配负荷的设计，不把官方定位当作跨公司实测排名。 |
 | [2025 年 5 月 Codex 系统卡首页](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s01)描述装有仓库和开发依赖的独立容器，以及其中的文件修改、命令执行和结果交付。 | 用于说明完整任务还包含模型生成之外的执行环节；不代表当前所有 Codex 形态。 |
 
-**如何形成论证：**前两项支持比较模型调用层面的计算选择，第三项提供任务执行层面的具体实例。综合分析说明，研究这些已记载的设计时，为什么还要考察完整任务的质量、时间与成本。跨公司的效果估计需要共同任务下的测量；判断早期系统中的工具或状态管理情况，需要相应系统的历史记录。
+**如何形成论证**：前两项支持比较模型调用层面的计算选择，第三项提供任务执行层面的具体实例。综合分析说明，研究这些已记载的设计时，为什么还要考察完整任务的质量、时间与成本。跨公司的效果估计需要共同任务下的测量；判断早期系统中的工具或状态管理情况，需要相应系统的历史记录。
 
 **可写入正文的示范：**
 
