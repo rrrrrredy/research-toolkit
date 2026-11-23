@@ -5,6 +5,7 @@ from __future__ import annotations
 
 from check_review_completion import content_review_rows, inspect_review_completion
 from record_changes import repeated_text_positions
+from research_workflow import citation_export_warnings
 
 import argparse
 import json
@@ -281,13 +282,24 @@ def load_review_rows(review_text: str) -> list[dict[str, Any]]:
 
 
 def count_reader_references(final_text: str, source_ids: list[str], sources_by_id: dict[str, dict[str, Any]]) -> int:
+    web_schemes = ("http://", "https://")
+    # A fragment locates text on the same page. Sentence punctuation and Markdown
+    # delimiters may end a URL, but another path segment or query does not.
+    url_end = r"""(?=#|[.,;:!?*_~]*(?:\Z|[\s<>"'`|\])}，。；：！？、）》】”’]))"""
+
     count = 0
     for source_id in source_ids:
         source = sources_by_id.get(source_id, {})
-        title = str(source.get("title", ""))
-        url = str(source.get("url", ""))
-        if (title and title in final_text) or (url.startswith(("https://", "http://")) and url in final_text):
+        title = str(source.get("title") or "").strip()
+        if title and not title.startswith(web_schemes) and title in final_text:
             count += 1
+            continue
+        for url in {title, str(source.get("url") or "").strip()}:
+            if url.startswith(web_schemes):
+                pattern = r"(?<![A-Za-z0-9_/%?=&])" + re.escape(url) + url_end
+                if re.search(pattern, final_text):
+                    count += 1
+                    break
     return count
 
 
@@ -644,6 +656,7 @@ def _evaluate_case(
     required_source_ids = case.get("source_ids", [])
     reader_references_required = bool(case.get("reader_references_required", True))
     final_reference_hits = count_reader_references(final_text, required_source_ids, sources_by_id)
+    review_warnings.extend(citation_export_warnings(final_text))
     registry_rows, registry_errors = inspect_csv_text(
         source_registry_text, "Source registry", ("source_id", "title"), "source_id"
     )
