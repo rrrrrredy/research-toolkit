@@ -216,12 +216,16 @@ def check_updates(workspace: Path, task: str, source_id: str) -> dict:
     return compare(workspace, task, source_id)
 
 
-@task_operation
 def status(workspace: Path, task: str, language="en", stage: str | None = None,
            methods: list[str] | None = None, work: dict | None = None) -> dict:
+    root = task_root(workspace, task)
+    with task_lock(root, read_only=stage is None and work is None):
+        return _status(root, task, language, stage, methods, work)
+
+
+def _status(root, task, language, stage, methods, work):
     language = normalize_language(language)
     from record_changes import latest_changes
-    root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
     missing = [k for k in BRIEF_FIELDS if not nonempty(progress.get("brief", {}).get(k))]
     requirements = ""
@@ -390,28 +394,53 @@ def content_review_summary(reviews: dict, rows: list[dict], artifact_hash: str) 
 def prose_lines(report: str) -> list[str]:
     """Mask code blocks while retaining original prose and line positions."""
     fence = None
+    fence_indent = 0
+    fence_marker = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
+    item_indents = []
     paragraph = False
     prose = []
     for line in report.splitlines(keepends=True):
-        marker = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
+        expanded = line.expandtabs(4)
+        indent = len(expanded) - len(expanded.lstrip(" "))
+        if not line.strip():
+            prose.append("\n" if fence else line)
+            paragraph = False
+            continue
+        if fence and indent < fence_indent:
+            fence = None  # A list-scoped fence ends when its containing item ends.
         if fence:
+            marker = fence_marker.match(expanded[fence_indent:])
             if marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not marker[2].strip():
                 fence = None
             prose.append("\n")
             paragraph = False
-        elif marker and (marker[1][0] != "`" or "`" not in marker[2]):
+            continue
+
+        while item_indents and indent < item_indents[-1]:
+            item_indents.pop()
+        base = item_indents[-1] if item_indents else 0
+        body = expanded[base:]
+        # CommonMark measures indented code from the current item's content column.
+        while item := re.match(r"^( {0,3}(?:[-+*]|\d{1,9}[.)]))( +|(?=\r?$))", body):
+            if re.fullmatch(r" {0,3}([-*_])(?: *\1){2,} *", body.rstrip("\r\n")):
+                break  # A thematic break takes precedence over list markers.
+            padding = len(item[2])
+            base += len(item[1]) + (padding if 1 <= padding <= 4 else 1)
+            item_indents.append(base)
+            body = expanded[base:]
+            paragraph = False
+        marker = fence_marker.match(body)
+        if marker and (marker[1][0] != "`" or "`" not in marker[2]):
             fence = marker[1]
+            fence_indent = base
             prose.append("\n")
             paragraph = False
-        elif not line.strip():
-            prose.append(line)
-            paragraph = False
-        elif line.expandtabs(4).startswith("    ") and not paragraph:
+        elif body.startswith("    ") and not paragraph:
             # Indented code starts at a block boundary, not midway through a paragraph.
             prose.append("\n")
         else:
             prose.append(line)
-            paragraph = not bool(re.match(r"^ {0,3}(?:#{1,6}(?:\s|$)|(?:[-*_]\s*){3,}$)", line))
+            paragraph = bool(body.strip()) and not re.match(r"^ {0,3}(?:#{1,6}(?:\s|$)|(?:[-*_]\s*){3,}$)", body)
     return prose
 
 

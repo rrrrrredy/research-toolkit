@@ -1,8 +1,9 @@
 {
   "mcpServers": {
     "research-toolkit": {
-      "command": "python",
+      "command": "mcp",
       "args": [
+        "run",
         "${PLUGIN_ROOT}/scripts/research_mcp.py"
       ]
     }

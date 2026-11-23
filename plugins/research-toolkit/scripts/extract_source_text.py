@@ -27,13 +27,17 @@ BLOCKS = {
     "ul", "ol", "dl", "dt", "dd", "hr",
 }
 SKIPPED = {"script", "style", "noscript", "svg", "template"}
+HTML_GBK_LABELS = {"chinese", "csgb2312", "csiso58gb231280", "gb2312", "gb_2312",
+                   "gb_2312-80", "gbk", "iso-ir-58", "x-gbk"}
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input",
         "link", "meta", "param", "source", "track", "wbr"}
 
 
 class SourceHTML(HTMLParser):
-    def __init__(self):
+    def __init__(self, *, omit_page_chrome=False):
         super().__init__(convert_charrefs=True)
+        self.omit_page_chrome = omit_page_chrome
+        self.sections = []
         self.parts = []
         self.date_fields = []
         self.canonical_urls = []
@@ -49,6 +53,13 @@ class SourceHTML(HTMLParser):
             if tag not in VOID:
                 self.skipped.append(tag)
             return
+        if self.omit_page_chrome:
+            if tag in {"article", "section", "aside"}:
+                self.sections.append(tag)
+            elif tag in {"footer", "nav"} and not self.sections:
+                self.parts.append("\n")
+                self.skipped.append(tag)
+                return
         if tag == "script":
             self.script_count += 1
             kind = (attrs.get("type") or "").split(";", 1)[0].strip().lower()
@@ -89,6 +100,8 @@ class SourceHTML(HTMLParser):
             if not self.skipped and self.jsonld is not None:
                 self.finish_jsonld()
             return
+        if tag in self.sections:
+            del self.sections[len(self.sections) - 1 - self.sections[::-1].index(tag):]
         if tag == "a" and self.anchors:
             href = self.anchors.pop()
             if href:
@@ -178,9 +191,14 @@ class CharsetHTML(HTMLParser):
             self.handle_endtag(tag)
 
 
+def html_decoder(name):
+    # The WHATWG GBK labels use the gb18030 decoder for web content.
+    return "gb18030" if name.lower() in HTML_GBK_LABELS else name
+
+
 def encoding_key(name):
     try:
-        return codecs.lookup(name).name
+        return codecs.lookup(html_decoder(name)).name
     except LookupError:
         return name.lower()
 
@@ -197,9 +215,15 @@ def decode_html(data, encoding=None):
     elif data.startswith((codecs.BOM_UTF16_LE, codecs.BOM_UTF16_BE)):
         selected, basis = "utf-16", "UTF-16 BOM"
     else:
-        selected, basis = declared or "utf-8", "HTML declaration" if declared else "UTF-8 default"
-    codecs.lookup(selected)
-    return data.decode(selected, errors="strict"), {
+        selected, basis = (html_decoder(declared), "HTML declaration") if declared else ("utf-8", "UTF-8 default")
+    try:
+        text = data.decode(selected, errors="strict")
+    except (LookupError, UnicodeDecodeError):
+        if basis != "HTML declaration" or encoding_key(selected) == "utf-8":
+            raise
+        text = data.decode("utf-8", errors="strict")
+        selected, basis = "utf-8", "strict UTF-8 fallback after unusable HTML declaration"
+    return text, {
         "declared_encoding": declared, "decoder_used": selected,
         "encoding_declarations": declarations.declarations,
         "conflicting_declarations": len({encoding_key(name) for name in declarations.declarations}) > 1,
@@ -207,9 +231,9 @@ def decode_html(data, encoding=None):
     }
 
 
-def extract_html(data, *, source_url=None, accessed_at=None, encoding=None):
+def extract_html(data, *, source_url=None, accessed_at=None, encoding=None, omit_page_chrome=False):
     text, decoding = decode_html(data, encoding)
-    parser = SourceHTML()
+    parser = SourceHTML(omit_page_chrome=omit_page_chrome)
     parser.feed(text)
     parser.close()
     if parser.jsonld is not None:

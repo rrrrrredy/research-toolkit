@@ -73,7 +73,7 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 
 每个命中位置还返回 `text`（命中行原文）。一段上下文首次出现时返回 `context`，包含 `start_line`、`end_line` 与原文 `text`：命中段落及同一章节内前后至多各一段。后续位置的报告文件、行范围与原文完全相同时，返回 `context_ref: {"claim_id": "C1", "line": 7}`，不再重复 `context`；它直接指向同一 `affected_claims` 列表中对应主张、行号下的完整上下文。所有主张、来源关联、命中原因、章节与命中行号仍保留在各自条目中；原文相同但位置不同的段落不合并。按空行分段，以 `#` 标题为边界；行号从 1 开始，包含起止行。已登记版本日志查询使用同一份定位输出，无需新增输入字段或调用，也不修改报告。
 
-已有来源正文改动后，保存该来源 ID（如 `{"sources":[{"source_id":"S1"}]}`）即可比较本地证据文件与上次保存时的哈希，不必重交其他字段。首次观察会明确标记，不能据此推断更早是否变化；旧任务无需迁移或补建历史。工具不会监控远端网页。内容字节相同的文件不重写，`updated_files` 只列实际写入；未准备研究单元或推进阶段的普通状态查询不写文件。只登记新稿会沿用最近记录批次并更新正文位置，下一批记录保存会替换该摘要；它不是待办清单，也不新增完成条件。
+已有来源正文改动后，保存该来源 ID（如 `{"sources":[{"source_id":"S1"}]}`）即可比较本地证据文件与上次保存时的哈希，不必重交其他字段。首次观察会明确标记，不能据此推断更早是否变化；旧任务无需迁移或补建历史。工具不会监控远端网页。内容字节相同的文件不重写，`updated_files` 只列实际写入；普通状态查询可以直接读取只读归档。若任务正由其他操作写入，等写入完成后再查。只登记新稿会沿用最近记录批次并更新正文位置，下一批记录保存会替换该摘要；它不是待办清单，也不新增完成条件。
 
 ### 任务记录字段
 
@@ -98,7 +98,7 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 python3 scripts/research_workflow.py check-updates --workspace ../research-work --request check-updates.json
 ```
 
-来源的 `source_type` 使用已有的 `official_release`，或 `release_notes`／`changelog`；`url` 是公开 HTTPS 日志地址，`evidence_path`（或可解析的 `read_evidence`）指向任务内已保存的 UTF-8 日志正文。只支持 HTML／纯文本／Markdown 中独占一行的 `YYYY-MM-DD` 或 `YYYY年MM月DD日`，下一非空行须含版本号，随后为条目正文；已有网页工具导出的 `L数字:` 行号会被忽略。登录页、依赖 JavaScript 才能显示的正文、其他日期格式和无可对应旧版本的页面明确报错，不当作无变化。
+来源的 `source_type` 使用已有的 `official_release`，或 `release_notes`／`changelog`；`url` 是公开 HTTPS 日志地址，`evidence_path`（或可解析的 `read_evidence`）指向任务内已保存的 UTF-8 日志正文。只支持 HTML／纯文本／Markdown 中独占一行的 `YYYY-MM-DD` 或 `YYYY年MM月DD日`，下一非空行须含版本号，随后为条目正文；已有网页工具导出的 `L数字:` 行号会被忽略。比较 HTML 时会略过页面级导航和页脚，保留文章和章节内部的页脚。登录页、依赖 JavaScript 才能显示的正文、其他日期格式和无可对应旧版本的页面明确报错，不当作无变化。
 
 这是一项手动调用：每次只请求登记网址，不跟随跳转、不抓其他页面、不定时运行。仅比较最新保存日期和更新条目，不追查更早版本的修订。相同条目中的删改也会返回，日期是来源标签，不冒充精确发布时间。关联段落复用现有字面匹配；未定位时需自行检查。
 
@@ -152,7 +152,7 @@ CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.
 
 ## 安装插件
 
-使用 Agent 工具支持的插件安装方式，安装解包后的[固定版本发布包](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)。发布包含完整 Skill、方法与本地 MCP 服务。用 MCP 实际启动的 Python 安装 `requirements-mcp.txt` 中的依赖，再确认九个 `research_*` 工具可用。
+使用 Agent 工具支持的插件安装方式，安装解包后的[固定版本发布包](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)。发布包含完整 Skill、方法与本地 MCP 服务。在选定的 Python 环境中安装 `requirements-mcp.txt`，让 Agent 工具的 PATH 能找到该环境的 `mcp` 命令，再确认九个 `research_*` 工具可用。
 
 提出题目、读者与预期成果，由 Agent 整理需求。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，研究在本地执行。宿主支持的插件 hooks 仅在[开启记录](usage-data.zh-CN.md)后发送基础事件。
 
@@ -448,7 +448,7 @@ python scripts/research_host.py --host claude --workspace <task-store> --task st
 
 `review_readiness.status=host_native` 选择原生独立 Agent 执行方式，不代表已检测当前会话具有这些工具。按 Agent 产品实际提供的能力安排独立工作。`review_strength` 表示要求的审阅方式，`completed_slots` 与实际结果表示已经完成的工作。
 
-插件 MCP 使用 `.mcp.json` 指定的解释器启动。用同一个解释器安装 `requirements-mcp.txt`；若 `python` 指向另一环境，在 Agent 产品的 MCP 配置中选择所需解释器的绝对路径。Claude Code 与 OpenCode 使用各自配置的工具权限；Toolkit 不另行提供统一文件沙箱，也不添加绕过权限的参数。
+两份插件配置都通过安装依赖的环境运行 `mcp run`。升级时，先前只装了基础 SDK 的环境需重新安装当前 `requirements-mcp.txt`，以补齐配套命令行工具。也可按上文示例，在客户端显式配置 Python 的绝对路径和 `scripts/research_mcp.py`。Claude Code 与 OpenCode 使用各自配置的工具权限；Toolkit 不另行提供统一文件沙箱，也不添加绕过权限的参数。
 
 明确配置的 `generic` HTTP 审阅后端中，`api_key_env` 填环境变量名，不填密钥。`http_timeout_seconds` 默认为 1800 秒的套接字无响应时间，可按端点响应方式配置，不限制研究总时长。`max_response_bytes` 默认为 16 MiB。超时或响应超限会保留任务并报出传输错误，不接受半截结果；旧的研究运行时限字段仍不启用。
 

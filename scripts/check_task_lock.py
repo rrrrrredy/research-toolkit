@@ -22,9 +22,10 @@ class TaskLockTests(unittest.TestCase):
         workflow.start(self.workspace, "one", {})
         workflow.start(self.workspace, "two", {})
 
-    def cli(self, action, task):
-        request = {"start": {"brief": {}}, "status": {"stage": "collect"},
-                   "review": {"evidence_paths": []}, "finish": {"message": "Synthetic delivery"}, "check-draft": {}}[action]
+    def cli(self, action, task, request=None):
+        if request is None:
+            request = {"start": {"brief": {}}, "status": {"stage": "collect"},
+                       "review": {"evidence_paths": []}, "finish": {"message": "Synthetic delivery"}, "check-draft": {}}[action]
         return subprocess.run([sys.executable, "-X", "utf8", str(SCRIPTS / "research_workflow.py"),
                                action, "--workspace", str(self.workspace)],
                               input=json.dumps({"task": task, **request}),
@@ -68,6 +69,23 @@ class TaskLockTests(unittest.TestCase):
                 workflow.status(self.workspace, "one")
                 raise RuntimeError("synthetic")
         self.assertEqual(self.cli("start", "one").returncode, 0)
+
+    def test_plain_status_on_archived_and_live_tasks(self):
+        root = self.workspace / "one"
+        lock = root / ".research-toolkit.lock"
+        lock.chmod(0o444)
+        try:
+            result = self.cli("status", "one", {})
+            self.assertEqual(result.returncode, 0, result.stdout)
+        finally:
+            lock.chmod(0o600)
+        lock.unlink()
+        self.assertEqual(self.cli("status", "one", {}).returncode, 0)
+        self.assertFalse(lock.exists())
+        with task_lock(root):
+            busy = self.cli("status", "one", {})
+            self.assertNotEqual(busy.returncode, 0)
+            self.assertIn("active operation", busy.stdout)
 
 
 if __name__ == "__main__":

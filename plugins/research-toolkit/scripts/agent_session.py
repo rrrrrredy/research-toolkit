@@ -126,12 +126,25 @@ class CodexAgentSession:
                 return {"kind": "request", "method": method, "raw": raw}
             if method in {"transport/error", "transport/closed"}:
                 return {"kind": "error", "raw": raw}
-            event = {"session": params.get("threadId"), "turn": params.get("turnId"), "raw": raw}
-            if method == "item/completed" and params["item"]["type"] == "agentMessage":
-                return {**event, "kind": "message", **{k: params["item"].get(k) for k in ("id", "text", "phase")}}
-            if method == "turn/completed":
-                return {**event, "kind": "completed", "turn": params["turn"]["id"],
-                        "status": params["turn"]["status"]}
+            if method not in {"item/completed", "turn/completed"}:
+                continue
+            fields = params if isinstance(params, dict) else {}
+            thread = fields.get("threadId")
+            if method == "item/completed":
+                item = fields.get("item")
+                if isinstance(item, dict) and item.get("type") == "agentMessage":
+                    if all(isinstance(value, str) for value in (thread, fields.get("turnId"), item.get("id"), item.get("text"))):
+                        return {"kind": "message", "session": thread, "turn": fields["turnId"], "raw": raw,
+                                **{key: item.get(key) for key in ("id", "text", "phase")}}
+                continue
+            turn = fields.get("turn")
+            turn_id = turn.get("id") if isinstance(turn, dict) else None
+            status = turn.get("status") if isinstance(turn, dict) else None
+            event = {"session": thread if isinstance(thread, str) else None,
+                     "turn": turn_id if isinstance(turn_id, str) else None, "raw": raw}
+            if not event["session"] or not event["turn"] or not isinstance(status, str) or not status:
+                return {**event, "kind": "error", "error": "Malformed Codex turn/completed: expected threadId, turn.id and turn.status."}
+            return {**event, "kind": "completed", "status": status}
 
     def close(self):
         self.client.close()

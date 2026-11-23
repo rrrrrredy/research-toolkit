@@ -79,6 +79,19 @@ class ReleaseUpdateTests(unittest.TestCase):
         self.assertEqual(result["changes"], [])
         locate.assert_not_called()
 
+    def test_site_footer_changes_leave_real_release_changes_visible(self):
+        page = ("<html><body><main><article><h2>2026-10-09</h2><h3>1.2.5</h3>"
+                "<p>Previous release body.</p><footer>Release author: QA</footer></article></main>"
+                "<footer><nav>Previous link</nav></footer></body></html>")
+        self.baseline.write_text(page, encoding="utf-8")
+        refreshed = page.replace("Previous link", "New link")
+        with patch("release_updates.fetch_log", return_value=refreshed):
+            self.assertEqual(self.check()["status"], "unchanged")
+        with patch("release_updates.fetch_log", return_value=refreshed.replace("author: QA", "author: Docs")):
+            change, = self.check()["changes"]
+            self.assertEqual(change["added_content"], ["Release author: Docs"])
+            self.assertEqual(change["removed_content"], ["Release author: QA"])
+
     def test_failed_read_is_not_unchanged(self):
         with patch("release_updates.fetch_log", side_effect=URLError("fixture network failure")):
             result = self.check()

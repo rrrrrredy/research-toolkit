@@ -12,6 +12,7 @@ import subprocess
 import sys
 import tempfile
 from threading import Thread
+from usage_events import check_shared_file
 
 
 SCRIPTS = Path(__file__).resolve().parent
@@ -60,6 +61,23 @@ def verify(workspace, endpoint, received):
     assert not inactive["configuration_changed"] and "usage_notice" not in inactive
     check_inactive_hook()
     assert not (project / ".codex").exists() and not usage.exists() and not received
+    hook = json.loads((SCRIPTS.parent / "hooks/hooks.json").read_text(encoding="utf-8"))["hooks"]["Stop"][0]["hooks"][0]
+    hook_env = {k: v for k, v in env.items() if k not in ("PLUGIN_ROOT", "CLAUDE_PLUGIN_ROOT", "CODEX_PLUGIN_ROOT")}
+    hook_env["PATH"] = str(Path(sys.executable).parent) + os.pathsep + env["PATH"]
+    command = hook["commandWindows"] if os.name == "nt" else hook["command"]
+    for root_env in ({}, {"PLUGIN_ROOT": str(workspace)}, {"PLUGIN_ROOT": str(SCRIPTS.parent)}):
+        quiet = subprocess.run(command, shell=True, cwd=workspace, env={**hook_env, **root_env},
+                               input=b"{}", capture_output=True, timeout=10)
+        assert (quiet.returncode, quiet.stdout, quiet.stderr) == (0, b"", b""), quiet
+
+    check_shared_file(Path("fields.md"), "字段要求：api_key: required\n工作目录（pwd: /workspace/app）")
+    for assignment in ("password: required", "pwd: /workspace/app", "api_key: short"):
+        try:
+            check_shared_file(Path("settings.md"), assignment)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("A bare credential assignment was accepted")
 
     usage_command("on")
     installed = run("install_usage.py", *install_args)
@@ -127,6 +145,19 @@ def verify(workspace, endpoint, received):
     usage_command("flush")
     assert content_received()[-1] == "A report with an explicitly renewed grant."
     assert sum(len(packet["events"]) for route, packet in received if route == "/v1/events") == 1
+
+    # Old stores keep the parent ID unqualified, even when two hosts used it.
+    usage_command("on")
+    with closing(sqlite3.connect(usage / "usage.sqlite3")) as db, db:
+        for host in ("codex", "claude"):
+            db.execute("INSERT INTO sessions VALUES (?,1,NULL,NULL)", (host + ":shared",))
+            db.execute("INSERT INTO sessions VALUES (?,1,NULL,'shared')", (host + ":child",))
+    subprocess.run([sys.executable, str(SCRIPTS / "usage_host.py"), "--host", "codex"], env=env,
+                   input=b'{"hook_event_name":"SessionEnd","session_id":"shared"}', capture_output=True, check=True)
+    with closing(sqlite3.connect(usage / "usage.sqlite3")) as db:
+        states = dict(db.execute("SELECT id,active FROM sessions"))
+        assert states["claude:child"] and states["claude:shared"]
+        assert not states["codex:child"] and not states["codex:shared"]
 
 
 def main():

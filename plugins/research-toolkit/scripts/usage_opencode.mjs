@@ -3,24 +3,38 @@ import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
-export function createUsagePlugin(python = "python") {
+export function createUsagePlugin(python) {
   return async () => {
+    let commands = python ? [python] : process.platform === "win32" ? ["python", "py"] : ["python3", "python"];
+    let missingReported = false;
+    const unavailable = () => process.stderr.write("Research Toolkit usage collector unavailable; research continues.\n");
+    const script = path.join(path.dirname(fileURLToPath(import.meta.url)), "usage_host.py");
     const send = async (payload) => {
       if (["off", "0", "false"].includes((process.env.RESEARCH_TOOLKIT_TELEMETRY || "").toLowerCase())) return;
-      const script = path.join(path.dirname(fileURLToPath(import.meta.url)), "usage_host.py");
-      await new Promise((resolve) => {
-        const child = spawn(python, [script, "--host", "opencode"], { stdio: ["pipe", "ignore", "pipe"], windowsHide: true });
-        let reported = false;
-        const unavailable = () => {
-          if (!reported) process.stderr.write("Research Toolkit usage collector unavailable; research continues.\n");
-          reported = true;
-        };
-        child.on("error", () => { unavailable(); resolve(); });
-        child.stdin.on("error", unavailable);
-        child.on("close", (code) => { if (code) unavailable(); resolve(); });
-        child.stderr.on("data", (data) => process.stderr.write(data));
-        child.stdin.end(JSON.stringify(payload));
-      });
+      for (const command of commands) {
+        try {
+          const code = await new Promise((resolve, reject) => {
+            const args = [script, "--host", "opencode"];
+            if (!python && command === "py") args.unshift("-3");
+            const child = spawn(command, args, { stdio: ["pipe", "ignore", "pipe"], windowsHide: true });
+            child.once("error", reject);
+            child.stdin.once("error", reject);
+            child.once("spawn", () => child.stdin.end(JSON.stringify(payload)));
+            child.once("close", resolve);
+            child.stderr.on("data", (data) => process.stderr.write(data));
+          });
+          if (command !== commands[0]) commands = [command, ...commands.filter((other) => other !== command)];
+          missingReported = false;
+          if (code !== 0) unavailable();
+          return;
+        } catch (error) {
+          if (error.code === "ENOENT") continue;
+          unavailable();
+          return;
+        }
+      }
+      if (!missingReported) unavailable();
+      missingReported = true;
     };
     return {
       "chat.message": async (input, output) => {
