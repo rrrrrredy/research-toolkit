@@ -58,7 +58,7 @@
 
 [来源资料 ↗](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-11-09-long-research/reports/microdrama_market_zh/sources)[案例档案](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/index.zh-CN.html)
 
-[国内办公 Agent 完整研究](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents-2026-11/index.zh-CN.html) · [模型评测基准完整研究](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/model_benchmarks_en/final.md) · [动力电池选型完整研究](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/ev_batteries_zh/final.md) · [GPAI 原稿、审计与交付回执](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/v3-review/README.zh-CN.md)
+[国内办公 Agent 完整研究](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents-2026-11/index.zh-CN.html) · [模型评测基准完整研究](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/model_benchmarks_en/final.md) · [动力电池选型完整研究](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/ev_batteries_zh/final.md) · [GPAI 原稿、审计与交付回执](https://rrrrrredy.github.io/research-toolkit/case-study/v3-review/index.zh-CN.html)
 
 资料截止于2026年11月9日。来源统计与情景算例分别保留口径、假设和适用条件。
 

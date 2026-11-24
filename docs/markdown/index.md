@@ -58,7 +58,7 @@ Use the worked system example to connect generation, verification, delay and fai
 
 [Source records ↗](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-11-09-long-research/reports/test_time_compute_en/sources)[Case archive](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/index.html)
 
-[Office agents in China](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents-2026-11/index.zh-CN.html) · [Model benchmark research](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/model_benchmarks_en/final.md) · [Battery selection under operating constraints](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/ev_batteries_zh/final.md) · [GPAI draft, audit and delivery](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/v3-review/README.md)
+[Office agents in China](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents-2026-11/index.zh-CN.html) · [Model benchmark research](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/model_benchmarks_en/final.md) · [Battery selection under operating constraints](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/ev_batteries_zh/final.md) · [GPAI draft, audit and delivery](https://rrrrrredy.github.io/research-toolkit/case-study/v3-review/index.html)
 
 Evidence through 9 November 2026. Reported experiments and the article’s worked scenarios retain their own assumptions and conditions.
 

@@ -20,6 +20,9 @@ import xml.etree.ElementTree as ET
 from build_site import BASE, DESCRIPTIONS, DOCS, PAIRS, ROOT, url, markdown_path
 from research_workflow import prose_lines
 
+GPAI_CASE = 'case-study/v3-review/'
+GPAI_REPORTS = (GPAI_CASE + 'reports/initial.html', GPAI_CASE + 'reports/final.html')
+
 
 def markdown_source_errors(source):
     """Check the two Markdown forms that lose formatting on GitHub."""
@@ -74,6 +77,7 @@ class Page(HTMLParser):
         self.lang=''; self.title=''; self.title_count=0; self.in_title=False; self.head=False
         self.markdown=[]; self.descriptions=[]; self.canonicals=[]; self.alternates={}; self.robots=[]
         self.links=[]; self.anchors=[]; self.ids=set(); self.visible=[]; self.hidden=0
+        self.labeled_anchors=[]; self.anchor_text=None
         self.feed(source)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
@@ -93,14 +97,19 @@ class Page(HTMLParser):
                 self.alternates[a['hreflang']]=a.get('href','')
         if tag=='a' and a.get('href'):
             self.links.append(a['href']); self.anchors.append(a['href'])
+            self.anchor_text=[]
         if tag in ('script','img','source','video','link'):
             for attr in ('src','poster') if tag!='link' else ('href',):
                 if a.get(attr): self.links.append(a[attr])
     def handle_endtag(self, tag):
+        if tag=='a' and self.anchor_text is not None:
+            self.labeled_anchors.append((self.anchors[-1], ''.join(self.anchor_text).strip()))
+            self.anchor_text=None
         if tag=='head': self.head=False
         if tag=='title': self.in_title=False
         if tag in ('script','style'): self.hidden=max(0,self.hidden-1)
     def handle_data(self, text):
+        if self.anchor_text is not None: self.anchor_text.append(text)
         if self.in_title: self.title+=text
         if not self.head and not self.hidden: self.visible.append(text)
 
@@ -181,6 +190,23 @@ def local_checks():
     for name in ('index.html','index.zh-CN.html'):
         source=(DOCS/name).read_text(encoding='utf-8')
         if 'coding-benchmark-update/' not in source: errors.append(name+': missing update case discovery link')
+        case = GPAI_CASE + name
+        for origin in (name, 'case-study/' + name):
+            targets = {urljoin(BASE + origin, href) for href in pages[origin].anchors}
+            if targets.isdisjoint((BASE + case, url(case))):
+                errors.append(origin + ': missing on-site GPAI case link to ' + case)
+        if url(case) not in locations: errors.append('sitemap.xml: missing ' + url(case))
+        if '](' + url(case) + ')' not in llms: errors.append('llms.txt: missing ' + url(case))
+        if case not in pages:
+            errors.append('Missing GPAI case page: ' + case)
+            continue
+        if set(pages[case].alternates) != {'en', 'zh-CN', 'x-default'}:
+            errors.append(case + ': missing bilingual GPAI alternates')
+        targets = {urljoin(BASE + case, href) for href in pages[case].anchors}
+        archive = 'https://github.com/rrrrrredy/research-toolkit/tree/main/docs/' + GPAI_CASE.rstrip('/')
+        evidence = {BASE + path for path in GPAI_REPORTS}
+        evidence.update((BASE + GPAI_CASE + 'records.json', archive, archive + '/live', archive + '/control'))
+        for target in sorted(evidence - targets): errors.append(case + ': missing evidence link to ' + target)
     if errors: raise ValueError('\n'.join(errors))
     print(f'PASS: {len(pages)} initial HTML pages, {links} local link/asset targets, reciprocal language links, {len(locations)} sitemap URLs and llms.txt.')
 
@@ -196,6 +222,13 @@ def fetch(address, github_token=None, expected_type=None):
         if response.geturl()!=address: raise ValueError(f'{address}: unexpected redirect to {response.geturl()}')
         return response.read().decode('utf-8')
 
+def check_gpai_report(name, page):
+    markdown = BASE + name.removesuffix('.html') + '.md'
+    if page.lang != 'zh-CN':
+        raise ValueError(name + ': expected a Chinese report, found lang=' + page.lang)
+    if page.markdown != [markdown] or (markdown, '阅读 Markdown 原文') not in page.labeled_anchors:
+        raise ValueError(name + ': expected 阅读 Markdown 原文 linking to ' + markdown)
+
 def check_pages_artifact(archive):
     """Check every rendered page, including pages Jekyll creates from source Markdown."""
     with tarfile.open(archive) as bundle:
@@ -204,8 +237,11 @@ def check_pages_artifact(archive):
             return bundle.extractfile(files[name]).read().decode('utf-8')
         index = set(re.findall(r'\]\((https?://[^)\s]+)\)', content('llms.txt')))
         pages = [name for name in files if name.endswith('.html')]
+        for report in GPAI_REPORTS:
+            if report not in files: raise ValueError('Missing rendered GPAI report: ' + report)
         for name in pages:
             page = Page(content(name))
+            if name in GPAI_REPORTS: check_gpai_report(name, page)
             address = urljoin(BASE, name)
             if len(page.markdown) != 1:
                 raise ValueError(name + ': expected one Markdown alternate')
@@ -243,8 +279,11 @@ def live_checks(base):
         if source.replace('\r\n','\n').rstrip()!=expected: raise ValueError(address+': deployed content differs from checked-out revision')
         return address
     paths=KEY_PAGES+['sitemap.xml','llms.txt','assets/reading-preferences.js','assets/showcase.js','assets/showcase.css']
+    paths += [GPAI_CASE + name for name in ('index.html', 'index.zh-CN.html')]
     paths += ['llms-full.txt', *[markdown_path(page) for page in sorted(DESCRIPTIONS)]]
     with ThreadPoolExecutor(max_workers=6) as executor: checked=list(executor.map(check,paths))
+    for report in GPAI_REPORTS:
+        check_gpai_report(report, Page(fetch(base + report)))
     for name in ('quickstart', 'quickstart.zh-CN'):
         page = Page(fetch(base+name+'.html'))
         expected = base+name+'.md'

@@ -50,7 +50,7 @@ The four connected responsibilities are task/context, evidence/analysis, writing
 
 - [English documentation](https://rrrrrredy.github.io/research-toolkit/en/README.md) · [中文导航](https://rrrrrredy.github.io/research-toolkit/zh/README.md)
 - [Installation routes and capabilities](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/agents/README.md) · [宿主能力和安装方式](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/agents/README.zh-CN.md)
-- [GPAI drafts, audit and receipt](https://rrrrrredy.github.io/research-toolkit/case-study/v3-review/README.md) · [原稿、独立审计与交付回执](https://rrrrrredy.github.io/research-toolkit/case-study/v3-review/README.zh-CN.md)
+- [GPAI case study, audit and delivery receipt](https://rrrrrredy.github.io/research-toolkit/case-study/v3-review/) · [GPAI 案例、独立审计与交付回执](https://rrrrrredy.github.io/research-toolkit/case-study/v3-review/index.zh-CN.html)
 
 ## Documentation Markdown
 
@@ -461,8 +461,8 @@ The four connected responsibilities are task/context, evidence/analysis, writing
 - [Primary sources and retained reading notes for the API-or-browser report: action coverage, completion, recovery, permissions and cost.](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/api-or-browser/sources.md)
 - [How an existing coding-agent procurement report was updated: previous report, new source checks, concrete revisions and preserved review evidence, with limits.](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/coding-benchmark-update/index.md)
 - [一篇已有编程智能体采购报告如何更新：旧稿、新材料核对、具体正文修订与评审证据；保留真实摩擦和实验限制。](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/coding-benchmark-update/index.zh-CN.md)
-- [Research Toolkit case archive: microdrama markets and test-time compute, a 13-question bilingual long-research benchmark, and preserved earlier reports.](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/index.md)
-- [Research Toolkit 案例档案：微短剧市场、推理时计算、13个跨领域长研究问题，以及保留原稿和审阅的历史报告。](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/index.zh-CN.md)
+- [A 13-question research collection including microdrama and test-time compute, historical reports, and a GPAI manuscript with its review, audit and delivery receipt.](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/index.md)
+- [微短剧市场与推理时计算等 13 个长研究问题、历史报告，以及一份 GPAI 稿件的审阅意见、审计裁定和交付回执。](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/index.zh-CN.md)
 - [Thirteen independent research questions and fifteen English/Chinese reports, with original manuscripts, evidence, revisions and independent review records.](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/long-research-2026-11/index.md)
 - [13个独立研究问题、15份中英文报告，保留首稿、依据、修订及独立审阅记录。](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/long-research-2026-11/index.zh-CN.md)
 - [Long-form research on China’s microdrama market: growth, distribution, platform competition, cash flows and commercial choices, through 9 November 2026.](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/long-research-2026-11/microdrama.en.md)
@@ -487,6 +487,8 @@ The four connected responsibilities are task/context, evidence/analysis, writing
 - [国内办公 Agent 研究的来源资料、阅读记录、报告用途与限制，可追溯到原始公开资料。](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/office-agents/sources.md)
 - [English translation of the Chinese office-agent report, with information through September 9, 2026: file generation, existing work, permissions and handoffs.](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/report.en.md)
 - [国内办公 Agent 产品研究：比较文件生成、既有工作修改、权限与交接。信息截至 2026 年 9 月 9 日，基于公开资料，未安装实测。](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/report.zh-CN.md)
+- [One Chinese GPAI report from draft to delivery, with 39 review findings, 17 audit decisions and a final receipt. The public archive includes a separate seeded control.](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/v3-review/index.md)
+- [一份中文 GPAI 报告从初稿到交付的公开记录，含 39 条审阅意见、17 项审计裁定及终稿回执。另附一组独立的预设分歧对照。](https://rrrrrredy.github.io/research-toolkit/markdown/case-study/v3-review/index.zh-CN.md)
 - [Research Toolkit methods for scoping a question, reading sources, developing analysis, reviewing revisions and delivering a traceable research report.](https://rrrrrredy.github.io/research-toolkit/markdown/framework.md)
 - [Research Toolkit 研究方法：界定问题、阅读来源、展开分析、评审修订，并交付判断明确、来源可追溯的研究报告。](https://rrrrrredy.github.io/research-toolkit/markdown/framework.zh-CN.md)
 - [Research methods and optional workflow tools for AI agents completing long-form research and writing in English and Chinese, with developed analysis and traceable sources.](https://rrrrrredy.github.io/research-toolkit/markdown/index.md)
