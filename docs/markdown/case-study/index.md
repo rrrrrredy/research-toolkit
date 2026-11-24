@@ -1,5 +1,9 @@
 # Research cases
 
+## [Reviewing a Chinese GPAI report](https://rrrrrredy.github.io/research-toolkit/case-study/v3-review/index.html)
+
+Follow one Codex run from the Chinese draft through 39 review findings and 17 audit decisions to an independently checked final report and its delivery receipt. A separate seeded control and a CLI replay are identified in the archive.
+
 ## Long-form research in English and Chinese
 
 This collection contains 13 independent research questions and 15 complete reports. Eleven cross-domain questions are joined by the microdrama and test-time-compute cases; each homepage case also has an independently written report in the other language from the same frozen materials.

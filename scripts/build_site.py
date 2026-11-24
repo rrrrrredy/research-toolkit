@@ -26,6 +26,7 @@ PAIRS = [
     ('framework.html', 'framework.zh-CN.html'),
     ('case-study/report.en.html', 'case-study/report.zh-CN.html'),
     ('case-study/coding-benchmark-update/index.html', 'case-study/coding-benchmark-update/index.zh-CN.html'),
+    ('case-study/v3-review/index.html', 'case-study/v3-review/index.zh-CN.html'),
     ('case-study/long-research-2026-11/index.html', 'case-study/long-research-2026-11/index.zh-CN.html'),
 ]
 # These indexes contain different historical material, not translated equivalents.
@@ -35,8 +36,10 @@ DESCRIPTIONS = {
     'index.zh-CN.html': '面向 AI Agent 的中英文长研究与长文写作工具：完整展开材料、比较、解释与判断，连接独立审阅和最终成果。',
     'framework.html': 'Research Toolkit methods for scoping a question, reading sources, developing analysis, reviewing revisions and delivering a traceable research report.',
     'framework.zh-CN.html': 'Research Toolkit 研究方法：界定问题、阅读来源、展开分析、评审修订，并交付判断明确、来源可追溯的研究报告。',
-    'case-study/index.html': 'Research Toolkit case archive: microdrama markets and test-time compute, a 13-question bilingual long-research benchmark, and preserved earlier reports.',
-    'case-study/index.zh-CN.html': 'Research Toolkit 案例档案：微短剧市场、推理时计算、13个跨领域长研究问题，以及保留原稿和审阅的历史报告。',
+    'case-study/index.html': 'A 13-question research collection including microdrama and test-time compute, historical reports, and a GPAI manuscript with its review, audit and delivery receipt.',
+    'case-study/index.zh-CN.html': '微短剧市场与推理时计算等 13 个长研究问题、历史报告，以及一份 GPAI 稿件的审阅意见、审计裁定和交付回执。',
+    'case-study/v3-review/index.html': 'One Chinese GPAI report from draft to delivery, with 39 review findings, 17 audit decisions and a final receipt. The public archive includes a separate seeded control.',
+    'case-study/v3-review/index.zh-CN.html': '一份中文 GPAI 报告从初稿到交付的公开记录，含 39 条审阅意见、17 项审计裁定及终稿回执。另附一组独立的预设分歧对照。',
     'case-study/report.en.html': 'English translation of the Chinese office-agent report, with information through September 9, 2026: file generation, existing work, permissions and handoffs.',
     'case-study/report.zh-CN.html': '国内办公 Agent 产品研究：比较文件生成、既有工作修改、权限与交接。信息截至 2026 年 9 月 9 日，基于公开资料，未安装实测。',
     'case-study/api-or-browser/index.html': 'An English research case comparing APIs, DOM automation and visual interaction, with an initial draft, primary sources, reviews and a migration-cost correction.',
@@ -180,7 +183,7 @@ def chinese_home(source):
         if 'data-report-link' in a: a['href']=links['report']
         if 'data-case-link' in a: a['href']=links[a['data-case-link']]
         if 'data-method-link' in a: a['href']='framework.zh-CN.html'
-        if 'data-gpai-link' in a: a['href']='https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/v3-review/README.zh-CN.md'
+        if 'data-gpai-link' in a: a['href']='case-study/v3-review/index.zh-CN.html'
         if 'data-update-case' in a: a['href']='case-study/coding-benchmark-update/index.zh-CN.html'
         if 'data-review-home' in a: a['href']='https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md'
         if n.tag=='a' and 'data-language' in a:

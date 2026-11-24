@@ -1,5 +1,9 @@
+{% assign document_lang = 'en' -%}
+{% if page.path contains '.zh-CN.' or page.path contains 'zh/' or page.path == 'case-study/v3-review/reports/initial.md' or page.path == 'case-study/v3-review/reports/final.md' -%}
+  {% assign document_lang = 'zh-CN' -%}
+{% endif -%}
 <!DOCTYPE html>
-<html lang="{% if page.path contains '.zh-CN.' or page.path contains 'zh/' %}zh-CN{% else %}en{% endif %}">
+<html lang="{{ document_lang }}">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +15,7 @@
     <main class="container-lg px-3 my-5 markdown-body">
       {% assign suffix = page.path | split: "." | last %}
       <nav><a href="{{ '/' | relative_url }}">Research Toolkit</a>
-        {% if suffix == "md" or suffix == "markdown" %} · <a href="{{ page.path | absolute_url | escape }}">{% if page.path contains '.zh-CN.' or page.path contains 'zh/' %}阅读 Markdown 原文{% else %}Read as Markdown{% endif %}</a>{% endif %}
+        {% if suffix == "md" or suffix == "markdown" %} · <a href="{{ page.path | absolute_url | escape }}">{% if document_lang == 'zh-CN' %}阅读 Markdown 原文{% else %}Read as Markdown{% endif %}</a>{% endif %}
       </nav>
       {{ content }}
       {% if site.github.private != true and site.github.license %}
